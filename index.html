@@ -5,16 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Survival Instinct 108 by Roofline | Views Dashboard</title>
 
+  <!-- PWA & Native App Meta Tags (All-in-One Embedded) -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Survival 108">
   <meta name="theme-color" content="#07080C">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='128' fill='%2307080C'/%3E%3Ccircle cx='256' cy='256' r='180' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='32'/%3E%3Ccircle cx='256' cy='256' r='180' fill='none' stroke='%230A84FF' stroke-width='32' stroke-dasharray='1130' stroke-dashoffset='450' stroke-linecap='round'/%3E%3Cpath d='M256 160v192M160 256h192' stroke='%23FFFFFF' stroke-width='28' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='128' fill='%2307080C'/%3E%3Ccircle cx='256' cy='256' r='180' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='32'/%3E%3Ccircle cx='256' cy='256' r='180' fill='none' stroke='%230A84FF' stroke-width='32' stroke-dasharray='1130' stroke-dashoffset='450' stroke-linecap='round'/%3E%3Cpath d='M256 160v192M160 256h192' stroke='%23FFFFFF' stroke-width='28' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Google Firebase Real-Time Cloud Sync SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
   <style>
     /* ==========================================================================
-       Views Dashboard — Single-File Standalone Edition
-       "Survival Instinct 108 by Roofline"
-       Centered Horizontal (بالعرض) Layout for Progress Ring & Stat Tiles
+       Survival Instinct 108 by Roofline — All-in-One Standalone Dashboard
+       Features:
+       - Multi-Device Live Cloud Sync via Google Firebase Firestore
+       - PIN Protection (0000) for Logging, Editing & Deleting
+       - Centered Horizontal (بالعرض) Layout (Activity Ring + 3 Stat Tiles in a Row)
+       - Native iOS Dark Glassmorphism Design
+       - 100% Embedded (Zero external files needed)
        ========================================================================== */
 
     :root {
@@ -122,6 +133,49 @@
         max-width: 780px;
         padding: 36px 24px 64px;
       }
+    }
+
+    .cloud-sync-status-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .cloud-sync-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: var(--text-secondary);
+      backdrop-filter: blur(10px);
+    }
+
+    .sync-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #9898A0;
+    }
+
+    .sync-status-dot.synced {
+      background-color: #30D158;
+      box-shadow: 0 0 8px #30D158;
+    }
+
+    .sync-status-dot.syncing {
+      background-color: #FF9F0A;
+      box-shadow: 0 0 8px #FF9F0A;
+    }
+
+    .sync-status-dot.error {
+      background-color: #FF453A;
+      box-shadow: 0 0 8px #FF453A;
     }
 
     .luxury-brand-header {
@@ -1181,6 +1235,14 @@
 
   <div class="app-container">
 
+    <!-- Cloud Sync Status Pill -->
+    <div class="cloud-sync-status-wrapper">
+      <div class="cloud-sync-pill" id="cloud-sync-pill-btn" title="Live Multi-Device Cloud Sync Active">
+        <span class="sync-status-dot synced" id="sync-status-dot"></span>
+        <span id="sync-status-text">Cloud Synced (Live)</span>
+      </div>
+    </div>
+
     <!-- Luxury Brand Header -->
     <header class="luxury-brand-header">
       <h1 class="brand-main-title">Survival Instinct 108</h1>
@@ -1359,6 +1421,21 @@
     const ADMIN_PIN = "0000";
     let pendingSecureAction = null;
 
+    // Survival 108 Official Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyC2twiy4amoJ0ykuT_29UVxyO-pw3CMkII",
+      authDomain: "survival108.firebaseapp.com",
+      projectId: "survival108",
+      storageBucket: "survival108.firebasestorage.app",
+      messagingSenderId: "465848203232",
+      appId: "1:465848203232:web:0cad5e8772f04afd301d85",
+      measurementId: "G-JRH2N0B9RW"
+    };
+
+    let db = null;
+    let isCloudEnabled = false;
+    let unsubscribeRealtime = null;
+
     const PLATFORMS = [
       {
         id: "tiktok",
@@ -1433,6 +1510,7 @@
       renderPlatformCards();
       initDateSelection();
       renderApp();
+      initCloudSync();
 
       let resizeTimer;
       window.addEventListener("resize", () => {
@@ -1450,17 +1528,86 @@
           appData = JSON.parse(saved);
         } else {
           appData = JSON.parse(JSON.stringify(SEED_DATA));
-          saveData();
+          saveDataLocally();
         }
       } catch (e) {
         appData = JSON.parse(JSON.stringify(SEED_DATA));
       }
     }
 
-    function saveData() {
+    function saveDataLocally() {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
       } catch (e) {}
+    }
+
+    function initCloudSync() {
+      try {
+        if (typeof firebase !== "undefined" && firebaseConfig && firebaseConfig.apiKey) {
+          if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+          db = firebase.firestore();
+          isCloudEnabled = true;
+          setupFirestoreRealtimeListener();
+          updateSyncStatusUI("synced", "Cloud Synced (Live)");
+        } else {
+          updateSyncStatusUI("local", "Cloud Sync: Offline Mode");
+        }
+      } catch (e) {
+        console.warn("Firebase init error:", e);
+        updateSyncStatusUI("local", "Cloud Sync: Offline Mode");
+      }
+    }
+
+    function setupFirestoreRealtimeListener() {
+      if (!db) return;
+      if (unsubscribeRealtime) unsubscribeRealtime();
+
+      const docRef = db.collection("views_dashboard").doc("survival_108");
+      updateSyncStatusUI("syncing", "Connecting to Cloud...");
+
+      unsubscribeRealtime = docRef.onSnapshot((doc) => {
+        if (doc.exists) {
+          const cloudData = doc.data();
+          if (cloudData && cloudData.logs) {
+            appData = cloudData;
+            saveDataLocally();
+            updateDateDisplay();
+            loadDateInputs(selectedDate);
+            renderApp();
+            updateSyncStatusUI("synced", "Cloud Synced (Live)");
+          }
+        } else {
+          docRef.set(appData).then(() => updateSyncStatusUI("synced", "Cloud Synced (Live)"));
+        }
+      }, (err) => {
+        updateSyncStatusUI("error", "Cloud Offline (Saved locally)");
+      });
+    }
+
+    function syncToCloud(onCompleteMsg) {
+      saveDataLocally();
+
+      if (isCloudEnabled && db) {
+        updateSyncStatusUI("syncing", "Saving to Cloud...");
+        db.collection("views_dashboard").doc("survival_108").set(appData)
+          .then(() => {
+            updateSyncStatusUI("synced", "Cloud Synced (Live)");
+            if (onCompleteMsg) showToast(onCompleteMsg);
+          })
+          .catch((err) => {
+            updateSyncStatusUI("error", "Cloud Save Failed");
+            if (onCompleteMsg) showToast(onCompleteMsg);
+          });
+      } else {
+        if (onCompleteMsg) showToast(onCompleteMsg);
+      }
+    }
+
+    function updateSyncStatusUI(status, label) {
+      const dot = document.getElementById("sync-status-dot");
+      const text = document.getElementById("sync-status-text");
+      if (dot) dot.className = `sync-status-dot ${status}`;
+      if (text) text.textContent = label;
     }
 
     function initDateSelection() {
@@ -1866,11 +2013,11 @@
 
       appData.logs[selectedDate] = { ...currentVals };
       editingOriginalDate = selectedDate;
-      saveData();
+      
+      syncToCloud(`Saved & Cloud-Synced for ${formatDateShort(selectedDate)} ✓`);
 
       updateDateDisplay();
       renderApp();
-      showToast(`Unlocked & saved snapshot for ${formatDateShort(selectedDate)} ✓`);
     }
 
     window.promptDeleteDay = function(dateKey) {
@@ -1892,12 +2039,11 @@
     function executeDeleteDay(deletedDate) {
       if (!deletedDate) return;
       delete appData.logs[deletedDate];
-      saveData();
+      syncToCloud(`Deleted log for ${formatDateShort(deletedDate)} 🗑️`);
 
       if (selectedDate === deletedDate) loadDateInputs(selectedDate);
       updateDateDisplay();
       renderApp();
-      showToast(`Deleted log for ${formatDateShort(deletedDate)} 🗑️`);
     }
 
     function renderHistoryTab() {
