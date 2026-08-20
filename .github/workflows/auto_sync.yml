@@ -1,0 +1,104 @@
+name: Auto Sync Views
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Scraper Tools
+        run: |
+          pip install yt-dlp requests
+
+      - name: Fetch Views & Sync to Firebase
+        run: |
+          python - << 'EOF'
+          import os, sys, re, json, urllib.request
+          from datetime import datetime
+
+          FIRESTORE_URL = "https://firestore.googleapis.com/v1/projects/survival108/databases/(default)/documents/views_dashboard/survival_108"
+
+          def fetch_youtube_views(handle):
+              clean_handle = handle.replace("@", "")
+              url = f"https://www.youtube.com/@{clean_handle}"
+              try:
+                  import yt_dlp
+                  ydl_opts = {'quiet': True, 'skip_download': True, 'extract_flat': True, 'playlist_items': '0', 'no_warnings': True}
+                  with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                      info = ydl.extract_info(url, download=False)
+                      if info:
+                          v = info.get('view_count') or info.get('channel_view_count')
+                          if v: return int(v)
+              except Exception as e:
+                  print("Scraper note:", e)
+              return None
+
+          def get_current_data():
+              try:
+                  req = urllib.request.Request(FIRESTORE_URL)
+                  with urllib.request.urlopen(req, timeout=10) as res:
+                      return json.loads(res.read().decode('utf-8'))
+              except Exception:
+                  return None
+
+          def sync_to_firestore(updates):
+              today = datetime.now().strftime("%Y-%m-%d")
+              doc = get_current_data() or {}
+              existing_logs = {}
+              if "fields" in doc and "logs" in doc["fields"]:
+                  logs_map = doc["fields"]["logs"]["mapValue"].get("fields", {})
+                  for d, obj in logs_map.items():
+                      date_fields = obj.get("mapValue", {}).get("fields", {})
+                      existing_logs[d] = {k: int(v.get("integerValue", 0)) for k, v in date_fields.items()}
+
+              if today not in existing_logs:
+                  sorted_dates = sorted(existing_logs.keys())
+                  if sorted_dates:
+                      existing_logs[today] = dict(existing_logs[sorted_dates[-1]])
+                  else:
+                      existing_logs[today] = {"tiktok": 0, "youtube": 0, "instagram": 0, "facebook": 0, "x": 0}
+
+              for k, v in updates.items():
+                  if v is not None:
+                      existing_logs[today][k] = v
+
+              firestore_logs_map = {}
+              for d, plats in existing_logs.items():
+                  pm = {p: {"integerValue": str(c)} for p, c in plats.items()}
+                  firestore_logs_map[d] = {"mapValue": {"fields": pm}}
+
+              body = json.dumps({
+                  "fields": {
+                      "goal": {"integerValue": "10000"},
+                      "month": {"stringValue": datetime.now().strftime("%Y-%m")},
+                      "monthName": {"stringValue": datetime.now().strftime("%B %Y")},
+                      "logs": {"mapValue": {"fields": firestore_logs_map}}
+                  }
+              }).encode('utf-8')
+
+              req = urllib.request.Request(FIRESTORE_URL, data=body, headers={"Content-Type": "application/json"}, method="PATCH")
+              try:
+                  with urllib.request.urlopen(req, timeout=10) as r:
+                      print("✅ Successfully Synced to Firebase Firestore!")
+              except Exception as e:
+                  print(f"❌ Error: {e}")
+
+          print("🚀 Starting Automatic Views Fetcher...")
+          yt = fetch_youtube_views("@AIRoofac")
+          results = {}
+          if yt is not None:
+              results["youtube"] = yt
+              print(f"✓ YouTube @AIRoofac Views: {yt}")
+
+          if results:
+              sync_to_firestore(results)
+          print("🎉 Done.")
+          EOF
