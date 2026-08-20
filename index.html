@@ -114,83 +114,15 @@
       width: 100%;
       max-width: 540px;
       margin: 0 auto;
-      padding: 24px 16px 40px;
+      padding: 36px 16px 40px;
       transition: max-width 0.3s ease;
     }
 
     @media (min-width: 680px) {
       .app-container {
         max-width: 780px;
-        padding: 36px 24px 64px;
+        padding: 44px 24px 64px;
       }
-    }
-
-    .cloud-sync-status-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
-    .cloud-sync-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      color: var(--text-secondary);
-      backdrop-filter: blur(10px);
-    }
-
-    .auto-sync-all-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 16px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(10, 132, 255, 0.25) 0%, rgba(94, 92, 230, 0.25) 100%);
-      border: 1px solid rgba(10, 132, 255, 0.4);
-      font-size: 11px;
-      font-weight: 800;
-      color: #FFFFFF;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 14px rgba(10, 132, 255, 0.25);
-      transition: all 0.2s ease;
-    }
-
-    .auto-sync-all-btn:active {
-      transform: scale(0.94);
-      background: linear-gradient(135deg, rgba(10, 132, 255, 0.4) 0%, rgba(94, 92, 230, 0.4) 100%);
-    }
-
-    .sync-status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background-color: #9898A0;
-    }
-
-    .sync-status-dot.synced {
-      background-color: #30D158;
-      box-shadow: 0 0 8px #30D158;
-    }
-
-    .sync-status-dot.syncing {
-      background-color: #FF9F0A;
-      box-shadow: 0 0 8px #FF9F0A;
-    }
-
-    .sync-status-dot.error {
-      background-color: #FF453A;
-      box-shadow: 0 0 8px #FF453A;
     }
 
     .luxury-brand-header {
@@ -1267,19 +1199,6 @@
 
   <div class="app-container">
 
-    <!-- Status & Auto-Sync Bar -->
-    <div class="cloud-sync-status-wrapper">
-      <div class="cloud-sync-pill" id="cloud-sync-pill-btn" title="Live Multi-Device Cloud Sync Active">
-        <span class="sync-status-dot synced" id="sync-status-dot"></span>
-        <span id="sync-status-text">Cloud Synced (Live)</span>
-      </div>
-
-      <!-- 1-Click Sync All Platforms Button -->
-      <button class="auto-sync-all-btn" id="sync-all-platforms-btn" type="button" title="Sync Views for All 5 Accounts">
-        <span>⚡ Sync All Views</span>
-      </button>
-    </div>
-
     <!-- Luxury Brand Header -->
     <header class="luxury-brand-header">
       <h1 class="brand-main-title">Survival Instinct 108</h1>
@@ -1330,8 +1249,8 @@
 
     <!-- Smart Insight Strip -->
     <div class="glass-card insight-strip" id="smart-insight-container">
-      <span class="insight-icon">🔥</span>
-      <span class="insight-text">Fastest growing: <strong>TikTok +145</strong> since last log</span>
+      <span class="insight-icon">✨</span>
+      <span class="insight-text">Track your views daily across all platforms.</span>
     </div>
 
     <!-- iOS Segmented Control -->
@@ -1596,13 +1515,8 @@
           db = firebase.firestore();
           isCloudEnabled = true;
           setupFirestoreRealtimeListener();
-          updateSyncStatusUI("synced", "Cloud Synced (Live)");
-        } else {
-          updateSyncStatusUI("local", "Cloud Sync: Offline Mode");
         }
-      } catch (e) {
-        updateSyncStatusUI("local", "Cloud Sync: Offline Mode");
-      }
+      } catch (e) {}
     }
 
     function setupFirestoreRealtimeListener() {
@@ -1610,7 +1524,6 @@
       if (unsubscribeRealtime) unsubscribeRealtime();
 
       const docRef = db.collection("views_dashboard").doc("survival_108");
-      updateSyncStatusUI("syncing", "Connecting to Cloud...");
 
       unsubscribeRealtime = docRef.onSnapshot((doc) => {
         if (doc.exists) {
@@ -1621,74 +1534,26 @@
             updateDateDisplay();
             loadDateInputs(selectedDate);
             renderApp();
-            updateSyncStatusUI("synced", "Cloud Synced (Live)");
           }
         } else {
-          docRef.set(appData).then(() => updateSyncStatusUI("synced", "Cloud Synced (Live)"));
+          docRef.set(appData);
         }
-      }, (err) => {
-        updateSyncStatusUI("error", "Cloud Offline (Saved locally)");
-      });
+      }, (err) => {});
     }
 
     function syncToCloud(onCompleteMsg) {
       saveDataLocally();
 
       if (isCloudEnabled && db) {
-        updateSyncStatusUI("syncing", "Saving to Cloud...");
         db.collection("views_dashboard").doc("survival_108").set(appData)
           .then(() => {
-            updateSyncStatusUI("synced", "Cloud Synced (Live)");
             if (onCompleteMsg) showToast(onCompleteMsg);
           })
           .catch((err) => {
-            updateSyncStatusUI("error", "Cloud Save Failed");
             if (onCompleteMsg) showToast(onCompleteMsg);
           });
       } else {
         if (onCompleteMsg) showToast(onCompleteMsg);
-      }
-    }
-
-    function updateSyncStatusUI(status, label) {
-      const dot = document.getElementById("sync-status-dot");
-      const text = document.getElementById("sync-status-text");
-      if (dot) dot.className = `sync-status-dot ${status}`;
-      if (text) text.textContent = label;
-    }
-
-    // 1-Click Sync All Platforms via Client-Side Proxies
-    async function triggerAutoFetchAllPlatforms() {
-      showToast("🔄 Fetching views for all platforms...");
-      updateSyncStatusUI("syncing", "Fetching accounts...");
-
-      try {
-        // 1. YouTube @AIRoofac
-        const ytTarget = "https://www.youtube.com/@AIRoofac";
-        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(ytTarget)}`;
-        const res = await fetch(proxyUrl);
-        const data = await res.json();
-        const html = data.contents || "";
-
-        let ytViews = null;
-        const match = html.match(/\"viewCountText\":\{\"simpleText\":\"([\d,]+)\s*views\"/i);
-        if (match) ytViews = parseInt(match[1].replace(/,/g, ""), 10);
-        else {
-          const matchRuns = html.match(/\"viewCountText\":\{\"runs\":\[\{\"text\":\"([\d,]+)\"/);
-          if (matchRuns) ytViews = parseInt(matchRuns[1].replace(/,/g, ""), 10);
-        }
-
-        if (ytViews && !isNaN(ytViews)) {
-          const ytInput = document.getElementById("input-youtube");
-          if (ytInput) ytInput.value = ytViews;
-        }
-
-        renderApp(true);
-        showToast("✓ All accounts checked! Tap Log to save & sync.");
-        updateSyncStatusUI("synced", "Cloud Synced (Live)");
-      } catch (err) {
-        showToast("✓ Ready. You can log & sync anytime!");
-        updateSyncStatusUI("synced", "Cloud Synced (Live)");
       }
     }
 
@@ -1709,11 +1574,6 @@
       if (segmentToday && segmentLog) {
         segmentToday.addEventListener("click", () => switchTab("today"));
         segmentLog.addEventListener("click", () => switchTab("log"));
-      }
-
-      const syncAllBtn = document.getElementById("sync-all-platforms-btn");
-      if (syncAllBtn) {
-        syncAllBtn.addEventListener("click", triggerAutoFetchAllPlatforms);
       }
 
       const prevDayBtn = document.getElementById("prev-day-btn");
