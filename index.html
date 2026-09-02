@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Survival Instinct 108 by Roofline | Views Dashboard</title>
+  <title>Survival Instinct 111 by Roofline | Apple Liquid Glass Dashboard</title>
 
-  <!-- PWA & Native App Meta Tags (All-in-One Embedded) -->
+  <!-- PWA & Native iOS Web App Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Survival 108">
-  <meta name="theme-color" content="#07080C">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='128' fill='%2307080C'/%3E%3Ccircle cx='256' cy='256' r='180' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='32'/%3E%3Ccircle cx='256' cy='256' r='180' fill='none' stroke='%230A84FF' stroke-width='32' stroke-dasharray='1130' stroke-dashoffset='450' stroke-linecap='round'/%3E%3Cpath d='M256 160v192M160 256h192' stroke='%23FFFFFF' stroke-width='28' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='128' fill='%2307080C'/%3E%3Ccircle cx='256' cy='256' r='180' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='32'/%3E%3Ccircle cx='256' cy='256' r='180' fill='none' stroke='%230A84FF' stroke-width='32' stroke-dasharray='1130' stroke-dashoffset='450' stroke-linecap='round'/%3E%3Cpath d='M256 160v192M160 256h192' stroke='%23FFFFFF' stroke-width='28' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="apple-mobile-web-app-title" content="Survival 111">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='128' fill='%23000000'/%3E%3Ccircle cx='256' cy='256' r='190' fill='none' stroke='%23FF2D55' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='145' fill='none' stroke='%230A84FF' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='100' fill='none' stroke='%2330D158' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='55' fill='none' stroke='%23BF5AF2' stroke-width='24'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='128' fill='%23000000'/%3E%3Ccircle cx='256' cy='256' r='190' fill='none' stroke='%23FF2D55' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='145' fill='none' stroke='%230A84FF' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='100' fill='none' stroke='%2330D158' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='55' fill='none' stroke='%23BF5AF2' stroke-width='24'/%3E%3C/svg%3E">
 
   <!-- Google Firebase Real-Time Cloud Sync SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
@@ -19,29 +19,33 @@
 
   <style>
     :root {
-      --ios-blue: #0A84FF;
-      --ios-pink: #FF375F;
-      --ios-purple: #BF5AF2;
-      --ios-indigo: #5E5CE6;
-      --ios-orange: #FF9F0A;
-      --ios-yellow: #FFD60A;
-      --ios-green: #30D158;
-      --ios-teal: #40C8E0;
-      --ios-red: #FF453A;
+      /* Apple Realistic Palette: Views=Pink/Red, Followers=Blue, Revenue=MoneyGreen, Videos=Purple */
+      --apple-pink: #FF2D55;
+      --apple-pink-glow: rgba(255, 45, 85, 0.4);
+      --apple-blue: #0A84FF;
+      --apple-blue-glow: rgba(10, 132, 255, 0.4);
+      --apple-green: #30D158;
+      --apple-green-glow: rgba(48, 209, 88, 0.4);
+      --apple-purple: #BF5AF2;
+      --apple-purple-glow: rgba(191, 90, 242, 0.4);
 
-      --bg-system: #07080C;
-      --card-bg: rgba(20, 22, 30, 0.78);
-      --card-bg-subtle: rgba(28, 30, 42, 0.65);
-      --card-border: rgba(255, 255, 255, 0.09);
-      --card-shadow: 0 14px 40px -5px rgba(0, 0, 0, 0.5), 0 4px 14px -2px rgba(0, 0, 0, 0.3);
+      --bg-canvas: #05060A;
       
-      --text-primary: #F2F2F7;
-      --text-secondary: #9898A0;
-      --text-tertiary: #636366;
+      /* Apple Liquid Glass Surface */
+      --liquid-glass-bg: rgba(22, 26, 38, 0.65);
+      --liquid-glass-subtle: rgba(28, 34, 50, 0.45);
+      --liquid-glass-border: rgba(255, 255, 255, 0.13);
+      --liquid-glass-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.35);
+      --liquid-glass-shadow: 0 20px 48px -8px rgba(0, 0, 0, 0.75), 0 8px 24px -4px rgba(0, 0, 0, 0.5);
       
-      --separator: rgba(255, 255, 255, 0.08);
-      --radius-card: 24px;
-      --radius-inner: 14px;
+      --text-white: #FFFFFF;
+      --text-secondary: rgba(235, 235, 245, 0.65);
+      --text-tertiary: rgba(235, 235, 245, 0.4);
+      
+      --separator-line: rgba(255, 255, 255, 0.08);
+      --radius-liquid: 26px;
+      --radius-tile: 16px;
+      --radius-sm: 12px;
     }
 
     * {
@@ -52,23 +56,25 @@
     }
 
     html {
-      background-color: var(--bg-system);
+      background-color: var(--bg-canvas);
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
-      background-color: var(--bg-system);
-      color: var(--text-primary);
+      background-color: var(--bg-canvas);
+      color: var(--text-white);
       min-height: 100vh;
       min-height: -webkit-fill-available;
       position: relative;
       overflow-x: hidden;
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: env(safe-area-inset-bottom, 30px);
+      padding-bottom: calc(env(safe-area-inset-bottom, 24px) + 36px);
     }
 
-    .ambient-bg {
+    /* Ambient Glow Mesh */
+    .apple-ambient-mesh {
       position: fixed;
       inset: 0;
       pointer-events: none;
@@ -76,432 +82,483 @@
       overflow: hidden;
     }
 
-    .ambient-orb {
+    .mesh-glow {
       position: absolute;
       border-radius: 50%;
-      filter: blur(110px);
-      opacity: 0.38;
+      filter: blur(120px);
+      opacity: 0.4;
     }
 
-    .orb-1 {
+    .mesh-pink {
       width: 480px;
       height: 480px;
-      background: radial-gradient(circle, rgba(255, 55, 95, 0.38) 0%, rgba(255, 159, 10, 0.08) 70%);
+      background: radial-gradient(circle, rgba(255, 45, 85, 0.4) 0%, rgba(255, 159, 10, 0.06) 70%);
       top: -120px;
       left: 50%;
       transform: translateX(-50%);
     }
 
-    .orb-2 {
+    .mesh-blue {
       width: 420px;
       height: 420px;
-      background: radial-gradient(circle, rgba(10, 132, 255, 0.3) 0%, rgba(94, 92, 230, 0.06) 70%);
+      background: radial-gradient(circle, rgba(10, 132, 255, 0.35) 0%, rgba(191, 90, 242, 0.06) 70%);
       top: 30%;
       right: -120px;
     }
 
-    .orb-3 {
+    .mesh-green {
       width: 420px;
       height: 420px;
-      background: radial-gradient(circle, rgba(191, 90, 242, 0.3) 0%, rgba(255, 55, 95, 0.06) 70%);
+      background: radial-gradient(circle, rgba(48, 209, 88, 0.3) 0%, rgba(10, 132, 255, 0.05) 70%);
       bottom: 5%;
       left: -120px;
     }
 
-    .app-container {
+    /* 100% Mobile Responsive Container */
+    .app-viewport {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 540px;
+      max-width: 580px;
       margin: 0 auto;
-      padding: 36px 16px 40px;
-      transition: max-width 0.3s ease;
+      padding: 24px 14px 40px;
     }
 
-    @media (min-width: 680px) {
-      .app-container {
-        max-width: 780px;
-        padding: 44px 24px 64px;
+    @media (min-width: 720px) {
+      .app-viewport {
+        max-width: 820px;
+        padding: 40px 24px 60px;
       }
     }
 
-    .luxury-brand-header {
-      text-align: center;
-      margin-bottom: 24px;
-      padding: 0 10px;
+    /* Apple Liquid Glass Container */
+    .liquid-glass-card {
+      background: var(--liquid-glass-bg);
+      backdrop-filter: blur(45px) saturate(200%);
+      -webkit-backdrop-filter: blur(45px) saturate(200%);
+      border: 1px solid var(--liquid-glass-border);
+      box-shadow: var(--liquid-glass-shadow), var(--liquid-glass-highlight);
+      border-radius: var(--radius-liquid);
+      position: relative;
     }
 
-    .brand-main-title {
-      font-size: 28px;
+    /* Clean Header with "by Roofline" */
+    .apple-header {
+      text-align: center;
+      margin-bottom: 18px;
+      padding: 0 8px;
+    }
+
+    .apple-main-title {
+      font-size: 30px;
       font-weight: 900;
-      letter-spacing: -0.6px;
+      letter-spacing: -0.8px;
       line-height: 1.15;
-      background: linear-gradient(180deg, #FFFFFF 20%, #B0B5C0 100%);
+      background: linear-gradient(180deg, #FFFFFF 30%, #C4C8D4 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 12px rgba(255, 255, 255, 0.18));
+      filter: drop-shadow(0 2px 14px rgba(255, 255, 255, 0.2));
     }
 
-    @media (min-width: 680px) {
-      .brand-main-title {
+    @media (min-width: 480px) {
+      .apple-main-title {
         font-size: 36px;
-        letter-spacing: -0.8px;
       }
     }
 
-    .brand-subtitle-by {
-      font-size: 14px;
+    @media (min-width: 680px) {
+      .apple-main-title {
+        font-size: 42px;
+      }
+    }
+
+    .apple-subtitle {
+      font-size: 13px;
       font-weight: 600;
       color: var(--text-secondary);
-      margin-top: 5px;
-      letter-spacing: 0.2px;
+      margin-top: 4px;
     }
 
-    .roofline-badge {
+    .roofline-specular {
       font-weight: 800;
-      color: #FFFFFF;
-      background: linear-gradient(135deg, #0A84FF 0%, #5E5CE6 100%);
+      background: linear-gradient(135deg, #0A84FF 0%, #BF5AF2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      display: inline-block;
-      padding: 0 2px;
     }
 
-    .glass-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(32px);
-      -webkit-backdrop-filter: blur(32px);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-card);
-      box-shadow: var(--card-shadow);
+    /* 91-Day Timeline Bar (Main Screen) */
+    .timeline-liquid-card {
+      padding: 14px 16px;
+      margin-bottom: 16px;
     }
 
-    .hero-progress-card {
-      padding: 26px 20px 22px;
-      margin-bottom: 18px;
+    .timeline-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+
+    .timeline-title-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .timeline-icon-badge {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .timeline-text-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .timeline-heading {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #FFFFFF;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .timeline-subline {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .timeline-day-chip {
+      background: rgba(10, 132, 255, 0.18);
+      border: 1px solid rgba(10, 132, 255, 0.35);
+      color: #0A84FF;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+    }
+
+    .timeline-track-wrapper {
+      position: relative;
+      width: 100%;
+      height: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 6px 0 5px;
+    }
+
+    .timeline-fill-bar {
+      height: 100%;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #0A84FF 0%, #BF5AF2 50%, #30D158 100%);
+      transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 0 10px rgba(10, 132, 255, 0.5);
+    }
+
+    .timeline-milestones-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+    }
+
+    /* 4-Ring Activity Center */
+    .hero-rings-card {
+      padding: 20px 16px 18px;
+      margin-bottom: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
     }
 
-    @media (min-width: 680px) {
-      .hero-progress-card {
-        padding: 34px 30px 28px;
+    @media (min-width: 480px) {
+      .hero-rings-card {
+        padding: 24px 20px 20px;
       }
     }
 
-    .ring-container {
+    .rings-wrapper-box {
       position: relative;
-      width: 190px;
-      height: 190px;
-      margin: 0 auto 22px;
-      flex-shrink: 0;
+      width: 230px;
+      height: 230px;
+      margin: 0 auto 16px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    @media (min-width: 680px) {
-      .ring-container {
-        width: 210px;
-        height: 210px;
-        margin-bottom: 26px;
+    @media (min-width: 480px) {
+      .rings-wrapper-box {
+        width: 250px;
+        height: 250px;
       }
     }
 
-    @media (max-width: 380px) {
-      .ring-container {
-        width: 160px;
-        height: 160px;
-        margin-bottom: 18px;
-      }
-    }
-
-    .activity-ring-svg {
+    .quad-ring-svg {
       transform: rotate(-90deg);
       width: 100%;
       height: 100%;
     }
 
-    .ring-bg {
+    .ring-track {
       fill: none;
-      stroke: rgba(255, 255, 255, 0.08);
-      stroke-width: 14;
-    }
-
-    .ring-fill {
-      fill: none;
-      stroke: url(#ringGradient);
-      stroke-width: 14;
+      stroke: rgba(255, 255, 255, 0.06);
       stroke-linecap: round;
-      stroke-dasharray: 502.65;
-      stroke-dashoffset: 502.65;
-      transition: stroke-dashoffset 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-      filter: drop-shadow(0 0 10px rgba(255, 55, 95, 0.5));
     }
 
-    .ring-center-content {
+    .ring-fill-animated {
+      fill: none;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Ring 1 (Outer): 100K Views (Pink/Red - r=108) */
+    .ring-views {
+      stroke: url(#applePinkGrad);
+      stroke-width: 8.5;
+      stroke-dasharray: 678.58;
+      stroke-dashoffset: 678.58;
+      filter: drop-shadow(0 0 8px var(--apple-pink-glow));
+    }
+
+    /* Ring 2: 1K Followers (Blue/Cyan - r=90) */
+    .ring-followers {
+      stroke: url(#appleBlueGrad);
+      stroke-width: 8.5;
+      stroke-dasharray: 565.48;
+      stroke-dashoffset: 565.48;
+      filter: drop-shadow(0 0 8px var(--apple-blue-glow));
+    }
+
+    /* Ring 3: $100 Revenue (Money Emerald Green - r=72) */
+    .ring-revenue {
+      stroke: url(#appleGreenGrad);
+      stroke-width: 8.5;
+      stroke-dasharray: 452.38;
+      stroke-dashoffset: 452.38;
+      filter: drop-shadow(0 0 8px var(--apple-green-glow));
+    }
+
+    /* Ring 4 (Inner): 91 Videos (Studio Purple/Violet - r=54) */
+    .ring-videos {
+      stroke: url(#applePurpleGrad);
+      stroke-width: 8.5;
+      stroke-dasharray: 339.29;
+      stroke-dashoffset: 339.29;
+      filter: drop-shadow(0 0 8px var(--apple-purple-glow));
+    }
+
+    /* Center core text */
+    .rings-center-core {
       position: absolute;
       inset: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      pointer-events: none;
     }
 
-    .ring-percent {
-      font-size: 38px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      color: var(--text-primary);
+    .rings-center-percent {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      color: #FFFFFF;
       line-height: 1;
     }
 
-    @media (min-width: 680px) {
-      .ring-percent {
-        font-size: 42px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .ring-percent {
-        font-size: 32px;
-      }
-    }
-
-    .ring-goal-label {
-      font-size: 12px;
-      font-weight: 600;
+    .rings-center-label {
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
       color: var(--text-secondary);
+      margin-top: 3px;
+    }
+
+    .rings-indicator-dots {
+      display: flex;
+      align-items: center;
+      gap: 5px;
       margin-top: 4px;
     }
 
-    .stat-tiles-grid {
+    .ring-dot {
+      width: 5.5px;
+      height: 5.5px;
+      border-radius: 50%;
+    }
+
+    /* 4-Column Master Target Tile Deck (Views=Pink, Followers=Blue, Revenue=Green, Videos=Purple) */
+    .master-targets-grid {
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      padding-top: 20px;
-      border-top: 1px solid var(--separator);
-      align-items: stretch;
-    }
-
-    @media (min-width: 680px) {
-      .stat-tiles-grid {
-        gap: 16px;
-        padding-top: 24px;
-        max-width: 680px;
-        margin: 0 auto;
-      }
-    }
-
-    .stat-tile {
-      background: var(--card-bg-subtle);
-      border-radius: var(--radius-inner);
-      padding: 14px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      transition: transform 0.2s ease, background-color 0.2s ease;
-    }
-
-    @media (min-width: 680px) {
-      .stat-tile {
-        padding: 16px 14px;
-      }
-    }
-
-    .stat-tile-label {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      text-align: center;
-      margin-bottom: 3px;
-    }
-
-    @media (min-width: 400px) {
-      .stat-tile-label {
-        font-size: 11px;
-      }
-    }
-
-    .stat-tile-value {
-      font-size: 18px;
-      font-weight: 800;
-      color: #FFFFFF;
-      letter-spacing: -0.4px;
-      text-align: center;
-      line-height: 1.2;
-    }
-
-    @media (min-width: 400px) {
-      .stat-tile-value {
-        font-size: 20px;
-      }
-    }
-
-    @media (min-width: 680px) {
-      .stat-tile-value {
-        font-size: 22px;
-      }
-    }
-
-    .stat-tile-sub {
-      font-size: 10px;
-      font-weight: 500;
-      color: var(--text-tertiary);
-      margin-top: 3px;
-      text-align: center;
-    }
-
-    @media (min-width: 680px) {
-      .stat-tile-sub {
-        font-size: 11px;
-      }
-    }
-
-    .advanced-kpi-grid {
-      display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-bottom: 18px;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid var(--separator-line);
     }
 
-    @media (min-width: 680px) {
-      .advanced-kpi-grid {
+    @media (min-width: 600px) {
+      .master-targets-grid {
         grid-template-columns: repeat(4, 1fr);
-        gap: 12px;
+        gap: 10px;
       }
     }
 
-    .kpi-mini-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 14px;
+    .target-tile {
+      background: var(--liquid-glass-subtle);
+      border: 1px solid var(--liquid-glass-border);
+      border-radius: var(--radius-tile);
+      padding: 11px 10px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      align-items: center;
-      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .kpi-mini-icon {
-      font-size: 18px;
+    .target-tile::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .tile-views::before { background: linear-gradient(90deg, #FF2D55, #FF375F); }
+    .tile-followers::before { background: linear-gradient(90deg, #0A84FF, #5E5CE6); }
+    .tile-revenue::before { background: linear-gradient(90deg, #30D158, #34C759); }
+    .tile-videos::before { background: linear-gradient(90deg, #BF5AF2, #AF52DE); }
+
+    .target-tile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 2px;
     }
 
-    .kpi-mini-label {
-      font-size: 11px;
-      font-weight: 600;
+    .target-tile-label {
+      font-size: 10.5px;
+      font-weight: 800;
       color: var(--text-secondary);
       text-transform: uppercase;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
     }
 
-    .kpi-mini-val {
-      font-size: 17px;
-      font-weight: 800;
+    .target-tile-val {
+      font-size: 16px;
+      font-weight: 900;
       color: #FFFFFF;
       letter-spacing: -0.3px;
+      line-height: 1.2;
     }
 
-    .kpi-mini-sub {
-      font-size: 10px;
-      font-weight: 500;
-      color: var(--text-tertiary);
-    }
-
-    .insight-strip {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      margin-bottom: 18px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .insight-icon {
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-
-    .insight-text {
-      flex: 1;
-      line-height: 1.35;
-    }
-
-    .insight-text strong {
-      font-weight: 700;
-      color: #FFFFFF;
-    }
-
-    .segmented-control-wrapper {
-      position: relative;
+    .target-tile-bar {
+      width: 100%;
+      height: 4px;
       background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 6px 0 4px;
+    }
+
+    .target-tile-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+    .target-tile-sub {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Apple Liquid Segmented Control */
+    .liquid-segment-bar {
+      position: relative;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       padding: 3px;
-      border-radius: 12px;
+      border-radius: 14px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      margin-bottom: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      margin-bottom: 16px;
     }
 
-    .segment-slider {
+    .segment-liquid-thumb {
       position: absolute;
       top: 3px;
       bottom: 3px;
       left: 3px;
       width: calc(50% - 3px);
-      background: rgba(255, 255, 255, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 9px;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 11px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
       transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
       pointer-events: none;
     }
 
-    .segmented-control-wrapper[data-active-tab="log"] .segment-slider {
+    .liquid-segment-bar[data-active-tab="log"] .segment-liquid-thumb {
       transform: translateX(100%);
     }
 
-    .segment-btn {
+    .segment-tab-btn {
       position: relative;
       z-index: 1;
       background: transparent;
       border: none;
       padding: 10px 12px;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-secondary);
       cursor: pointer;
-      border-radius: 9px;
+      border-radius: 11px;
       transition: color 0.2s ease;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
+      min-height: 44px;
     }
 
-    .segment-btn.active {
+    .segment-tab-btn.active {
       color: #FFFFFF;
-      font-weight: 700;
     }
 
-    .tab-view {
+    .tab-view-pane {
       display: none;
       animation: fadeIn 0.25s ease-out;
     }
 
-    .tab-view.active {
+    .tab-view-pane.active {
       display: block;
     }
 
@@ -510,77 +567,94 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .date-selector-card {
+    /* Date Capsule Bar */
+    .date-capsule-card {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 16px;
+      padding: 10px 14px;
       margin-bottom: 14px;
-    }
-
-    .date-display-group {
-      display: flex;
-      align-items: center;
       gap: 10px;
     }
 
-    .date-calendar-icon {
+    .date-tap-zone {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .date-apple-icon {
       width: 36px;
       height: 36px;
       border-radius: 10px;
       background: rgba(10, 132, 255, 0.18);
-      color: var(--ios-blue);
+      color: var(--apple-blue);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 16px;
+      border: 1px solid rgba(10, 132, 255, 0.35);
+      flex-shrink: 0;
     }
 
-    .date-text-container {
+    .date-texts-box {
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
-    .date-main-label {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-primary);
+    .date-heading-main {
+      font-size: 14px;
+      font-weight: 800;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .date-sub-label {
-      font-size: 11px;
-      font-weight: 500;
+    .date-heading-sub {
+      font-size: 10.5px;
+      font-weight: 600;
       color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .date-steppers {
+    .date-steppers-wrap {
       display: flex;
       align-items: center;
       gap: 6px;
+      flex-shrink: 0;
     }
 
-    .stepper-btn {
+    .stepper-apple-btn {
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--liquid-glass-border);
       background: rgba(255, 255, 255, 0.08);
-      color: var(--text-primary);
-      font-size: 16px;
+      color: #FFFFFF;
+      font-size: 18px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.15s ease;
+      min-width: 36px;
+      min-height: 36px;
     }
 
-    .stepper-btn:active {
+    .stepper-apple-btn:active {
       transform: scale(0.92);
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.22);
     }
 
     .hidden-date-input {
@@ -591,18 +665,84 @@
       pointer-events: none;
     }
 
-    .platform-cards-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 20px;
+    /* Core Targets Input Card (Followers /1K, Revenue /$100, Videos /91) */
+    .targets-input-card {
+      padding: 14px 14px;
+      margin-bottom: 14px;
     }
 
-    @media (min-width: 680px) {
-      .platform-cards-list {
+    .targets-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .targets-card-title {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .targets-inputs-3grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .target-field-box {
+      background: var(--liquid-glass-subtle);
+      border: 1px solid var(--liquid-glass-border);
+      border-radius: var(--radius-sm);
+      padding: 8px 8px;
+    }
+
+    .target-field-label {
+      font-size: 9.5px;
+      font-weight: 800;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .apple-num-input {
+      width: 100%;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 900;
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9px;
+      padding: 6px 8px;
+      outline: none;
+      transition: all 0.2s ease;
+      min-height: 38px;
+    }
+
+    .apple-num-input:focus {
+      border-color: var(--apple-blue);
+      box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3);
+    }
+
+    /* Auto-Sorted Platform Cards */
+    .platform-cards-deck {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    @media (min-width: 600px) {
+      .platform-cards-deck {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 14px;
+        gap: 12px;
       }
       .platform-card:nth-child(5) {
         grid-column: span 2;
@@ -610,455 +750,602 @@
     }
 
     .platform-card {
-      padding: 16px 18px;
+      padding: 14px 14px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .platform-card:hover {
-      box-shadow: 0 14px 35px -4px rgba(0, 0, 0, 0.65);
-    }
-
-    .platform-card-header {
+    .platform-card-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    .platform-badge-group {
+    .platform-brand-link {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
+      min-width: 0;
     }
 
-    .platform-logo-box {
+    .platform-icon-bubble {
       width: 38px;
       height: 38px;
       border-radius: 11px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       flex-shrink: 0;
-      border: 1px solid rgba(255, 255, 255, 0.12);
       transition: transform 0.2s ease;
     }
 
-    .platform-badge-group:hover .platform-logo-box {
-      transform: scale(1.06);
+    .platform-brand-link:active .platform-icon-bubble {
+      transform: scale(0.95);
     }
 
-    .platform-logo-box svg {
-      display: block;
-    }
-
-    .platform-info-text {
+    .platform-title-group {
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
-    .platform-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .platform-handle-sub {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-secondary);
-    }
-
-    .platform-delta-badge {
-      font-size: 12px;
-      font-weight: 700;
-      padding: 3px 9px;
-      border-radius: 12px;
-      letter-spacing: 0.1px;
-    }
-
-    .delta-positive {
-      background: rgba(48, 209, 88, 0.18);
-      color: #30D158;
-    }
-
-    .delta-negative {
-      background: rgba(255, 69, 58, 0.18);
-      color: #FF453A;
-    }
-
-    .delta-neutral {
-      background: rgba(152, 152, 160, 0.16);
-      color: #9898A0;
-    }
-
-    .platform-input-row {
+    .platform-name-row {
+      font-size: 14px;
+      font-weight: 800;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
+      gap: 5px;
+      white-space: nowrap;
     }
 
-    .platform-input-wrapper {
-      position: relative;
-      flex: 1;
+    /* Minimalist Apple Style Ranking Badge (#1, #2, #3, ...) */
+    .apple-rank-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.2px;
     }
+
+    .apple-rank-tag.lead {
+      color: #FFFFFF;
+      font-weight: 900;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 1px 5px;
+      border-radius: 5px;
+    }
+
+    .platform-handle-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .platform-delta-tag {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .delta-pos { background: rgba(48, 209, 88, 0.2); color: #30D158; }
+    .delta-neg { background: rgba(255, 45, 85, 0.2); color: #FF2D55; }
+    .delta-neu { background: rgba(235, 235, 245, 0.16); color: #9898A0; }
 
     .platform-views-input {
       width: 100%;
       font-family: inherit;
-      font-size: 21px;
-      font-weight: 800;
+      font-size: 20px;
+      font-weight: 900;
       color: #FFFFFF;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 12px;
-      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 11px;
+      padding: 8px 12px;
       outline: none;
       transition: all 0.2s ease;
       letter-spacing: -0.3px;
+      margin-bottom: 8px;
+      min-height: 42px;
     }
 
     .platform-views-input:focus {
       background: rgba(255, 255, 255, 0.09);
-      border-color: var(--ios-blue);
-      box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.25);
+      border-color: var(--apple-blue);
+      box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3);
     }
 
-    .proportion-bar-track {
-      height: 6px;
-      background: rgba(255, 255, 255, 0.07);
+    .liquid-bar-track {
+      height: 5px;
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 10px;
       overflow: hidden;
       position: relative;
     }
 
-    .proportion-bar-fill {
+    .liquid-bar-fill {
       height: 100%;
       border-radius: 10px;
       transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .proportion-label {
+    .liquid-bar-label {
       display: flex;
       justify-content: space-between;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-tertiary);
-      margin-top: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-top: 4px;
     }
 
-    .today-actions-group {
+    .today-actions-row {
       display: flex;
       gap: 10px;
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
-    .ios-primary-btn {
+    .apple-save-btn {
       flex: 1;
       background: linear-gradient(135deg, #0A84FF 0%, #0060df 100%);
       color: #FFFFFF;
       font-family: inherit;
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 800;
       border: none;
       border-radius: 16px;
-      padding: 16px 20px;
+      padding: 14px 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       cursor: pointer;
-      box-shadow: 0 8px 25px rgba(10, 132, 255, 0.35);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 8px 24px rgba(10, 132, 255, 0.38);
+      transition: transform 0.15s ease;
+      min-height: 48px;
     }
 
-    .ios-primary-btn:active {
+    .apple-save-btn:active {
       transform: scale(0.97);
     }
 
-    .ios-destructive-btn {
-      background: rgba(255, 69, 58, 0.18);
-      color: #FF453A;
+    .apple-delete-btn {
+      background: rgba(255, 45, 85, 0.18);
+      color: #FF2D55;
       font-family: inherit;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
-      border: 1px solid rgba(255, 69, 58, 0.3);
+      border: 1px solid rgba(255, 45, 85, 0.35);
       border-radius: 16px;
-      padding: 16px 20px;
+      padding: 14px 16px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 4px;
       cursor: pointer;
       transition: all 0.15s ease;
+      min-height: 48px;
     }
 
-    .ios-destructive-btn:active {
-      transform: scale(0.96);
+    /* 4 Daily Average KPI Cubes Side by Side (Views, Followers, Revenue, Videos) */
+    .daily-avg-4grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
     }
 
-    .charts-grid-wrapper {
+    @media (min-width: 540px) {
+      .daily-avg-4grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+    }
+
+    .avg-kpi-card {
+      background: rgba(20, 24, 36, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 18px;
+      padding: 14px 8px 12px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .sparkline-card {
-      padding: 22px 18px 16px;
-    }
-
-    .chart-header {
-      display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-      padding: 0 4px;
-    }
-
-    .chart-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .chart-subtitle {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--ios-blue);
-    }
-
-    .sparkline-svg-container {
-      width: 100%;
-      height: 170px;
+      text-align: center;
+      box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(35px) saturate(180%);
+      -webkit-backdrop-filter: blur(35px) saturate(180%);
       position: relative;
+      overflow: hidden;
     }
 
-    .sparkline-svg {
-      width: 100%;
-      height: 100%;
-      overflow: visible;
+    .avg-kpi-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
     }
 
-    .chart-point {
-      cursor: pointer;
-      transition: r 0.2s ease;
-    }
+    .card-views-avg::before { background: linear-gradient(90deg, #FF2D55, #FF375F); }
+    .card-followers-avg::before { background: linear-gradient(90deg, #0A84FF, #5E5CE6); }
+    .card-revenue-avg::before { background: linear-gradient(90deg, #30D158, #34C759); }
+    .card-videos-avg::before { background: linear-gradient(90deg, #BF5AF2, #AF52DE); }
 
-    .chart-point:hover {
-      r: 6px;
-      fill: #FF375F;
-    }
-
-    .distribution-card {
-      padding: 20px 18px;
-    }
-
-    .distribution-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .dist-item-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 13px;
-      font-weight: 600;
+    .avg-icon-emoji {
+      font-size: 20px;
+      line-height: 1;
       margin-bottom: 4px;
     }
 
-    .dist-item-left {
+    .avg-heading-title {
+      font-size: 9px;
+      font-weight: 800;
+      color: rgba(235, 235, 245, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 2px;
+      white-space: nowrap;
+    }
+
+    .avg-big-stat {
+      font-size: 18px;
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: -0.3px;
+      line-height: 1.15;
+      margin-bottom: 2px;
+    }
+
+    @media (min-width: 480px) {
+      .avg-big-stat {
+        font-size: 20px;
+      }
+    }
+
+    .avg-bottom-sub {
+      font-size: 9px;
+      font-weight: 600;
+      color: rgba(235, 235, 245, 0.45);
+      white-space: nowrap;
+    }
+
+    /* Top Content Hall of Fame - Clean Minimalist Apple Glass Aesthetic */
+    .hall-of-fame-panel {
+      padding: 16px 14px;
+      margin-bottom: 16px;
+    }
+
+    .hall-header-bar {
       display: flex;
       align-items: center;
-      gap: 8px;
-      color: var(--text-primary);
+      justify-content: space-between;
+      margin-bottom: 12px;
+      gap: 6px;
     }
 
-    .dist-item-right {
-      color: var(--text-secondary);
-      font-weight: 700;
+    .hall-main-title {
+      font-size: 14px;
+      font-weight: 900;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
     }
 
-    .history-section-header {
-      font-size: 13px;
-      font-weight: 600;
+    .hall-edit-action-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #FFFFFF;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 5px 10px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .hall-edit-action-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .hall-content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 600px) {
+      .hall-content-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+    }
+
+    .hall-video-deck {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-tile);
+      padding: 13px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      transition: border-color 0.2s ease;
+    }
+
+    .hall-video-deck:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .hall-deck-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hall-deck-badge {
+      font-size: 10px;
+      font-weight: 800;
       text-transform: uppercase;
-      color: var(--text-secondary);
-      letter-spacing: -0.1px;
-      margin: 0 0 8px 12px;
+      letter-spacing: 0.6px;
+      color: rgba(235, 235, 245, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .history-grouped-list {
+    .hall-deck-number {
+      font-size: 20px;
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: -0.4px;
+    }
+
+    .hall-deck-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-white);
+      white-space: nowrap;
       overflow: hidden;
-      margin-bottom: 24px;
+      text-overflow: ellipsis;
     }
 
-    .history-row {
-      padding: 14px 16px;
+    .hall-play-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      border-radius: 9px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      transition: all 0.2s ease;
+      align-self: flex-start;
+      margin-top: 2px;
+      min-height: 32px;
+    }
+
+    .hall-play-link-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .charts-apple-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .chart-liquid-panel {
+      padding: 16px 14px 14px;
+    }
+
+    .chart-head-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .chart-head-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .chart-head-sub {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--apple-blue);
+    }
+
+    .sparkline-svg-zone {
+      width: 100%;
+      height: 150px;
+      position: relative;
+    }
+
+    .distribution-liquid-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .dist-item-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .dist-topline-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #FFFFFF;
+    }
+
+    .dist-topline-right {
+      color: var(--text-secondary);
+      font-weight: 800;
+    }
+
+    .history-liquid-table {
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .history-row-entry {
+      padding: 12px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: relative;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .history-row:not(:last-child)::after {
+    .history-row-entry:not(:last-child)::after {
       content: "";
       position: absolute;
       bottom: 0;
-      left: 16px;
+      left: 14px;
       right: 0;
       height: 1px;
-      background: var(--separator);
+      background: var(--separator-line);
     }
 
-    .history-row:hover {
-      background-color: rgba(255, 255, 255, 0.03);
-    }
-
-    .history-row-content {
+    .history-click-area {
       flex: 1;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-    }
-
-    .history-row-left {
-      display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
+      cursor: pointer;
+      min-width: 0;
     }
 
-    .history-date-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-primary);
+    .history-date-row {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       gap: 6px;
+      flex-wrap: wrap;
     }
 
-    .history-breakdown-text {
-      font-size: 11px;
+    .history-pill-tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 5px;
+    }
+
+    .history-breakdown-row {
+      font-size: 10px;
       font-weight: 500;
       color: var(--text-secondary);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
-    .breakdown-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .breakdown-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-    }
-
-    .history-row-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .history-total-views {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--text-primary);
-      letter-spacing: -0.3px;
+    .history-views-num {
+      font-size: 15px;
+      font-weight: 900;
+      color: #FFFFFF;
       text-align: right;
     }
 
-    .history-delta-tag {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 8px;
-    }
-
-    .history-row-actions {
+    .history-tools-group {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       padding-left: 8px;
-      border-left: 1px solid var(--separator);
+      border-left: 1px solid var(--separator-line);
+      flex-shrink: 0;
     }
 
-    .history-action-btn {
+    .tool-icon-btn {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
+      border-radius: 9px;
       border: none;
       background: rgba(255, 255, 255, 0.08);
       color: var(--text-secondary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 13px;
       cursor: pointer;
       transition: all 0.15s ease;
     }
 
-    .history-action-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
+    .tool-icon-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
       color: #FFFFFF;
     }
 
-    .history-delete-btn:hover {
-      background: rgba(255, 69, 58, 0.25);
-      color: #FF453A;
+    .tool-icon-btn.delete:hover {
+      background: rgba(255, 45, 85, 0.25);
+      color: #FF2D55;
     }
 
-    .ios-modal-backdrop {
+    /* Apple Modal Styles */
+    .apple-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       z-index: 2000;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 16px;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.2s ease;
     }
 
-    .ios-modal-backdrop.active {
+    .apple-modal-overlay.active {
       opacity: 1;
       pointer-events: auto;
     }
 
-    .ios-alert-dialog {
-      background: rgba(30, 32, 42, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+    .apple-dialog-card {
+      background: rgba(24, 28, 42, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 22px;
       width: 100%;
-      max-width: 330px;
+      max-width: 340px;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
       overflow: hidden;
       transform: scale(0.92);
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .ios-modal-backdrop.active .ios-alert-dialog {
+    .apple-modal-overlay.active .apple-dialog-card {
       transform: scale(1);
     }
 
-    .ios-alert-dialog.shake {
+    .apple-dialog-card.shake {
       animation: modalShake 0.4s ease;
     }
 
@@ -1068,307 +1355,598 @@
       40%, 80% { transform: translateX(10px); }
     }
 
-    .ios-alert-body {
-      padding: 24px 20px 20px;
+    .apple-dialog-body {
+      padding: 20px 16px 16px;
     }
 
-    .ios-alert-icon {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .ios-alert-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: #FFFFFF;
+    .apple-dialog-icon {
+      font-size: 30px;
       margin-bottom: 6px;
     }
 
-    .ios-alert-message {
-      font-size: 13px;
+    .apple-dialog-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .apple-dialog-sub {
+      font-size: 12.5px;
       color: var(--text-secondary);
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
-    .pin-input-container {
-      margin: 16px 0 6px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .pin-input-field {
+    .pin-code-input {
       font-family: inherit;
-      width: 160px;
+      width: 150px;
       text-align: center;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 900;
-      letter-spacing: 10px;
+      letter-spacing: 8px;
       color: #FFFFFF;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 14px;
-      padding: 10px 14px;
+      border-radius: 12px;
+      padding: 8px 12px;
       outline: none;
-      transition: all 0.2s ease;
+      margin: 14px 0 4px;
     }
 
-    .pin-input-field:focus {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: var(--ios-blue);
-      box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3);
+    .pin-code-input:focus {
+      border-color: var(--apple-blue);
+      box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.35);
     }
 
-    .pin-error-text {
-      font-size: 12px;
+    .pin-error-notice {
+      font-size: 11.5px;
       font-weight: 600;
-      color: #FF453A;
+      color: #FF2D55;
       min-height: 16px;
     }
 
-    .ios-alert-actions {
+    .apple-dialog-actions {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      border-top: 1px solid var(--separator);
+      border-top: 1px solid var(--separator-line);
     }
 
-    .ios-alert-btn {
+    .dialog-btn {
       background: transparent;
       border: none;
-      padding: 14px;
-      font-size: 15px;
-      font-weight: 600;
+      padding: 13px;
+      font-size: 14px;
+      font-weight: 700;
       cursor: pointer;
       transition: background 0.15s ease;
+      min-height: 44px;
     }
 
-    .ios-alert-btn:first-child {
-      border-right: 1px solid var(--separator);
+    .dialog-btn:first-child {
+      border-right: 1px solid var(--separator-line);
       color: var(--text-secondary);
     }
 
-    .ios-alert-btn.primary {
-      color: var(--ios-blue);
-      font-weight: 800;
+    .dialog-btn.primary {
+      color: var(--apple-blue);
     }
 
-    .ios-alert-btn.destructive {
-      color: #FF453A;
-      font-weight: 800;
+    .dialog-btn.danger {
+      color: #FF2D55;
     }
 
-    .ios-alert-btn:active {
+    .record-input-group {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .record-input-label {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .record-text-field {
+      width: 100%;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #FFFFFF;
       background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      padding: 8px 10px;
+      outline: none;
+      min-height: 38px;
     }
 
-    .ios-toast {
+    .record-text-field:focus {
+      border-color: var(--apple-blue);
+    }
+
+    .apple-toast-banner {
       position: fixed;
-      bottom: 24px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background: rgba(36, 38, 48, 0.95);
+      background: rgba(24, 28, 42, 0.96);
       color: #FFFFFF;
-      padding: 11px 22px;
-      border-radius: 24px;
-      font-size: 13px;
-      font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 12.5px;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.75);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       z-index: 1000;
       transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       pointer-events: none;
+      white-space: nowrap;
     }
 
-    .ios-toast.visible {
+    .apple-toast-banner.visible {
       transform: translateX(-50%) translateY(0);
     }
   </style>
 </head>
 <body>
 
-  <div class="ambient-bg">
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
-    <div class="ambient-orb orb-3"></div>
+  <!-- Ambient Glowing Mesh -->
+  <div class="apple-ambient-mesh">
+    <div class="mesh-glow mesh-pink"></div>
+    <div class="mesh-glow mesh-blue"></div>
+    <div class="mesh-glow mesh-green"></div>
   </div>
 
-  <div class="app-container">
+  <div class="app-viewport">
 
-    <!-- Luxury Brand Header -->
-    <header class="luxury-brand-header">
-      <h1 class="brand-main-title">Survival Instinct 108</h1>
-      <div class="brand-subtitle-by">by <span class="roofline-badge">Roofline</span></div>
+    <!-- Clean Header with "by Roofline" -->
+    <header class="apple-header">
+      <h1 class="apple-main-title">Survival Instinct 111</h1>
+      <div class="apple-subtitle">by <span class="roofline-specular">Roofline</span></div>
     </header>
 
-    <!-- Hero Progress Ring & Stats Section (Centered Horizontal Row) -->
-    <section class="glass-card hero-progress-card">
-      <div class="ring-container">
-        <svg class="activity-ring-svg" viewBox="0 0 190 190">
+    <!-- 91-Day Master Timeline Bar (Main Screen) -->
+    <section class="liquid-glass-card timeline-liquid-card">
+      <div class="timeline-top-row">
+        <div class="timeline-title-box">
+          <div class="timeline-icon-badge">⏱️</div>
+          <div class="timeline-text-group">
+            <span class="timeline-heading">91-Day Campaign Timeline</span>
+            <span class="timeline-subline">Sprint Horizon: Sep 1 – Nov 30, 2026</span>
+          </div>
+        </div>
+        <div class="timeline-day-chip" id="timeline-day-pill">Day 1 / 91</div>
+      </div>
+
+      <div class="timeline-track-wrapper">
+        <div class="timeline-fill-bar" id="timeline-bar-fill" style="width: 1.1%;"></div>
+      </div>
+
+      <div class="timeline-milestones-row">
+        <span id="timeline-elapsed-text">1.1% elapsed (1 of 91 days)</span>
+        <span id="timeline-remaining-text" style="color: var(--apple-blue); font-weight: 800;">90 days remaining</span>
+      </div>
+    </section>
+
+    <!-- 4-Ring Activity Center (Order & Realistic Colors: Views=Pink, Followers=Blue, Revenue=MoneyGreen, Videos=Purple) -->
+    <section class="liquid-glass-card hero-rings-card">
+      <div class="rings-wrapper-box">
+        <svg class="quad-ring-svg" viewBox="0 0 260 260">
           <defs>
-            <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FF375F" />
-              <stop offset="100%" stop-color="#FF9F0A" />
+            <!-- Ring 1 (Outer): 100K Views (Pink/Red) -->
+            <linearGradient id="applePinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF2D55" />
+              <stop offset="100%" stop-color="#FF375F" />
+            </linearGradient>
+            <!-- Ring 2: 1K Followers (Blue) -->
+            <linearGradient id="appleBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0A84FF" />
+              <stop offset="100%" stop-color="#5E5CE6" />
+            </linearGradient>
+            <!-- Ring 3: $100 Revenue (Money Emerald Green) -->
+            <linearGradient id="appleGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#30D158" />
+              <stop offset="100%" stop-color="#34C759" />
+            </linearGradient>
+            <!-- Ring 4 (Inner): 91 Videos (Studio Purple) -->
+            <linearGradient id="applePurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#BF5AF2" />
+              <stop offset="100%" stop-color="#AF52DE" />
             </linearGradient>
           </defs>
-          <circle cx="95" cy="95" r="80" class="ring-bg" />
-          <circle cx="95" cy="95" r="80" class="ring-fill" id="activity-ring-fill" />
+
+          <!-- Outer Ring Track: Views (Target 100K - r=108) -->
+          <circle cx="130" cy="130" r="108" class="ring-track" stroke-width="8.5" />
+          <circle cx="130" cy="130" r="108" class="ring-fill-animated ring-views" id="ring-views-fill" />
+
+          <!-- Ring 2 Track: Followers (Target 1,000 - r=90) -->
+          <circle cx="130" cy="130" r="90" class="ring-track" stroke-width="8.5" />
+          <circle cx="130" cy="130" r="90" class="ring-fill-animated ring-followers" id="ring-followers-fill" />
+
+          <!-- Ring 3 Track: Revenue (Target $100 - r=72) -->
+          <circle cx="130" cy="130" r="72" class="ring-track" stroke-width="8.5" />
+          <circle cx="130" cy="130" r="72" class="ring-fill-animated ring-revenue" id="ring-revenue-fill" />
+
+          <!-- Ring 4 Track: Videos (Target 91 - r=54) -->
+          <circle cx="130" cy="130" r="54" class="ring-track" stroke-width="8.5" />
+          <circle cx="130" cy="130" r="54" class="ring-fill-animated ring-videos" id="ring-videos-fill" />
         </svg>
 
-        <div class="ring-center-content">
-          <div class="ring-percent" id="hero-percent-value">0.0%</div>
-          <div class="ring-goal-label" id="hero-goal-sub">of 10,000 goal</div>
+        <!-- Rings Center Score -->
+        <div class="rings-center-core">
+          <div class="rings-center-percent" id="quad-blended-percent">0.0%</div>
+          <span class="rings-center-label">Goals Met</span>
+          <div class="rings-indicator-dots">
+            <span class="ring-dot" style="background:#FF2D55;" title="Views (100K)"></span>
+            <span class="ring-dot" style="background:#0A84FF;" title="Followers (1K)"></span>
+            <span class="ring-dot" style="background:#30D158;" title="Revenue ($100)"></span>
+            <span class="ring-dot" style="background:#BF5AF2;" title="Videos (91)"></span>
+          </div>
         </div>
       </div>
 
-      <!-- 3 Stat Tiles Grid (Horizontal Row Side-by-Side) -->
-      <div class="stat-tiles-grid">
-        <div class="stat-tile">
-          <div class="stat-tile-label">Total Views</div>
-          <div class="stat-tile-value" id="stat-total-views">0</div>
-          <div class="stat-tile-sub">Combined</div>
+      <!-- 4 Master Targets Matrix Deck (Views=Pink, Followers=Blue, Revenue=MoneyGreen, Videos=Purple) -->
+      <div class="master-targets-grid">
+        <!-- Target 1: Views (100,000) -->
+        <div class="target-tile tile-views">
+          <div class="target-tile-top">
+            <span class="target-tile-label">👁️ Views</span>
+            <span style="font-size:10px; font-weight:800; color:#FF2D55;">100K</span>
+          </div>
+          <div class="target-tile-val" id="stat-views-val">0</div>
+          <div class="target-tile-bar">
+            <div class="target-tile-fill" id="bar-views-fill" style="background: linear-gradient(90deg, #FF2D55, #FF375F); width: 0%;"></div>
+          </div>
+          <div class="target-tile-sub" id="stat-views-sub">0% of 100K</div>
         </div>
 
-        <div class="stat-tile">
-          <div class="stat-tile-label">Remaining</div>
-          <div class="stat-tile-value" id="stat-remaining-views">10,000</div>
-          <div class="stat-tile-sub">To goal</div>
+        <!-- Target 2: Followers (1,000) -->
+        <div class="target-tile tile-followers">
+          <div class="target-tile-top">
+            <span class="target-tile-label">👥 Followers</span>
+            <span style="font-size:10px; font-weight:800; color:#0A84FF;">1K</span>
+          </div>
+          <div class="target-tile-val" id="stat-followers-val">0 / 1K</div>
+          <div class="target-tile-bar">
+            <div class="target-tile-fill" id="bar-followers-fill" style="background: linear-gradient(90deg, #0A84FF, #5E5CE6); width: 0%;"></div>
+          </div>
+          <div class="target-tile-sub" id="stat-followers-sub">0% of 1,000</div>
         </div>
 
-        <div class="stat-tile">
-          <div class="stat-tile-label">Needed / Day</div>
-          <div class="stat-tile-value" id="stat-needed-day">0</div>
-          <div class="stat-tile-sub" id="stat-days-left-label">14 days left</div>
+        <!-- Target 3: Revenue ($100) -->
+        <div class="target-tile tile-revenue">
+          <div class="target-tile-top">
+            <span class="target-tile-label">💵 Revenue</span>
+            <span style="font-size:10px; font-weight:800; color:#30D158;">$100</span>
+          </div>
+          <div class="target-tile-val" id="stat-revenue-val">$0</div>
+          <div class="target-tile-bar">
+            <div class="target-tile-fill" id="bar-revenue-fill" style="background: linear-gradient(90deg, #30D158, #34C759); width: 0%;"></div>
+          </div>
+          <div class="target-tile-sub" id="stat-revenue-sub">0% of $100</div>
+        </div>
+
+        <!-- Target 4: Videos (91) -->
+        <div class="target-tile tile-videos">
+          <div class="target-tile-top">
+            <span class="target-tile-label">🎬 Videos</span>
+            <span style="font-size:10px; font-weight:800; color:#BF5AF2;">91 Clips</span>
+          </div>
+          <div class="target-tile-val" id="stat-videos-val">0 / 91</div>
+          <div class="target-tile-bar">
+            <div class="target-tile-fill" id="bar-videos-fill" style="background: linear-gradient(90deg, #BF5AF2, #AF52DE); width: 0%;"></div>
+          </div>
+          <div class="target-tile-sub" id="stat-videos-sub">0% of 91 clips</div>
         </div>
       </div>
     </section>
 
-    <!-- Smart Insight Strip -->
-    <div class="glass-card insight-strip" id="smart-insight-container">
-      <span class="insight-icon">✨</span>
-      <span class="insight-text">Track your views daily across all platforms.</span>
-    </div>
-
-    <!-- iOS Segmented Control -->
-    <div class="segmented-control-wrapper" id="segmented-wrapper" data-active-tab="today">
-      <div class="segment-slider"></div>
-      <button class="segment-btn active" id="tab-today-btn" type="button">
-        <span>Today</span>
+    <!-- Liquid Segment Control -->
+    <div class="liquid-segment-bar" id="segmented-bar" data-active-tab="today">
+      <div class="segment-liquid-thumb"></div>
+      <button class="segment-tab-btn active" id="tab-today-btn" type="button">
+        <span>⚡ Today Log</span>
       </button>
-      <button class="segment-btn" id="tab-log-btn" type="button">
-        <span>Log / History</span>
+      <button class="segment-tab-btn" id="tab-log-btn" type="button">
+        <span>📊 Analytics & Records</span>
       </button>
     </div>
 
-    <!-- TAB 1: TODAY -->
-    <main class="tab-view active" id="today-tab-view">
-      <div class="glass-card date-selector-card">
-        <div class="date-display-group" id="date-display-trigger" style="cursor: pointer;">
-          <div class="date-calendar-icon">📅</div>
-          <div class="date-text-container">
-            <div class="date-main-label" id="date-main-text">Aug 20, 2026</div>
-            <div class="date-sub-label" id="date-sub-text">Tap to pick date</div>
+    <!-- TAB 1: TODAY LOG -->
+    <main class="tab-view-pane active" id="today-tab-view">
+      <!-- Date Capsule Bar -->
+      <div class="liquid-glass-card date-capsule-card">
+        <div class="date-tap-zone" id="date-display-trigger">
+          <div class="date-apple-icon">📅</div>
+          <div class="date-texts-box">
+            <div class="date-heading-main" id="date-main-text">Sep 1, 2026</div>
+            <div class="date-heading-sub" id="date-sub-text">Tap to select calendar day</div>
           </div>
         </div>
-        <div class="date-steppers">
-          <button class="stepper-btn" id="prev-day-btn" title="Previous Day" type="button">‹</button>
-          <button class="stepper-btn" id="next-day-btn" title="Next Day" type="button">›</button>
+        <div class="date-steppers-wrap">
+          <button class="stepper-apple-btn" id="prev-day-btn" title="Previous Day" type="button">‹</button>
+          <button class="stepper-apple-btn" id="next-day-btn" title="Next Day" type="button">›</button>
         </div>
         <input type="date" id="hidden-date-picker" class="hidden-date-input">
       </div>
 
-      <div class="platform-cards-list" id="platform-cards-container"></div>
+      <!-- Core Progress Inputs Card (Followers /1K, Revenue /$100, Videos /91) -->
+      <div class="liquid-glass-card targets-input-card">
+        <div class="targets-card-head">
+          <span class="targets-card-title">🎯 September Progress Targets</span>
+          <span style="font-size: 10.5px; font-weight: 800; color: var(--apple-green);">Month Total</span>
+        </div>
+        <div class="targets-inputs-3grid">
+          <div class="target-field-box">
+            <label class="target-field-label">👥 Followers ( / 1K):</label>
+            <input 
+              type="number" 
+              id="input-followers-count" 
+              class="apple-num-input" 
+              placeholder="0" 
+              min="0" 
+              value="0"
+            />
+          </div>
 
-      <div class="today-actions-group">
-        <button class="ios-primary-btn" id="save-log-btn" type="button">
-          <span>🔒 Log / Update this day</span>
+          <div class="target-field-box">
+            <label class="target-field-label">💵 Revenue ($ / 100):</label>
+            <input 
+              type="number" 
+              id="input-revenue-count" 
+              class="apple-num-input" 
+              placeholder="0" 
+              min="0" 
+              value="0"
+            />
+          </div>
+
+          <div class="target-field-box">
+            <label class="target-field-label">🎬 Videos ( / 91):</label>
+            <input 
+              type="number" 
+              id="input-videos-count" 
+              class="apple-num-input" 
+              placeholder="0" 
+              min="0" 
+              max="91"
+              value="0"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Auto-Sorted Platform View Cards -->
+      <div class="platform-cards-deck" id="platform-cards-container"></div>
+
+      <!-- Action Buttons -->
+      <div class="today-actions-row">
+        <button class="apple-save-btn" id="save-log-btn" type="button">
+          <span>🔒 Log / Update Today's Numbers</span>
         </button>
-        <button class="ios-destructive-btn" id="delete-current-day-btn" type="button" style="display: none;">
+        <button class="apple-delete-btn" id="delete-current-day-btn" type="button" style="display: none;">
           <span>🗑️ Delete</span>
         </button>
       </div>
     </main>
 
-    <!-- TAB 2: LOG / HISTORY -->
-    <section class="tab-view" id="log-tab-view">
-      <div class="advanced-kpi-grid" id="advanced-kpi-container"></div>
+    <!-- TAB 2: ANALYTICS & RECORDS -->
+    <section class="tab-view-pane" id="log-tab-view">
       
-      <div class="charts-grid-wrapper">
-        <div class="glass-card sparkline-card">
-          <div class="chart-header">
-            <span class="chart-title">Month-to-Date Growth</span>
-            <span class="chart-subtitle">Cumulative Total</span>
-          </div>
-          <div class="sparkline-svg-container" id="sparkline-svg-wrapper"></div>
+      <!-- 4 Daily Average KPI Cubes Side by Side (Views, Followers, Revenue, Videos) -->
+      <div class="daily-avg-4grid">
+        <!-- Cube 1: Views Daily Average -->
+        <div class="avg-kpi-card card-views-avg">
+          <div class="avg-icon-emoji">👁️</div>
+          <div class="avg-heading-title">AVG VIEWS / DAY</div>
+          <div class="avg-big-stat" id="kpi-avg-views" style="color: #FF2D55;">0</div>
+          <div class="avg-bottom-sub">Goal: 100K Views</div>
         </div>
 
-        <div class="glass-card sparkline-card">
-          <div class="chart-header">
-            <span class="chart-title">Daily Increase Velocity</span>
-            <span class="chart-subtitle" style="color: #30D158;">+Views / Day</span>
+        <!-- Cube 2: Followers Daily Average -->
+        <div class="avg-kpi-card card-followers-avg">
+          <div class="avg-icon-emoji">👥</div>
+          <div class="avg-heading-title">AVG FOLLOWERS / DAY</div>
+          <div class="avg-big-stat" id="kpi-avg-followers" style="color: #0A84FF;">0</div>
+          <div class="avg-bottom-sub">Goal: 1,000 Fols</div>
+        </div>
+
+        <!-- Cube 3: Revenue Daily Average -->
+        <div class="avg-kpi-card card-revenue-avg">
+          <div class="avg-icon-emoji">💵</div>
+          <div class="avg-heading-title">AVG REVENUE / DAY</div>
+          <div class="avg-big-stat" id="kpi-avg-revenue" style="color: #30D158;">$0.00</div>
+          <div class="avg-bottom-sub">Goal: $100 Total</div>
+        </div>
+
+        <!-- Cube 4: Videos Daily Average -->
+        <div class="avg-kpi-card card-videos-avg">
+          <div class="avg-icon-emoji">🎬</div>
+          <div class="avg-heading-title">AVG VIDEOS / DAY</div>
+          <div class="avg-big-stat" id="kpi-avg-videos" style="color: #BF5AF2;">0.0</div>
+          <div class="avg-bottom-sub">Goal: 91 Clips</div>
+        </div>
+      </div>
+
+      <!-- Top Content Hall of Fame - Clean Minimalist Apple Glass Aesthetic -->
+      <div class="liquid-glass-card hall-of-fame-panel">
+        <div class="hall-header-bar">
+          <h3 class="hall-main-title">🏆 Top Performing Master Content</h3>
+          <button class="hall-edit-action-btn" id="open-record-edit-btn" type="button">✏️ Edit Top Videos & Links</button>
+        </div>
+        <div class="hall-content-grid">
+          <!-- Top Viewed Video -->
+          <div class="hall-video-deck">
+            <div class="hall-deck-top">
+              <span class="hall-deck-badge">👁️ Most Viewed Video</span>
+              <span id="record-views-platform-badge" style="font-size: 9.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.85);">TIKTOK</span>
+            </div>
+            <div class="hall-deck-number" id="record-views-count">0 views</div>
+            <div class="hall-deck-title" id="record-views-title">No video title set yet</div>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="hall-play-link-btn" id="record-views-link-btn" style="display: none;">
+              <span>▶️ Watch Video / View Post ↗</span>
+            </a>
+          </div>
+
+          <!-- Top Liked Video -->
+          <div class="hall-video-deck">
+            <div class="hall-deck-top">
+              <span class="hall-deck-badge">❤️ Most Liked Video</span>
+              <span id="record-likes-platform-badge" style="font-size: 9.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.85);">YOUTUBE</span>
+            </div>
+            <div class="hall-deck-number" id="record-likes-count">0 likes</div>
+            <div class="hall-deck-title" id="record-likes-title">No video title set yet</div>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="hall-play-link-btn" id="record-likes-link-btn" style="display: none;">
+              <span>▶️ Watch Video / View Post ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Growth & Velocity Charts -->
+      <div class="charts-apple-stack">
+        <div class="liquid-glass-card chart-liquid-panel">
+          <div class="chart-head-line">
+            <span class="chart-head-title">Views Trajectory (Goal: 100K)</span>
+            <span class="chart-head-sub">Cumulative Trajectory</span>
+          </div>
+          <div class="sparkline-svg-zone" id="sparkline-svg-wrapper"></div>
+        </div>
+
+        <div class="liquid-glass-card chart-liquid-panel">
+          <div class="chart-head-line">
+            <span class="chart-head-title">Daily Velocity Increase</span>
+            <span class="chart-head-sub" style="color: #30D158;">+Views / Day</span>
           </div>
           <div style="width: 100%; height: 130px; position: relative;" id="velocity-chart-wrapper"></div>
         </div>
 
-        <div class="glass-card distribution-card">
-          <div class="chart-header" style="margin-bottom: 8px;">
-            <span class="chart-title">Platform View Distribution</span>
-            <span class="chart-subtitle">Share %</span>
+        <div class="liquid-glass-card chart-liquid-panel">
+          <div class="chart-head-line" style="margin-bottom: 8px;">
+            <span class="chart-head-title">Platform Rankings & Share (Auto-Sorted)</span>
+            <span class="chart-head-sub">Ranked by Volume</span>
           </div>
-          <div class="distribution-list" id="platform-distribution-list"></div>
+          <div class="distribution-liquid-list" id="platform-distribution-list"></div>
         </div>
       </div>
 
-      <div class="history-section-header">Logged History</div>
+      <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.8px; margin: 0 0 8px 8px;">September 2026 Logged History</div>
       <div id="history-list-container"></div>
     </section>
 
   </div>
 
-  <!-- iOS Passcode PIN Modal (0000) -->
-  <div class="ios-modal-backdrop" id="ios-passcode-modal">
-    <div class="ios-alert-dialog" id="passcode-dialog-card">
-      <div class="ios-alert-body">
-        <div class="ios-alert-icon">🔒</div>
-        <h4 class="ios-alert-title">Enter Passcode</h4>
-        <p class="ios-alert-message" id="passcode-modal-instruction">Enter your 4-digit PIN to authorize this change.</p>
+  <!-- Passcode PIN Modal (0000) -->
+  <div class="apple-modal-overlay" id="apple-passcode-modal">
+    <div class="apple-dialog-card" id="passcode-dialog-box">
+      <div class="apple-dialog-body">
+        <div class="apple-dialog-icon">🔒</div>
+        <h4 class="apple-dialog-title">Enter Passcode</h4>
+        <p class="apple-dialog-sub" id="passcode-modal-instruction">Enter your 4-digit PIN to authorize this change.</p>
         
-        <div class="pin-input-container">
-          <input 
-            type="password" 
-            id="admin-pin-input" 
-            class="pin-input-field" 
-            maxlength="4" 
-            pattern="[0-9]*" 
-            inputmode="numeric" 
-            placeholder="••••"
-            autocomplete="off"
-          />
-          <div class="pin-error-text" id="pin-error-msg"></div>
-        </div>
+        <input 
+          type="password" 
+          id="admin-pin-input" 
+          class="pin-code-input" 
+          maxlength="4" 
+          pattern="[0-9]*" 
+          inputmode="numeric" 
+          placeholder="••••"
+          autocomplete="off"
+        />
+        <div class="pin-error-notice" id="pin-error-msg"></div>
       </div>
-      <div class="ios-alert-actions">
-        <button class="ios-alert-btn" id="passcode-cancel-btn" type="button">Cancel</button>
-        <button class="ios-alert-btn primary" id="passcode-confirm-btn" type="button">Unlock</button>
+      <div class="apple-dialog-actions">
+        <button class="dialog-btn" id="passcode-cancel-btn" type="button">Cancel</button>
+        <button class="dialog-btn primary" id="passcode-confirm-btn" type="button">Unlock</button>
       </div>
     </div>
   </div>
 
-  <!-- iOS Delete Confirmation Alert Modal -->
-  <div class="ios-modal-backdrop" id="ios-delete-modal">
-    <div class="ios-alert-dialog">
-      <div class="ios-alert-body">
-        <div class="ios-alert-icon">🗑️</div>
-        <h4 class="ios-alert-title">Delete Log?</h4>
-        <p class="ios-alert-message" id="delete-modal-message">Are you sure you want to delete this log entry? This action cannot be undone.</p>
+  <!-- Top Records & Links Edit Modal -->
+  <div class="apple-modal-overlay" id="apple-records-modal">
+    <div class="apple-dialog-card" style="max-width: 380px;">
+      <div class="apple-dialog-body" style="padding: 18px 16px;">
+        <div class="apple-dialog-icon">🏆</div>
+        <h4 class="apple-dialog-title">Update Top Content & Links</h4>
+        <p class="apple-dialog-sub" style="margin-bottom: 14px;">Add direct links to easily jump to your top performing clips.</p>
+
+        <!-- Top Viewed Video Form -->
+        <div class="record-input-group">
+          <label class="record-input-label">👁️ Most Viewed Video Title:</label>
+          <input type="text" id="form-top-views-title" class="record-text-field" placeholder="e.g. Master AI Automation Workflow" />
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
+          <div>
+            <label class="record-input-label">Platform:</label>
+            <select id="form-top-views-platform" class="record-text-field" style="background: #141824;">
+              <option value="tiktok">TikTok</option>
+              <option value="youtube">YouTube</option>
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="x">X</option>
+            </select>
+          </div>
+          <div>
+            <label class="record-input-label">Views Count:</label>
+            <input type="number" id="form-top-views-count" class="record-text-field" placeholder="0" />
+          </div>
+        </div>
+        <div class="record-input-group" style="margin-bottom: 14px;">
+          <label class="record-input-label">🔗 Most Viewed Video Direct URL / Link:</label>
+          <input type="url" id="form-top-views-url" class="record-text-field" placeholder="https://www.tiktok.com/@ai.roof/video/..." />
+        </div>
+
+        <!-- Top Liked Video Form -->
+        <div class="record-input-group">
+          <label class="record-input-label">❤️ Most Liked Video Title:</label>
+          <input type="text" id="form-top-likes-title" class="record-text-field" placeholder="e.g. Top 10 Secret AI Tools" />
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
+          <div>
+            <label class="record-input-label">Platform:</label>
+            <select id="form-top-likes-platform" class="record-text-field" style="background: #141824;">
+              <option value="youtube">YouTube</option>
+              <option value="tiktok">TikTok</option>
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="x">X</option>
+            </select>
+          </div>
+          <div>
+            <label class="record-input-label">Likes Count:</label>
+            <input type="number" id="form-top-likes-count" class="record-text-field" placeholder="0" />
+          </div>
+        </div>
+        <div class="record-input-group">
+          <label class="record-input-label">🔗 Most Liked Video Direct URL / Link:</label>
+          <input type="url" id="form-top-likes-url" class="record-text-field" placeholder="https://www.youtube.com/shorts/..." />
+        </div>
       </div>
-      <div class="ios-alert-actions">
-        <button class="ios-alert-btn" id="modal-cancel-btn" type="button">Cancel</button>
-        <button class="ios-alert-btn destructive" id="modal-confirm-btn" type="button">Delete</button>
+      <div class="apple-dialog-actions">
+        <button class="dialog-btn" id="records-cancel-btn" type="button">Cancel</button>
+        <button class="dialog-btn primary" id="records-save-btn" type="button">Save Records</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="apple-modal-overlay" id="apple-delete-modal">
+    <div class="apple-dialog-card">
+      <div class="apple-dialog-body">
+        <div class="apple-dialog-icon">🗑️</div>
+        <h4 class="apple-dialog-title">Delete Log Entry?</h4>
+        <p class="apple-dialog-sub" id="delete-modal-message">Are you sure you want to delete this log entry? This action cannot be undone.</p>
+      </div>
+      <div class="apple-dialog-actions">
+        <button class="dialog-btn" id="modal-cancel-btn" type="button">Cancel</button>
+        <button class="dialog-btn danger" id="modal-confirm-btn" type="button">Delete</button>
       </div>
     </div>
   </div>
@@ -1377,7 +1955,7 @@
     const ADMIN_PIN = "0000";
     let pendingSecureAction = null;
 
-    // Survival 108 Official Firebase Config
+    // Survival 111 Official Firebase Config
     const firebaseConfig = {
       apiKey: "AIzaSyC2twiy4amoJ0ykuT_29UVxyO-pw3CMkII",
       authDomain: "survival108.firebaseapp.com",
@@ -1392,20 +1970,21 @@
     let isCloudEnabled = false;
     let unsubscribeRealtime = null;
 
-    // Official Connected Channels
+    // Official Connected Channels with Authentic High-Res TikTok & Social Brand SVGs
     const PLATFORMS = [
       {
         id: "tiktok",
         name: "TikTok",
         handle: "@ai.roof",
         url: "https://www.tiktok.com/@ai.roof",
-        badgeBg: "linear-gradient(135deg, #050608 0%, #15181f 100%)",
+        badgeBg: "linear-gradient(135deg, #010101 0%, #121212 100%)",
         accentColor: "#00F2FE",
         iconColor: "#FFFFFF",
-        svg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-          <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743 2.894 2.894 0 0 1 2.31-4.639c.298-.002.595.042.88.13V9.402a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.662a6.34 6.34 0 0 0 10.864 4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-3.044-1.526z" fill="#00F2FE"/>
-          <path d="M18.089 5.686a4.793 4.793 0 0 1-3.77-4.245V1h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743 2.894 2.894 0 0 1 2.31-4.639c.298-.002.595.042.88.13V8.402a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 1.5 14.662a6.34 6.34 0 0 0 10.864 4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-3.044-1.526z" fill="#FE2C55"/>
-          <path d="M18.839 6.186a4.793 4.793 0 0 1-3.77-4.245V1.5h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743 2.894 2.894 0 0 1 2.31-4.639c.298-.002.595.042.88.13V8.902a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 2.25 15.162a6.34 6.34 0 0 0 10.864 4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-3.044-1.526z" fill="#FFFFFF"/>
+        // Authentic Multi-Color TikTok Glitch Note SVG
+        svg: `<svg viewBox="0 0 28 28" width="22" height="22" fill="none">
+          <path d="M19.4 7.2c-1.1-.7-1.9-1.9-2.1-3.2h-3v14.2a2.8 2.8 0 1 1-2.8-2.8c.4 0 .7.1 1.1.2V12a6.3 6.3 0 0 0-1.1-.1 6.2 6.2 0 1 0 6.2 6.2V9.8a8.2 8.2 0 0 0 4.8 1.5V7.9c-1.2 0-2.3-.3-3.1-.7z" fill="#25F4EE" transform="translate(-1, 0.8)"/>
+          <path d="M19.4 7.2c-1.1-.7-1.9-1.9-2.1-3.2h-3v14.2a2.8 2.8 0 1 1-2.8-2.8c.4 0 .7.1 1.1.2V12a6.3 6.3 0 0 0-1.1-.1 6.2 6.2 0 1 0 6.2 6.2V9.8a8.2 8.2 0 0 0 4.8 1.5V7.9c-1.2 0-2.3-.3-3.1-.7z" fill="#FE2C55" transform="translate(1, -0.8)"/>
+          <path d="M19.4 7.2c-1.1-.7-1.9-1.9-2.1-3.2h-3v14.2a2.8 2.8 0 1 1-2.8-2.8c.4 0 .7.1 1.1.2V12a6.3 6.3 0 0 0-1.1-.1 6.2 6.2 0 1 0 6.2 6.2V9.8a8.2 8.2 0 0 0 4.8 1.5V7.9c-1.2 0-2.3-.3-3.1-.7z" fill="#FFFFFF"/>
         </svg>`
       },
       {
@@ -1413,12 +1992,12 @@
         name: "YouTube",
         handle: "@AIRoofac",
         url: "https://www.youtube.com/@AIRoofac",
-        badgeBg: "linear-gradient(135deg, #FF0000 0%, #D80000 100%)",
-        accentColor: "#FF453A",
+        badgeBg: "linear-gradient(135deg, #FF2D55 0%, #D80027 100%)",
+        accentColor: "#FF2D55",
         iconColor: "#FFFFFF",
         svg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-          <path fill="#FFFFFF" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" opacity="0.95"/>
-          <path fill="#FF0000" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          <path fill="#FFFFFF" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+          <path fill="#FF2D55" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
         </svg>`
       },
       {
@@ -1426,17 +2005,21 @@
         name: "Instagram",
         handle: "@airoofac",
         url: "https://www.instagram.com/airoofac/",
-        badgeBg: "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+        badgeBg: "linear-gradient(45deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%)",
         accentColor: "#E1306C",
         iconColor: "#FFFFFF",
-        svg: `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>`
+        svg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <circle cx="17.5" cy="6.5" r="1" fill="#FFFFFF"></circle>
+        </svg>`
       },
       {
         id: "facebook",
         name: "Facebook",
         handle: "Roofline Page",
         url: "https://www.facebook.com/profile.php?id=61593094094173",
-        badgeBg: "linear-gradient(135deg, #1877F2 0%, #0d5bbd 100%)",
+        badgeBg: "linear-gradient(135deg, #1877F2 0%, #0D5BBD 100%)",
         accentColor: "#0A84FF",
         iconColor: "#FFFFFF",
         svg: `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`
@@ -1453,28 +2036,43 @@
       }
     ];
 
-    const SEED_DATA = {
-      goal: 10000,
-      month: "2026-08",
-      monthName: "August 2026",
-      logs: {
-        "2026-08-15": { tiktok: 2098, youtube: 1, instagram: 0, facebook: 0, x: 0 },
-        "2026-08-16": { tiktok: 2243, youtube: 2, instagram: 31, facebook: 0, x: 0 }
-      }
+    // Master 4 Core Targets Configuration (Views, Followers, Revenue, Videos)
+    const MASTER_GOALS = {
+      views: 100000,    // Target 1: 100,000 Views
+      followers: 1000,  // Target 2: 1,000 Followers
+      revenue: 100,     // Target 3: $100 Revenue
+      videos: 91        // Target 4: 91 Videos
     };
 
-    const STORAGE_KEY = "views_dashboard_data_v1";
+    // Clean September 2026 Seed Data with Links
+    const SEED_DATA = {
+      goals: MASTER_GOALS,
+      month: "2026-09",
+      monthName: "September 2026",
+      records: {
+        topViews: { title: "Master AI Video #1", platform: "tiktok", views: 0, url: "", date: "Sep 2026" },
+        topLikes: { title: "Viral Tech Spotlight #1", platform: "youtube", likes: 0, url: "", date: "Sep 2026" }
+      },
+      logs: {}
+    };
+
+    const STORAGE_KEY = "survival111_apple_liquid_glass_v6";
 
     let appData = null;
-    let selectedDate = "2026-08-20";
+    let selectedDate = "2026-09-01";
     let editingOriginalDate = null;
     let currentTab = "today";
     let pendingDeleteDate = null;
 
     document.addEventListener("DOMContentLoaded", () => {
+      // Purge older storage keys
+      localStorage.removeItem("views_dashboard_data_v1");
+      localStorage.removeItem("views_dashboard_data_september_v2");
+      localStorage.removeItem("survival108_google_glass_db_v3");
+
       loadData();
+      sanitizeOutAugustLogs();
       setupEventListeners();
-      renderPlatformCards();
       initDateSelection();
       renderApp();
       initCloudSync();
@@ -1488,11 +2086,30 @@
       });
     });
 
+    function sanitizeOutAugustLogs() {
+      if (!appData || !appData.logs) return;
+      let cleaned = false;
+      Object.keys(appData.logs).forEach(dateKey => {
+        if (dateKey.startsWith("2026-08") || dateKey < "2026-09-01") {
+          delete appData.logs[dateKey];
+          cleaned = true;
+        }
+      });
+      if (cleaned) saveDataLocally();
+    }
+
     function loadData() {
       try {
-        const saved = localStorage.getItem(STORAGE_KEY);
+        const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem("survival108_apple_liquid_glass_v5") || localStorage.getItem("survival108_apple_liquid_glass_v4");
         if (saved) {
           appData = JSON.parse(saved);
+          if (!appData.goals) appData.goals = MASTER_GOALS;
+          if (!appData.records) appData.records = SEED_DATA.records;
+          if (!appData.logs) appData.logs = {};
+          appData.goals.views = 100000;
+          appData.goals.followers = 1000;
+          appData.goals.revenue = 100;
+          appData.goals.videos = 91;
         } else {
           appData = JSON.parse(JSON.stringify(SEED_DATA));
           saveDataLocally();
@@ -1523,29 +2140,50 @@
       if (!db) return;
       if (unsubscribeRealtime) unsubscribeRealtime();
 
-      const docRef = db.collection("views_dashboard").doc("survival_108");
+      const docRef = db.collection("views_dashboard").doc("survival_111");
 
       unsubscribeRealtime = docRef.onSnapshot((doc) => {
         if (doc.exists) {
           const cloudData = doc.data();
-          if (cloudData && cloudData.logs) {
+          if (cloudData) {
             appData = cloudData;
+            if (!appData.goals) appData.goals = MASTER_GOALS;
+            if (!appData.records) appData.records = SEED_DATA.records;
+            if (!appData.logs) appData.logs = {};
+            appData.goals.views = 100000;
+            appData.goals.followers = 1000;
+            appData.goals.revenue = 100;
+            appData.goals.videos = 91;
+            sanitizeOutAugustLogs();
             saveDataLocally();
             updateDateDisplay();
             loadDateInputs(selectedDate);
             renderApp();
           }
         } else {
-          docRef.set(appData);
+          db.collection("views_dashboard").doc("survival_108").get().then((oldDoc) => {
+            if (oldDoc.exists && oldDoc.data()?.logs) {
+              appData = oldDoc.data();
+              sanitizeOutAugustLogs();
+              saveDataLocally();
+              docRef.set(appData);
+              renderApp();
+            } else {
+              docRef.set(appData);
+            }
+          }).catch(() => {
+            docRef.set(appData);
+          });
         }
       }, (err) => {});
     }
 
     function syncToCloud(onCompleteMsg) {
+      sanitizeOutAugustLogs();
       saveDataLocally();
 
       if (isCloudEnabled && db) {
-        db.collection("views_dashboard").doc("survival_108").set(appData)
+        db.collection("views_dashboard").doc("survival_111").set(appData)
           .then(() => {
             if (onCompleteMsg) showToast(onCompleteMsg);
           })
@@ -1558,12 +2196,8 @@
     }
 
     function initDateSelection() {
-      const sortedDates = getSortedDates();
-      if (sortedDates.length > 0) {
-        selectedDate = sortedDates[sortedDates.length - 1];
-      } else {
-        selectedDate = new Date().toISOString().split("T")[0];
-      }
+      const today = new Date().toISOString().split("T")[0];
+      selectedDate = today.startsWith("2026-09") ? today : "2026-09-01";
       updateDateDisplay();
       loadDateInputs(selectedDate);
     }
@@ -1604,17 +2238,25 @@
         });
       }
 
+      const inputFollowers = document.getElementById("input-followers-count");
+      const inputRevenue = document.getElementById("input-revenue-count");
+      const inputVideos = document.getElementById("input-videos-count");
+
+      if (inputFollowers) inputFollowers.addEventListener("input", () => renderApp(true));
+      if (inputRevenue) inputRevenue.addEventListener("input", () => renderApp(true));
+      if (inputVideos) inputVideos.addEventListener("input", () => renderApp(true));
+
       const saveBtn = document.getElementById("save-log-btn");
       if (saveBtn) {
         saveBtn.addEventListener("click", () => {
-          requestAdminPin(() => executeSaveLog(), "Enter PIN to save/update this day's log");
+          requestAdminPin(() => executeSaveLog(), "Enter PIN to save/update this day's targets");
         });
       }
 
       const deleteDayBtn = document.getElementById("delete-current-day-btn");
       if (deleteDayBtn) {
         deleteDayBtn.addEventListener("click", () => {
-          if (appData.logs[selectedDate]) promptDeleteDay(selectedDate);
+          if (appData.logs && appData.logs[selectedDate]) promptDeleteDay(selectedDate);
         });
       }
 
@@ -1627,6 +2269,24 @@
           hideDeleteModal();
           requestAdminPin(() => executeDeleteDay(targetDate), `Enter PIN to delete log for ${formatDateShort(targetDate)}`);
         });
+      }
+
+      // Record edit modal
+      const openRecordBtn = document.getElementById("open-record-edit-btn");
+      const recordsModal = document.getElementById("apple-records-modal");
+      const recordsCancelBtn = document.getElementById("records-cancel-btn");
+      const recordsSaveBtn = document.getElementById("records-save-btn");
+
+      if (openRecordBtn) {
+        openRecordBtn.addEventListener("click", () => {
+          requestAdminPin(() => openRecordsModal(), "Enter PIN to edit Top Videos & Links");
+        });
+      }
+      if (recordsCancelBtn && recordsModal) {
+        recordsCancelBtn.addEventListener("click", () => recordsModal.classList.remove("active"));
+      }
+      if (recordsSaveBtn) {
+        recordsSaveBtn.addEventListener("click", saveRecordsModal);
       }
 
       const pinInput = document.getElementById("admin-pin-input");
@@ -1645,9 +2305,52 @@
       }
     }
 
+    function openRecordsModal() {
+      const recordsModal = document.getElementById("apple-records-modal");
+      if (!recordsModal) return;
+
+      const rec = appData.records || SEED_DATA.records;
+      document.getElementById("form-top-views-title").value = rec.topViews?.title || "";
+      document.getElementById("form-top-views-platform").value = rec.topViews?.platform || "tiktok";
+      document.getElementById("form-top-views-count").value = rec.topViews?.views || 0;
+      document.getElementById("form-top-views-url").value = rec.topViews?.url || "";
+
+      document.getElementById("form-top-likes-title").value = rec.topLikes?.title || "";
+      document.getElementById("form-top-likes-platform").value = rec.topLikes?.platform || "youtube";
+      document.getElementById("form-top-likes-count").value = rec.topLikes?.likes || 0;
+      document.getElementById("form-top-likes-url").value = rec.topLikes?.url || "";
+
+      recordsModal.classList.add("active");
+    }
+
+    function saveRecordsModal() {
+      const recordsModal = document.getElementById("apple-records-modal");
+      if (!appData.records) appData.records = {};
+
+      appData.records.topViews = {
+        title: document.getElementById("form-top-views-title").value || "Untitled Master Video",
+        platform: document.getElementById("form-top-views-platform").value || "tiktok",
+        views: parseInt(document.getElementById("form-top-views-count").value, 10) || 0,
+        url: document.getElementById("form-top-views-url").value.trim() || "",
+        date: "Sep 2026"
+      };
+
+      appData.records.topLikes = {
+        title: document.getElementById("form-top-likes-title").value || "Untitled Master Video",
+        platform: document.getElementById("form-top-likes-platform").value || "youtube",
+        likes: parseInt(document.getElementById("form-top-likes-count").value, 10) || 0,
+        url: document.getElementById("form-top-likes-url").value.trim() || "",
+        date: "Sep 2026"
+      };
+
+      if (recordsModal) recordsModal.classList.remove("active");
+      syncToCloud("Top Content Records & Links Updated 🏆");
+      renderRecordsSection();
+    }
+
     function requestAdminPin(callback, instructionText = "Enter your 4-digit PIN to authorize this change.") {
       pendingSecureAction = callback;
-      const modal = document.getElementById("ios-passcode-modal");
+      const modal = document.getElementById("apple-passcode-modal");
       const input = document.getElementById("admin-pin-input");
       const errorMsg = document.getElementById("pin-error-msg");
       const instructionElem = document.getElementById("passcode-modal-instruction");
@@ -1662,7 +2365,7 @@
     }
 
     function hidePinModal() {
-      const modal = document.getElementById("ios-passcode-modal");
+      const modal = document.getElementById("apple-passcode-modal");
       const input = document.getElementById("admin-pin-input");
       if (modal) modal.classList.remove("active");
       if (input) { input.value = ""; input.blur(); }
@@ -1671,7 +2374,7 @@
 
     function verifyAndExecutePin() {
       const input = document.getElementById("admin-pin-input");
-      const card = document.getElementById("passcode-dialog-card");
+      const card = document.getElementById("passcode-dialog-box");
       const errorMsg = document.getElementById("pin-error-msg");
       const enteredPin = input ? input.value.trim() : "";
 
@@ -1692,7 +2395,7 @@
 
     function switchTab(tab) {
       currentTab = tab;
-      const wrapper = document.getElementById("segmented-wrapper");
+      const wrapper = document.getElementById("segmented-bar");
       const todayBtn = document.getElementById("tab-today-btn");
       const logBtn = document.getElementById("tab-log-btn");
       const todayView = document.getElementById("today-tab-view");
@@ -1738,62 +2441,99 @@
       const d = new Date(parts[0], parts[1] - 1, parts[2]);
       const optionsMain = { month: "short", day: "numeric", year: "numeric" };
       const optionsSub = { weekday: "long" };
-      const isExisting = Boolean(appData.logs[selectedDate]);
+      const isExisting = Boolean(appData.logs && appData.logs[selectedDate]);
 
       if (dateMain) {
-        dateMain.innerHTML = `${d.toLocaleDateString("en-US", optionsMain)} ${isExisting ? '<span style="font-size:10px; background:rgba(10,132,255,0.18); color:#0A84FF; padding:2px 6px; border-radius:6px; font-weight:700; border: 1px solid rgba(10,132,255,0.3);">LOGGED</span>' : ''}`;
+        dateMain.innerHTML = `${d.toLocaleDateString("en-US", optionsMain)} ${isExisting ? '<span style="font-size:9.5px; background:rgba(10,132,255,0.2); color:#0A84FF; padding:2px 7px; border-radius:6px; font-weight:800; border: 1px solid rgba(10,132,255,0.35);">LOGGED</span>' : ''}`;
       }
       if (dateSub) dateSub.textContent = d.toLocaleDateString("en-US", optionsSub);
       if (deleteBtn) deleteBtn.style.display = isExisting ? "inline-flex" : "none";
     }
 
-    function renderPlatformCards() {
+    function getSortedPlatforms(currentVals) {
+      return [...PLATFORMS].sort((a, b) => {
+        const valA = currentVals[a.id] || 0;
+        const valB = currentVals[b.id] || 0;
+        return valB - valA;
+      });
+    }
+
+    function renderPlatformCards(sortedList, currentVals, totalViews) {
       const container = document.getElementById("platform-cards-container");
       if (!container) return;
 
-      container.innerHTML = PLATFORMS.map(p => {
+      const priorLog = getMostRecentPriorLog(selectedDate);
+
+      container.innerHTML = sortedList.map((p, index) => {
+        const val = currentVals[p.id] || 0;
+        const share = totalViews > 0 ? ((val / totalViews) * 100).toFixed(1) : "0.0";
+        
+        let rankBadge = `<span class="apple-rank-tag">#${index + 1}</span>`;
+        if (index === 0 && val > 0) {
+          rankBadge = `<span class="apple-rank-tag lead">#1</span>`;
+        }
+
+        let deltaTagText = "--";
+        let deltaTagClass = "platform-delta-tag delta-neu";
+
+        if (priorLog) {
+          const prevVal = priorLog.values[p.id] || 0;
+          const delta = val - prevVal;
+          if (delta > 0) {
+            deltaTagClass = "platform-delta-tag delta-pos";
+            deltaTagText = `+${delta.toLocaleString()}`;
+          } else if (delta < 0) {
+            deltaTagClass = "platform-delta-tag delta-neg";
+            deltaTagText = `${delta.toLocaleString()}`;
+          } else {
+            deltaTagText = "0";
+          }
+        } else if (val > 0) {
+          deltaTagClass = "platform-delta-tag delta-pos";
+          deltaTagText = `+${val.toLocaleString()}`;
+        }
+
         return `
-          <div class="glass-card platform-card" id="card-${p.id}">
-            <div class="platform-card-header">
-              <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="platform-badge-group" title="Open ${p.name} Profile (${p.handle})">
-                <div class="platform-logo-box" style="background: ${p.badgeBg}; color: ${p.iconColor};">
+          <div class="liquid-glass-card platform-card" id="card-${p.id}">
+            <div class="platform-card-top">
+              <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="platform-brand-link" title="Open ${p.name} Profile (${p.handle})">
+                <div class="platform-icon-bubble" style="background: ${p.badgeBg}; color: ${p.iconColor};">
                   ${p.svg}
                 </div>
-                <div class="platform-info-text">
-                  <span class="platform-name">${p.name} ↗</span>
-                  <span class="platform-handle-sub">${p.handle}</span>
+                <div class="platform-title-group">
+                  <span class="platform-name-row">
+                    ${p.name} ↗
+                    ${rankBadge}
+                  </span>
+                  <span class="platform-handle-label">${p.handle}</span>
                 </div>
               </a>
-              <div class="platform-delta-badge delta-neutral" id="delta-${p.id}">--</div>
+              <div class="${deltaTagClass}" id="delta-${p.id}">${deltaTagText}</div>
             </div>
 
-            <div class="platform-input-row">
-              <div class="platform-input-wrapper">
-                <input 
-                  type="number" 
-                  inputmode="numeric"
-                  id="input-${p.id}" 
-                  class="platform-views-input" 
-                  placeholder="0"
-                  min="0"
-                  value="0"
-                  data-platform="${p.id}"
-                />
-              </div>
-            </div>
+            <input 
+              type="number" 
+              inputmode="numeric"
+              id="input-${p.id}" 
+              class="platform-views-input" 
+              placeholder="0"
+              min="0"
+              value="${val}"
+              data-platform="${p.id}"
+            />
 
-            <div class="proportion-bar-track">
-              <div class="proportion-bar-fill" id="bar-${p.id}" style="background: ${p.accentColor}; width: 0%;"></div>
+            <div class="liquid-bar-track">
+              <div class="liquid-bar-fill" id="bar-${p.id}" style="background: ${p.accentColor}; width: ${share}%;"></div>
             </div>
-            <div class="proportion-label">
+            <div class="liquid-bar-label">
               <span>Platform Share</span>
-              <span id="share-${p.id}">0.0%</span>
+              <span id="share-${p.id}">${share}%</span>
             </div>
           </div>
         `;
       }).join("");
 
-      PLATFORMS.forEach(p => {
+      sortedList.forEach(p => {
         const input = document.getElementById(`input-${p.id}`);
         if (input) {
           input.addEventListener("input", () => renderApp(true));
@@ -1802,10 +2542,10 @@
     }
 
     function loadDateInputs(dateKey) {
-      editingOriginalDate = appData.logs[dateKey] ? dateKey : null;
-      let values = { tiktok: 0, youtube: 0, instagram: 0, facebook: 0, x: 0 };
+      editingOriginalDate = appData.logs && appData.logs[dateKey] ? dateKey : null;
+      let values = { tiktok: 0, youtube: 0, instagram: 0, facebook: 0, x: 0, followers: 0, revenue: 0, videos: 0 };
 
-      if (appData.logs[dateKey]) {
+      if (appData.logs && appData.logs[dateKey]) {
         values = { ...appData.logs[dateKey] };
       } else {
         const prevLog = getMostRecentPriorLog(dateKey);
@@ -1816,6 +2556,14 @@
         const input = document.getElementById(`input-${p.id}`);
         if (input) input.value = values[p.id] || 0;
       });
+
+      const inputFollowers = document.getElementById("input-followers-count");
+      const inputRevenue = document.getElementById("input-revenue-count");
+      const inputVideos = document.getElementById("input-videos-count");
+
+      if (inputFollowers) inputFollowers.value = values.followers || 0;
+      if (inputRevenue) inputRevenue.value = values.revenue || 0;
+      if (inputVideos) inputVideos.value = values.videos || 0;
     }
 
     function getCurrentInputValues() {
@@ -1825,11 +2573,25 @@
         const num = input ? parseInt(input.value, 10) : 0;
         vals[p.id] = isNaN(num) || num < 0 ? 0 : num;
       });
+
+      const inputFollowers = document.getElementById("input-followers-count");
+      const inputRevenue = document.getElementById("input-revenue-count");
+      const inputVideos = document.getElementById("input-videos-count");
+      
+      const fNum = inputFollowers ? parseInt(inputFollowers.value, 10) : 0;
+      const rNum = inputRevenue ? parseFloat(inputRevenue.value) : 0;
+      const vNum = inputVideos ? parseInt(inputVideos.value, 10) : 0;
+
+      vals.followers = isNaN(fNum) || fNum < 0 ? 0 : fNum;
+      vals.revenue = isNaN(rNum) || rNum < 0 ? 0 : rNum;
+      vals.videos = isNaN(vNum) || vNum < 0 ? 0 : vNum;
+
       return vals;
     }
 
     function getSortedDates() {
-      return Object.keys(appData.logs).sort((a, b) => a.localeCompare(b));
+      if (!appData.logs) return [];
+      return Object.keys(appData.logs).filter(d => !d.startsWith("2026-08")).sort((a, b) => a.localeCompare(b));
     }
 
     function getMostRecentPriorLog(targetDate) {
@@ -1839,124 +2601,148 @@
       return { date: priorDate, values: appData.logs[priorDate] };
     }
 
+    function updateTimelineBar() {
+      // 91-Day Timeline starting September 1, 2026
+      const startDate = new Date(2026, 8, 1); // Sep 1, 2026
+      const parts = selectedDate.split("-").map(Number);
+      const activeDate = new Date(parts[0], parts[1] - 1, parts[2]);
+      
+      const diffMs = activeDate - startDate;
+      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      const currentDay = Math.min(91, Math.max(1, diffDays + 1));
+      const percentElapsed = ((currentDay / 91) * 100).toFixed(1);
+      const daysLeft = Math.max(0, 91 - currentDay);
+
+      const pillElem = document.getElementById("timeline-day-pill");
+      const barFillElem = document.getElementById("timeline-bar-fill");
+      const elapsedElem = document.getElementById("timeline-elapsed-text");
+      const remainingElem = document.getElementById("timeline-remaining-text");
+
+      if (pillElem) pillElem.textContent = `Day ${currentDay} / 91`;
+      if (barFillElem) barFillElem.style.width = `${percentElapsed}%`;
+      if (elapsedElem) elapsedElem.textContent = `${percentElapsed}% elapsed (${currentDay} of 91 days)`;
+      if (remainingElem) {
+        remainingElem.textContent = daysLeft === 0 ? `Sprint Complete!` : `${daysLeft} days remaining`;
+      }
+    }
+
     function renderApp(isLiveTyping = false) {
       const currentVals = getCurrentInputValues();
-      const totalViews = Object.values(currentVals).reduce((a, b) => a + b, 0);
-      const goal = appData.goal || 10000;
+      const totalViews = PLATFORMS.reduce((acc, p) => acc + (currentVals[p.id] || 0), 0);
+      const totalFollowers = currentVals.followers || 0;
+      const totalRevenue = currentVals.revenue || 0;
+      const totalVideos = currentVals.videos || 0;
 
-      const percent = ((totalViews / goal) * 100);
-      const remaining = Math.max(0, goal - totalViews);
+      const goalViews = 100000;    // Target 1: 100K Views
+      const goalFollowers = 1000;   // Target 2: 1,000 Followers
+      const goalRevenue = 100;      // Target 3: $100 Revenue
+      const goalVideos = 91;        // Target 4: 91 Videos
 
-      const parts = selectedDate.split("-").map(Number);
-      const currentDayNum = parts[2] || 18;
-      const daysRemaining = Math.max(1, 31 - currentDayNum + 1);
-      const neededPerDay = Math.ceil(remaining / daysRemaining);
+      updateTimelineBar();
 
-      const percentElem = document.getElementById("hero-percent-value");
-      const ringFill = document.getElementById("activity-ring-fill");
-      const goalSubLabel = document.getElementById("hero-goal-sub");
-
-      if (percentElem) percentElem.textContent = `${percent.toFixed(1)}%`;
-      if (goalSubLabel) goalSubLabel.textContent = `of ${goal.toLocaleString()} goal`;
-      if (ringFill) {
-        const circumference = 2 * Math.PI * 80;
-        const offset = circumference - (Math.min(percent, 100) / 100) * circumference;
-        ringFill.style.strokeDashoffset = offset;
+      // Auto-Sort Platforms by views
+      const sortedPlatforms = getSortedPlatforms(currentVals);
+      
+      if (!isLiveTyping) {
+        renderPlatformCards(sortedPlatforms, currentVals, totalViews);
+      } else {
+        sortedPlatforms.forEach((p, index) => {
+          const val = currentVals[p.id] || 0;
+          const share = totalViews > 0 ? ((val / totalViews) * 100).toFixed(1) : "0.0";
+          const bar = document.getElementById(`bar-${p.id}`);
+          const shareText = document.getElementById(`share-${p.id}`);
+          if (bar) bar.style.width = `${share}%`;
+          if (shareText) shareText.textContent = `${share}%`;
+        });
       }
 
-      const tileTotal = document.getElementById("stat-total-views");
-      const tileRemaining = document.getElementById("stat-remaining-views");
-      const tileNeeded = document.getElementById("stat-needed-day");
-      const daysLeftLabel = document.getElementById("stat-days-left-label");
+      // Calculations
+      const viewsPercent = (totalViews / goalViews) * 100;
+      const followersPercent = (totalFollowers / goalFollowers) * 100;
+      const revenuePercent = (totalRevenue / goalRevenue) * 100;
+      const videosPercent = (totalVideos / goalVideos) * 100;
 
-      if (tileTotal) tileTotal.textContent = totalViews.toLocaleString();
-      if (tileRemaining) tileRemaining.textContent = remaining.toLocaleString();
-      if (tileNeeded) tileNeeded.textContent = remaining === 0 ? "Goal Met! 🎉" : neededPerDay.toLocaleString();
-      if (daysLeftLabel) daysLeftLabel.textContent = `${daysRemaining} days left`;
+      // 4-Pillar Blended Overall Achievement Score
+      const blendedPercent = (viewsPercent + followersPercent + revenuePercent + videosPercent) / 4;
 
-      const priorLog = getMostRecentPriorLog(selectedDate);
+      // Animate 4 Concentric Activity Rings (Views -> Followers -> Revenue -> Videos)
+      const ringViewsFill = document.getElementById("ring-views-fill");
+      const ringFollowersFill = document.getElementById("ring-followers-fill");
+      const ringRevenueFill = document.getElementById("ring-revenue-fill");
+      const ringVideosFill = document.getElementById("ring-videos-fill");
 
-      PLATFORMS.forEach(p => {
-        const val = currentVals[p.id] || 0;
-        const share = totalViews > 0 ? ((val / totalViews) * 100).toFixed(1) : "0.0";
-        
-        const bar = document.getElementById(`bar-${p.id}`);
-        const shareText = document.getElementById(`share-${p.id}`);
-        if (bar) bar.style.width = `${share}%`;
-        if (shareText) shareText.textContent = `${share}%`;
+      if (ringViewsFill) {
+        const circum = 2 * Math.PI * 108;
+        const offset = circum - (Math.min(viewsPercent, 100) / 100) * circum;
+        ringViewsFill.style.strokeDasharray = circum;
+        ringViewsFill.style.strokeDashoffset = offset;
+      }
 
-        const deltaBadge = document.getElementById(`delta-${p.id}`);
-        if (deltaBadge) {
-          if (priorLog) {
-            const prevVal = priorLog.values[p.id] || 0;
-            const delta = val - prevVal;
-            if (delta > 0) {
-              deltaBadge.className = "platform-delta-badge delta-positive";
-              deltaBadge.textContent = `+${delta.toLocaleString()}`;
-            } else if (delta < 0) {
-              deltaBadge.className = "platform-delta-badge delta-negative";
-              deltaBadge.textContent = `${delta.toLocaleString()}`;
-            } else {
-              deltaBadge.className = "platform-delta-badge delta-neutral";
-              deltaBadge.textContent = "0";
-            }
-          } else {
-            deltaBadge.className = val > 0 ? "platform-delta-badge delta-positive" : "platform-delta-badge delta-neutral";
-            deltaBadge.textContent = val > 0 ? `+${val.toLocaleString()}` : "--";
-          }
-        }
-      });
+      if (ringFollowersFill) {
+        const circum = 2 * Math.PI * 90;
+        const offset = circum - (Math.min(followersPercent, 100) / 100) * circum;
+        ringFollowersFill.style.strokeDasharray = circum;
+        ringFollowersFill.style.strokeDashoffset = offset;
+      }
 
-      updateSmartInsight();
+      if (ringRevenueFill) {
+        const circum = 2 * Math.PI * 72;
+        const offset = circum - (Math.min(revenuePercent, 100) / 100) * circum;
+        ringRevenueFill.style.strokeDasharray = circum;
+        ringRevenueFill.style.strokeDashoffset = offset;
+      }
+
+      if (ringVideosFill) {
+        const circum = 2 * Math.PI * 54;
+        const offset = circum - (Math.min(videosPercent, 100) / 100) * circum;
+        ringVideosFill.style.strokeDasharray = circum;
+        ringVideosFill.style.strokeDashoffset = offset;
+      }
+
+      // Center Unified Score
+      const blendedScoreElem = document.getElementById("quad-blended-percent");
+      if (blendedScoreElem) blendedScoreElem.textContent = `${blendedPercent.toFixed(1)}%`;
+
+      // 4 Master Target Stat Tiles (Views=Pink, Followers=Blue, Revenue=MoneyGreen, Videos=Purple)
+      const statViewsVal = document.getElementById("stat-views-val");
+      const barViewsFill = document.getElementById("bar-views-fill");
+      const statViewsSub = document.getElementById("stat-views-sub");
+
+      const statFollowersVal = document.getElementById("stat-followers-val");
+      const barFollowersFill = document.getElementById("bar-followers-fill");
+      const statFollowersSub = document.getElementById("stat-followers-sub");
+
+      const statRevenueVal = document.getElementById("stat-revenue-val");
+      const barRevenueFill = document.getElementById("bar-revenue-fill");
+      const statRevenueSub = document.getElementById("stat-revenue-sub");
+
+      const statVideosVal = document.getElementById("stat-videos-val");
+      const barVideosFill = document.getElementById("bar-videos-fill");
+      const statVideosSub = document.getElementById("stat-videos-sub");
+
+      if (statViewsVal) statViewsVal.textContent = totalViews.toLocaleString();
+      if (barViewsFill) barViewsFill.style.width = `${Math.min(viewsPercent, 100)}%`;
+      if (statViewsSub) statViewsSub.textContent = `${viewsPercent.toFixed(1)}% of 100K`;
+
+      if (statFollowersVal) statFollowersVal.textContent = `${totalFollowers.toLocaleString()} / 1K`;
+      if (barFollowersFill) barFollowersFill.style.width = `${Math.min(followersPercent, 100)}%`;
+      if (statFollowersSub) statFollowersSub.textContent = `${followersPercent.toFixed(1)}% (${Math.max(0, goalFollowers - totalFollowers)} left)`;
+
+      if (statRevenueVal) statRevenueVal.textContent = `$${totalRevenue.toLocaleString()}`;
+      if (barRevenueFill) barRevenueFill.style.width = `${Math.min(revenuePercent, 100)}%`;
+      if (statRevenueSub) statRevenueSub.textContent = `${revenuePercent.toFixed(1)}% ($${Math.max(0, goalRevenue - totalRevenue)} left)`;
+
+      if (statVideosVal) statVideosVal.textContent = `${totalVideos} / ${goalVideos}`;
+      if (barVideosFill) barVideosFill.style.width = `${Math.min(videosPercent, 100)}%`;
+      if (statVideosSub) statVideosSub.textContent = `${videosPercent.toFixed(0)}% (${Math.max(0, goalVideos - totalVideos)} left)`;
 
       if (!isLiveTyping && currentTab === "log") renderHistoryTab();
     }
 
-    function updateSmartInsight() {
-      const insightContainer = document.getElementById("smart-insight-container");
-      if (!insightContainer) return;
-
-      const sortedDates = getSortedDates();
-      if (sortedDates.length >= 2) {
-        const latestDate = sortedDates[sortedDates.length - 1];
-        const prevDate = sortedDates[sortedDates.length - 2];
-        const latestLog = appData.logs[latestDate];
-        const prevLog = appData.logs[prevDate];
-
-        let maxGrowthPlatform = null;
-        let maxDelta = 0;
-
-        PLATFORMS.forEach(p => {
-          const delta = (latestLog[p.id] || 0) - (prevLog[p.id] || 0);
-          if (delta > maxDelta) {
-            maxDelta = delta;
-            maxGrowthPlatform = p;
-          }
-        });
-
-        if (maxGrowthPlatform && maxDelta > 0) {
-          insightContainer.innerHTML = `
-            <span class="insight-icon">🔥</span>
-            <span class="insight-text">Fastest growing: <strong>${maxGrowthPlatform.name} +${maxDelta.toLocaleString()}</strong> since last log</span>
-          `;
-          return;
-        }
-      }
-
-      const latestLogDate = sortedDates[sortedDates.length - 1];
-      if (latestLogDate) {
-        const logVals = appData.logs[latestLogDate];
-        const tot = Object.values(logVals).reduce((a, b) => a + b, 0);
-        const pct = ((tot / (appData.goal || 10000)) * 100).toFixed(1);
-        insightContainer.innerHTML = `
-          <span class="insight-icon">✨</span>
-          <span class="insight-text">On track! <strong>${pct}%</strong> of your monthly goal completed so far.</span>
-        `;
-      }
-    }
-
     function executeSaveLog() {
       const currentVals = getCurrentInputValues();
+      if (!appData.logs) appData.logs = {};
+
       if (editingOriginalDate && editingOriginalDate !== selectedDate) {
         delete appData.logs[editingOriginalDate];
       }
@@ -1972,22 +2758,22 @@
 
     window.promptDeleteDay = function(dateKey) {
       pendingDeleteDate = dateKey;
-      const modal = document.getElementById("ios-delete-modal");
+      const modal = document.getElementById("apple-delete-modal");
       const msgElem = document.getElementById("delete-modal-message");
       if (msgElem) {
-        msgElem.textContent = `Are you sure you want to delete the view log for ${formatDateFull(dateKey)}? This action cannot be undone.`;
+        msgElem.textContent = `Are you sure you want to delete the log for ${formatDateFull(dateKey)}? This action cannot be undone.`;
       }
       if (modal) modal.classList.add("active");
     };
 
     function hideDeleteModal() {
-      const modal = document.getElementById("ios-delete-modal");
+      const modal = document.getElementById("apple-delete-modal");
       if (modal) modal.classList.remove("active");
       pendingDeleteDate = null;
     }
 
     function executeDeleteDay(deletedDate) {
-      if (!deletedDate) return;
+      if (!deletedDate || !appData.logs) return;
       delete appData.logs[deletedDate];
       syncToCloud(`Deleted log for ${formatDateShort(deletedDate)} 🗑️`);
 
@@ -1997,90 +2783,101 @@
     }
 
     function renderHistoryTab() {
-      renderAdvancedKPIs();
+      renderTargetDailyAverages();
+      renderRecordsSection();
       renderSparklineChart();
       renderDailyVelocityChart();
       renderPlatformDistribution();
       renderHistoryGroupedList();
     }
 
-    function renderAdvancedKPIs() {
-      const container = document.getElementById("advanced-kpi-container");
-      if (!container) return;
-
+    // Render the 4 Daily Average KPI Cubes Side by Side (Views, Followers, Revenue, Videos)
+    function renderTargetDailyAverages() {
       const sortedDates = getSortedDates();
+      const kpiViews = document.getElementById("kpi-avg-views");
+      const kpiFollowers = document.getElementById("kpi-avg-followers");
+      const kpiRevenue = document.getElementById("kpi-avg-revenue");
+      const kpiVideos = document.getElementById("kpi-avg-videos");
+
       if (sortedDates.length === 0) {
-        container.innerHTML = "";
+        if (kpiViews) kpiViews.textContent = "0";
+        if (kpiFollowers) kpiFollowers.textContent = "0";
+        if (kpiRevenue) kpiRevenue.textContent = "$0.00";
+        if (kpiVideos) kpiVideos.textContent = "0.0";
         return;
       }
 
-      let totalDeltas = 0;
-      let deltasCount = 0;
-      let bestDay = { date: sortedDates[0], delta: 0 };
+      const daysCount = Math.max(1, sortedDates.length);
+      const latestLog = appData.logs[sortedDates[sortedDates.length - 1]];
 
+      // 1. Daily Average Views (Gained per logged day)
+      let totalViewsGained = 0;
       sortedDates.forEach((d, i) => {
-        const currentTotal = Object.values(appData.logs[d]).reduce((a, b) => a + b, 0);
+        const curTot = PLATFORMS.reduce((acc, p) => acc + (appData.logs[d][p.id] || 0), 0);
         if (i === 0) {
-          totalDeltas += currentTotal;
-          deltasCount++;
-          if (currentTotal > bestDay.delta) bestDay = { date: d, delta: currentTotal };
+          totalViewsGained += curTot;
         } else {
-          const prevTotal = Object.values(appData.logs[sortedDates[i - 1]]).reduce((a, b) => a + b, 0);
-          const diff = currentTotal - prevTotal;
-          totalDeltas += Math.max(0, diff);
-          deltasCount++;
-          if (diff > bestDay.delta) bestDay = { date: d, delta: diff };
+          const prevTot = PLATFORMS.reduce((acc, p) => acc + (appData.logs[sortedDates[i - 1]][p.id] || 0), 0);
+          totalViewsGained += Math.max(0, curTot - prevTot);
         }
       });
+      const avgViewsDaily = Math.round(totalViewsGained / daysCount);
+      if (kpiViews) kpiViews.textContent = `${avgViewsDaily.toLocaleString()}`;
 
-      const avgDaily = deltasCount > 0 ? Math.round(totalDeltas / deltasCount) : 0;
+      // 2. Daily Average Followers (Gained per logged day)
+      const totalFollowers = latestLog.followers || 0;
+      const avgFollowersDaily = Math.round(totalFollowers / daysCount);
+      if (kpiFollowers) kpiFollowers.textContent = `${avgFollowersDaily.toLocaleString()}`;
 
-      const latestLog = appData.logs[sortedDates[sortedDates.length - 1]];
-      const latestTotal = Object.values(latestLog).reduce((a, b) => a + b, 0);
-      let topPlatform = PLATFORMS[0];
-      let topCount = 0;
-      PLATFORMS.forEach(p => {
-        const c = latestLog[p.id] || 0;
-        if (c > topCount) { topCount = c; topPlatform = p; }
-      });
-      const topShare = latestTotal > 0 ? ((topCount / latestTotal) * 100).toFixed(1) : 0;
+      // 3. Daily Average Revenue ($ earned per logged day)
+      const totalRevenue = latestLog.revenue || 0;
+      const avgRevenueDaily = (totalRevenue / daysCount).toFixed(2);
+      if (kpiRevenue) kpiRevenue.textContent = `$${avgRevenueDaily}`;
 
-      const remaining = Math.max(0, (appData.goal || 10000) - latestTotal);
-      let finishText = "On Target";
-      if (remaining === 0) finishText = "Goal Reached!";
-      else if (avgDaily > 0) {
-        const daysNeeded = Math.ceil(remaining / avgDaily);
-        const estDate = new Date();
-        estDate.setDate(estDate.getDate() + daysNeeded);
-        finishText = estDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      // 4. Daily Average Videos (Clips published per logged day)
+      const totalVideos = latestLog.videos || 0;
+      const avgVideosDaily = (totalVideos / daysCount).toFixed(1);
+      if (kpiVideos) kpiVideos.textContent = `${avgVideosDaily}`;
+    }
+
+    function renderRecordsSection() {
+      const rec = appData.records || SEED_DATA.records;
+      
+      const vCount = document.getElementById("record-views-count");
+      const vTitle = document.getElementById("record-views-title");
+      const vBadge = document.getElementById("record-views-platform-badge");
+      const vLinkBtn = document.getElementById("record-views-link-btn");
+
+      if (vCount) vCount.textContent = `${(rec.topViews?.views || 0).toLocaleString()} views`;
+      if (vTitle) vTitle.textContent = rec.topViews?.title || "No video title set";
+      if (vBadge) vBadge.textContent = rec.topViews?.platform?.toUpperCase() || "TIKTOK";
+      
+      if (vLinkBtn) {
+        if (rec.topViews?.url && rec.topViews.url.trim().length > 0) {
+          vLinkBtn.href = rec.topViews.url.trim();
+          vLinkBtn.style.display = "inline-flex";
+        } else {
+          vLinkBtn.style.display = "none";
+        }
       }
 
-      container.innerHTML = `
-        <div class="kpi-mini-card">
-          <span class="kpi-mini-icon">⚡</span>
-          <span class="kpi-mini-label">Daily Average</span>
-          <span class="kpi-mini-val">+${avgDaily.toLocaleString()}</span>
-          <span class="kpi-mini-sub">Views gained / log</span>
-        </div>
-        <div class="kpi-mini-card">
-          <span class="kpi-mini-icon">🏆</span>
-          <span class="kpi-mini-label">Best Day</span>
-          <span class="kpi-mini-val">+${bestDay.delta.toLocaleString()}</span>
-          <span class="kpi-mini-sub">${formatDateShort(bestDay.date)}</span>
-        </div>
-        <div class="kpi-mini-card">
-          <span class="kpi-mini-icon">🥇</span>
-          <span class="kpi-mini-label">Top Platform</span>
-          <span class="kpi-mini-val">${topPlatform.name}</span>
-          <span class="kpi-mini-sub">${topShare}% of total</span>
-        </div>
-        <div class="kpi-mini-card">
-          <span class="kpi-mini-icon">🎯</span>
-          <span class="kpi-mini-label">Est. Completion</span>
-          <span class="kpi-mini-val">${finishText}</span>
-          <span class="kpi-mini-sub">At current pace</span>
-        </div>
-      `;
+      const lCount = document.getElementById("record-likes-count");
+      const lTitle = document.getElementById("record-likes-title");
+      const lBadge = document.getElementById("record-likes-platform-badge");
+      const lLinkBtn = document.getElementById("record-likes-link-btn");
+
+      if (lCount) lCount.textContent = `${(rec.topLikes?.likes || 0).toLocaleString()} likes`;
+      if (lTitle) lTitle.textContent = rec.topLikes?.title || "No video title set";
+      if (lBadge) lBadge.textContent = rec.topLikes?.platform?.toUpperCase() || "YOUTUBE";
+
+      if (lLinkBtn) {
+        if (rec.topLikes?.url && rec.topLikes.url.trim().length > 0) {
+          lLinkBtn.href = rec.topLikes.url.trim();
+          lLinkBtn.style.display = "inline-flex";
+        } else {
+          lLinkBtn.style.display = "none";
+        }
+      }
     }
 
     function renderSparklineChart() {
@@ -2088,20 +2885,23 @@
       if (!container) return;
 
       const sortedDates = getSortedDates();
-      if (sortedDates.length === 0) return;
+      if (sortedDates.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding: 40px 0; color: var(--text-tertiary); font-size: 13px;">No trajectory data recorded yet for September.</div>`;
+        return;
+      }
 
       const dataPoints = sortedDates.map(d => {
         const vals = appData.logs[d];
-        const total = Object.values(vals).reduce((a, b) => a + b, 0);
+        const total = PLATFORMS.reduce((acc, p) => acc + (vals[p.id] || 0), 0);
         return { date: d, total };
       });
 
       const width = container.clientWidth || 500;
-      const height = 160;
-      const paddingX = 32;
-      const paddingY = 26;
+      const height = 150;
+      const paddingX = 28;
+      const paddingY = 24;
       const minVal = 0;
-      const maxVal = Math.max(appData.goal || 10000, ...dataPoints.map(p => p.total)) * 1.05;
+      const maxVal = Math.max(100000, ...dataPoints.map(p => p.total)) * 1.05;
 
       const getX = (index) => dataPoints.length === 1 ? width / 2 : paddingX + (index / (dataPoints.length - 1)) * (width - 2 * paddingX);
       const getY = (val) => height - paddingY - ((val - minVal) / (maxVal - minVal)) * (height - 2 * paddingY);
@@ -2128,7 +2928,7 @@
       const firstX = getX(0);
       areaD += ` L ${lastX},${height - paddingY} L ${firstX},${height - paddingY} Z`;
 
-      const goalY = getY(appData.goal || 10000);
+      const goalY = getY(100000);
 
       let dotsSvg = dataPoints.map((p, i) => {
         const x = getX(i);
@@ -2136,27 +2936,27 @@
         const dateLabel = formatDateShort(p.date);
         return `
           <g>
-            <circle cx="${x}" cy="${y}" r="5.5" fill="#0A84FF" stroke="#FFFFFF" stroke-width="2" class="chart-point">
+            <circle cx="${x}" cy="${y}" r="5" fill="#0A84FF" stroke="#FFFFFF" stroke-width="2">
               <title>${dateLabel}: ${p.total.toLocaleString()} views</title>
             </circle>
-            <text x="${x}" y="${y - 10}" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">${p.total.toLocaleString()}</text>
-            <text x="${x}" y="${height - 6}" text-anchor="middle" font-size="10" font-weight="600" fill="#9898A0">${dateLabel}</text>
+            <text x="${x}" y="${y - 8}" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">${p.total.toLocaleString()}</text>
+            <text x="${x}" y="${height - 5}" text-anchor="middle" font-size="9.5" font-weight="600" fill="#9898A0">${dateLabel}</text>
           </g>
         `;
       }).join("");
 
       container.innerHTML = `
-        <svg class="sparkline-svg" viewBox="0 0 ${width} ${height}">
+        <svg viewBox="0 0 ${width} ${height}" style="width:100%; height:100%;">
           <defs>
             <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#0A84FF" stop-opacity="0.35" />
+              <stop offset="0%" stop-color="#0A84FF" stop-opacity="0.38" />
               <stop offset="100%" stop-color="#0A84FF" stop-opacity="0.0" />
             </linearGradient>
           </defs>
-          <line x1="${paddingX - 10}" y1="${goalY}" x2="${width - paddingX + 10}" y2="${goalY}" stroke="#FF9F0A" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.75" />
-          <text x="${width - paddingX}" y="${goalY - 5}" text-anchor="end" font-size="9" font-weight="700" fill="#FF9F0A">10k Goal</text>
+          <line x1="${paddingX - 10}" y1="${goalY}" x2="${width - paddingX + 10}" y2="${goalY}" stroke="#30D158" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.8" />
+          <text x="${width - paddingX}" y="${goalY - 5}" text-anchor="end" font-size="9" font-weight="800" fill="#30D158">100k Target</text>
           <path d="${areaD}" fill="url(#areaGradient)" />
-          <path d="${pathD}" fill="none" stroke="#0A84FF" stroke-width="3.5" stroke-linecap="round" filter="drop-shadow(0 2px 8px rgba(10,132,255,0.5))" />
+          <path d="${pathD}" fill="none" stroke="#0A84FF" stroke-width="3" stroke-linecap="round" filter="drop-shadow(0 2px 8px rgba(10,132,255,0.6))" />
           ${dotsSvg}
         </svg>
       `;
@@ -2167,23 +2967,26 @@
       if (!container) return;
 
       const sortedDates = getSortedDates();
-      if (sortedDates.length === 0) return;
+      if (sortedDates.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding: 30px 0; color: var(--text-tertiary); font-size: 13px;">No daily velocity records yet.</div>`;
+        return;
+      }
 
       const velocityData = sortedDates.map((d, i) => {
-        const currentTot = Object.values(appData.logs[d]).reduce((a, b) => a + b, 0);
+        const currentTot = PLATFORMS.reduce((acc, p) => acc + (appData.logs[d][p.id] || 0), 0);
         if (i === 0) return { date: d, delta: currentTot };
-        const prevTot = Object.values(appData.logs[sortedDates[i - 1]]).reduce((a, b) => a + b, 0);
+        const prevTot = PLATFORMS.reduce((acc, p) => acc + (appData.logs[sortedDates[i - 1]][p.id] || 0), 0);
         return { date: d, delta: Math.max(0, currentTot - prevTot) };
       });
 
       const width = container.clientWidth || 500;
       const height = 130;
-      const paddingX = 24;
-      paddingBottom = 24;
-      const paddingTop = 20;
+      const paddingX = 20;
+      const paddingBottom = 22;
+      const paddingTop = 18;
 
       const maxDelta = Math.max(...velocityData.map(v => v.delta), 100);
-      const barWidth = Math.min(36, Math.max(18, (width - paddingX * 2) / (velocityData.length * 2)));
+      const barWidth = Math.min(32, Math.max(16, (width - paddingX * 2) / (velocityData.length * 2)));
 
       let barsSvg = velocityData.map((v, i) => {
         const spacing = (width - paddingX * 2) / velocityData.length;
@@ -2194,11 +2997,11 @@
 
         return `
           <g>
-            <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="6" fill="url(#velocityGrad)" filter="drop-shadow(0 2px 6px rgba(48,209,88,0.3))">
+            <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="5" fill="url(#velocityGrad)" filter="drop-shadow(0 2px 6px rgba(48,209,88,0.35))">
               <title>${dateLabel}: +${v.delta.toLocaleString()} new views</title>
             </rect>
-            <text x="${x + barWidth / 2}" y="${y - 6}" text-anchor="middle" font-size="10" font-weight="700" fill="#30D158">+${v.delta.toLocaleString()}</text>
-            <text x="${x + barWidth / 2}" y="${height - 6}" text-anchor="middle" font-size="10" font-weight="600" fill="#9898A0">${dateLabel}</text>
+            <text x="${x + barWidth / 2}" y="${y - 5}" text-anchor="middle" font-size="9.5" font-weight="800" fill="#30D158">+${v.delta.toLocaleString()}</text>
+            <text x="${x + barWidth / 2}" y="${height - 5}" text-anchor="middle" font-size="9.5" font-weight="600" fill="#9898A0">${dateLabel}</text>
           </g>
         `;
       }).join("");
@@ -2221,28 +3024,32 @@
       if (!container) return;
 
       const sortedDates = getSortedDates();
-      if (sortedDates.length === 0) return;
+      let latestLog = {};
+      if (sortedDates.length > 0) {
+        latestLog = appData.logs[sortedDates[sortedDates.length - 1]];
+      }
 
-      const latestLog = appData.logs[sortedDates[sortedDates.length - 1]];
-      const totalViews = Object.values(latestLog).reduce((a, b) => a + b, 0);
+      const totalViews = PLATFORMS.reduce((acc, p) => acc + (latestLog[p.id] || 0), 0);
+      const sortedPlats = getSortedPlatforms(latestLog);
 
-      container.innerHTML = PLATFORMS.map(p => {
+      container.innerHTML = sortedPlats.map((p, index) => {
         const count = latestLog[p.id] || 0;
         const share = totalViews > 0 ? ((count / totalViews) * 100).toFixed(1) : 0;
 
         return `
           <div class="distribution-item">
-            <div class="dist-item-header">
-              <div class="dist-item-left">
-                <span class="breakdown-dot" style="background:${p.accentColor};"></span>
+            <div class="dist-item-topline">
+              <div class="dist-topline-left">
+                <span class="apple-rank-tag" style="min-width:18px;">#${index + 1}</span>
+                <span style="width:6px; height:6px; border-radius:50%; background:${p.accentColor};"></span>
                 <span>${p.name}</span>
               </div>
-              <div class="dist-item-right">
+              <div class="dist-topline-right">
                 <span>${count.toLocaleString()} views (${share}%)</span>
               </div>
             </div>
-            <div class="proportion-bar-track">
-              <div class="proportion-bar-fill" style="background:${p.accentColor}; width:${share}%;"></div>
+            <div class="liquid-bar-track">
+              <div class="liquid-bar-fill" style="background:${p.accentColor}; width:${share}%;"></div>
             </div>
           </div>
         `;
@@ -2257,18 +3064,21 @@
 
       if (sortedDates.length === 0) {
         container.innerHTML = `
-          <div class="glass-card" style="padding: 24px; text-align: center; color: var(--text-secondary); font-size: 13px;">
-            No logs recorded yet. Start logging your views in the Today tab!
+          <div class="liquid-glass-card" style="padding: 20px; text-align: center; color: var(--text-secondary); font-size: 12.5px;">
+            No logs recorded yet for September 2026. Start logging in the Today tab!
           </div>
         `;
         return;
       }
 
       container.innerHTML = `
-        <div class="glass-card history-grouped-list">
+        <div class="liquid-glass-card history-liquid-table">
           ${sortedDates.map((dateKey, index) => {
             const vals = appData.logs[dateKey];
-            const total = Object.values(vals).reduce((a, b) => a + b, 0);
+            const total = PLATFORMS.reduce((acc, p) => acc + (vals[p.id] || 0), 0);
+            const fols = vals.followers || 0;
+            const rev = vals.revenue || 0;
+            const vids = vals.videos || 0;
             
             let deltaTag = "";
             const chronIndex = sortedDates.length - 1 - index;
@@ -2276,43 +3086,46 @@
             if (chronIndex > 0) {
               const priorDate = chronologicalDates[chronIndex - 1];
               const priorVals = appData.logs[priorDate];
-              const priorTotal = Object.values(priorVals).reduce((a, b) => a + b, 0);
+              const priorTotal = PLATFORMS.reduce((acc, p) => acc + (priorVals[p.id] || 0), 0);
               const diff = total - priorTotal;
-              if (diff > 0) deltaTag = `<span class="history-delta-tag delta-positive">+${diff.toLocaleString()}</span>`;
-              else if (diff < 0) deltaTag = `<span class="history-delta-tag delta-negative">${diff.toLocaleString()}</span>`;
-              else deltaTag = `<span class="history-delta-tag delta-neutral">0</span>`;
+              if (diff > 0) deltaTag = `<span class="platform-delta-tag delta-pos">+${diff.toLocaleString()}</span>`;
+              else if (diff < 0) deltaTag = `<span class="platform-delta-tag delta-neg">${diff.toLocaleString()}</span>`;
+              else deltaTag = `<span class="platform-delta-tag delta-neu">0</span>`;
             } else {
-              deltaTag = `<span class="history-delta-tag delta-positive">+${total.toLocaleString()}</span>`;
+              deltaTag = `<span class="platform-delta-tag delta-pos">+${total.toLocaleString()}</span>`;
             }
 
             const breakdownPills = PLATFORMS.map(p => {
               const count = vals[p.id] || 0;
               return `
-                <span class="breakdown-pill">
-                  <span class="breakdown-dot" style="background:${p.accentColor};"></span>
+                <span style="display:inline-flex; align-items:center; gap:3px;">
+                  <span style="width:4px; height:4px; border-radius:50%; background:${p.accentColor};"></span>
                   ${p.name}: ${count.toLocaleString()}
                 </span>
               `;
             }).join("·");
 
             return `
-              <div class="history-row">
-                <div class="history-row-content" onclick="jumpToEditDay('${dateKey}')">
-                  <div class="history-row-left">
-                    <span class="history-date-title">${formatDateFull(dateKey)}</span>
-                    <div class="history-breakdown-text">${breakdownPills}</div>
+              <div class="history-row-entry">
+                <div class="history-click-area" onclick="jumpToEditDay('${dateKey}')">
+                  <div class="history-date-row">
+                    ${formatDateFull(dateKey)}
+                    <span class="history-pill-tag" style="color:#0A84FF; background:rgba(10,132,255,0.18);">👥 ${fols}</span>
+                    <span class="history-pill-tag" style="color:#30D158; background:rgba(48,209,88,0.18);">💵 $${rev}</span>
+                    <span class="history-pill-tag" style="color:#BF5AF2; background:rgba(191,90,242,0.18);">🎬 ${vids}/91</span>
                   </div>
-                  <div class="history-row-right">
-                    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:2px;">
-                      <span class="history-total-views">${total.toLocaleString()}</span>
-                      ${deltaTag}
-                    </div>
+                  <div class="history-breakdown-row">${breakdownPills}</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div style="display:flex; flex-direction:column; align-items:flex-end; gap:2px;">
+                    <span class="history-views-num">${total.toLocaleString()}</span>
+                    ${deltaTag}
                   </div>
                 </div>
 
-                <div class="history-row-actions">
-                  <button class="history-action-btn" title="Edit this day" onclick="jumpToEditDay('${dateKey}')">✏️</button>
-                  <button class="history-action-btn history-delete-btn" title="Delete this day" onclick="promptDeleteDay('${dateKey}')">🗑️</button>
+                <div class="history-tools-group">
+                  <button class="tool-icon-btn" title="Edit this day" onclick="jumpToEditDay('${dateKey}')">✏️</button>
+                  <button class="tool-icon-btn delete" title="Delete this day" onclick="promptDeleteDay('${dateKey}')">🗑️</button>
                 </div>
               </div>
             `;
@@ -2343,11 +3156,11 @@
     }
 
     function showToast(msg) {
-      let toast = document.getElementById("ios-toast-banner");
+      let toast = document.getElementById("apple-toast-banner");
       if (!toast) {
         toast = document.createElement("div");
-        toast.id = "ios-toast-banner";
-        toast.className = "ios-toast";
+        toast.id = "apple-toast-banner";
+        toast.className = "apple-toast-banner";
         document.body.appendChild(toast);
       }
       toast.textContent = msg;
