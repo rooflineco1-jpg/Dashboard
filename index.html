@@ -1016,7 +1016,7 @@
       white-space: nowrap;
     }
 
-    /* Top Content Hall of Fame - Clean Minimalist Apple Glass Aesthetic */
+    /* Top Content Hall of Fame - Clean Minimalist Apple Glass Aesthetic (100% Mobile Overflow Proof) */
     .hall-of-fame-panel {
       padding: 16px 14px;
       margin-bottom: 16px;
@@ -1027,30 +1027,38 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 12px;
-      gap: 6px;
+      gap: 8px;
     }
 
     .hall-main-title {
-      font-size: 14px;
-      font-weight: 900;
+      font-size: 13.5px;
+      font-weight: 800;
       color: #FFFFFF;
       display: flex;
       align-items: center;
       gap: 6px;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+      flex: 1;
     }
 
     .hall-edit-action-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.14);
       color: #FFFFFF;
-      font-size: 10.5px;
-      font-weight: 800;
-      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 10px;
       border-radius: 9px;
       cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .hall-edit-action-btn:hover {
@@ -1774,11 +1782,11 @@
         </div>
       </div>
 
-      <!-- Top Content Hall of Fame - Clean Minimalist Apple Glass Aesthetic -->
+      <!-- Top Content Hall of Fame - Clean Minimalist Apple Glass Aesthetic (100% Mobile Overflow Proof) -->
       <div class="liquid-glass-card hall-of-fame-panel">
         <div class="hall-header-bar">
-          <h3 class="hall-main-title">🏆 Top Performing Master Content</h3>
-          <button class="hall-edit-action-btn" id="open-record-edit-btn" type="button">✏️ Edit Top Videos & Links</button>
+          <h3 class="hall-main-title">🏆 Top Content</h3>
+          <button class="hall-edit-action-btn" id="open-record-edit-btn" type="button">✏️ Edit Links</button>
         </div>
         <div class="hall-content-grid">
           <!-- Top Viewed Video -->
