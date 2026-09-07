@@ -55,13 +55,17 @@
     }
 
     html {
-      background: linear-gradient(135deg, #d8e5ef 0%, #b2c5d6 100%); background-attachment: fixed;
+      overscroll-behavior: none;
+      overscroll-behavior-y: none;
+      background-color: #d8e5ef;
       -webkit-text-size-adjust: 100%;
     }
 
     body { color: var(--text-white);
+      overscroll-behavior: none;
+      overscroll-behavior-y: none;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
-      background: linear-gradient(135deg, #d8e5ef 0%, #b2c5d6 100%); background-attachment: fixed;
+      background-color: #d8e5ef;
       color: var(--text-white);
       min-height: 100vh;
       min-height: -webkit-fill-available;
@@ -70,6 +74,15 @@
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
       padding-bottom: calc(env(safe-area-inset-bottom, 24px) + 36px);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, #d8e5ef 0%, #b2c5d6 100%);
+      z-index: -999;
+      pointer-events: none;
     }
 
     /* Ambient Glow Mesh */
