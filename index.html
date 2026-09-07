@@ -82,25 +82,9 @@
 
     /* Ambient Glow Mesh */
     /* 100% Mobile Responsive Container */
-    @keyframes float-blob {
-      0% { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-      33% { transform: translate(4vw, -6vw) scale(1.1) rotate(120deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-      66% { transform: translate(-3vw, 4vw) scale(0.9) rotate(240deg); border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-      100% { transform: translate(0, 0) scale(1) rotate(360deg); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-    }
+    
 
-    .water-blob {
-      position: absolute;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
-      z-index: 0;
-      pointer-events: none;
-      animation: float-blob 20s infinite ease-in-out;
-    }
 
-    .blob-1 { width: 50vw; height: 50vw; top: 5%; left: -10vw; animation-duration: 25s; }
-    .blob-2 { width: 40vw; height: 40vw; top: 40%; right: -5vw; animation-delay: -5s; animation-duration: 22s; }
-    .blob-3 { width: 60vw; height: 60vw; bottom: 5%; left: 10vw; animation-delay: -12s; animation-duration: 28s; }
-    .blob-4 { width: 35vw; height: 35vw; top: 15%; right: 20vw; animation-delay: -8s; animation-duration: 19s; }
 
     .app-viewport {
       position: relative;
@@ -111,20 +95,6 @@
       padding: 24px 14px 40px;
     }
 
-    @media (min-width: 720px) {
-    @keyframes float-blob {
-      0% { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-      33% { transform: translate(4vw, -6vw) scale(1.1) rotate(120deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-      66% { transform: translate(-3vw, 4vw) scale(0.9) rotate(240deg); border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-      100% { transform: translate(0, 0) scale(1) rotate(360deg); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-    }
-
-    .water-blob {
-      position: absolute;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
-      z-index: 0;
-      pointer-events: none;
-      animation: float-blob 20s infinite ease-in-out;
     }
 
     .blob-1 { width: 50vw; height: 50vw; top: 5%; left: -10vw; animation-duration: 25s; }
@@ -1610,13 +1580,7 @@
   
 
 
-  <div style="position: fixed; inset: 0; overflow: hidden; z-index: 0; pointer-events: none;">
-    <div class="water-blob blob-1"></div>
-    <div class="water-blob blob-2"></div>
-    <div class="water-blob blob-3"></div>
-    <div class="water-blob blob-4"></div>
-  </div>
-  <div class="app-viewport">
+    <div class="app-viewport">
 
     <!-- Clean Header with "by Roofline" -->
     <header class="apple-header">
