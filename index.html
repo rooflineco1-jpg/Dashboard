@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Survival Instinct 111 by Roofline | Apple Liquid Glass Dashboard</title>
+  <title>Survival Instinct T2 by Roofline | Apple Liquid Glass Dashboard</title>
 
   <!-- PWA & Native iOS Web App Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Survival 111">
+  <meta name="apple-mobile-web-app-title" content="Survival T2">
   <meta name="theme-color" content="#000000">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='128' fill='%23000000'/%3E%3Ccircle cx='256' cy='256' r='190' fill='none' stroke='%23FF2D55' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='145' fill='none' stroke='%230A84FF' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='100' fill='none' stroke='%2330D158' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='55' fill='none' stroke='%23BF5AF2' stroke-width='24'/%3E%3C/svg%3E">
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='128' fill='%23000000'/%3E%3Ccircle cx='256' cy='256' r='190' fill='none' stroke='%23FF2D55' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='145' fill='none' stroke='%230A84FF' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='100' fill='none' stroke='%2330D158' stroke-width='24'/%3E%3Ccircle cx='256' cy='256' r='55' fill='none' stroke='%23BF5AF2' stroke-width='24'/%3E%3C/svg%3E">
@@ -19,33 +19,32 @@
 
   <style>
     :root {
-      /* Apple Realistic Palette: Views=Pink/Red, Followers=Blue, Revenue=MoneyGreen, Videos=Purple */
-      --apple-pink: #FF2D55;
-      --apple-pink-glow: rgba(255, 45, 85, 0.4);
-      --apple-blue: #0A84FF;
-      --apple-blue-glow: rgba(10, 132, 255, 0.4);
-      --apple-green: #30D158;
-      --apple-green-glow: rgba(48, 209, 88, 0.4);
-      --apple-purple: #BF5AF2;
-      --apple-purple-glow: rgba(191, 90, 242, 0.4);
+      /* Accent Colors (Subtle & Contextual) */
+      --apple-pink: #FF6B81;
+      --apple-blue: #70A1FF;
+      --apple-green: #7BED9F;
+      --apple-purple: #D2B4DE;
 
-      --bg-canvas: #05060A;
+      /* Pitch Black Canvas / Deep Charcoal */
+      --bg-canvas: #c4d3df;
       
-      /* Apple Liquid Glass Surface */
-      --liquid-glass-bg: rgba(22, 26, 38, 0.65);
-      --liquid-glass-subtle: rgba(28, 34, 50, 0.45);
-      --liquid-glass-border: rgba(255, 255, 255, 0.13);
-      --liquid-glass-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.35);
-      --liquid-glass-shadow: 0 20px 48px -8px rgba(0, 0, 0, 0.75), 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+      /* Pure VisionOS Glassmorphism */
+      --liquid-glass-bg: rgba(255, 255, 255, 0.35);
+      --liquid-glass-subtle: rgba(255, 255, 255, 0.25);
+      --liquid-glass-border: rgba(255, 255, 255, 0.6);
+      --liquid-glass-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.9);
+      --liquid-glass-shadow: 0 8px 32px rgba(100, 110, 130, 0.15);
+      --glass-blur: 25px;
       
-      --text-white: #FFFFFF;
-      --text-secondary: rgba(235, 235, 245, 0.65);
-      --text-tertiary: rgba(235, 235, 245, 0.4);
+      /* Typography */
+      --text-white: #1e293b;
+      --text-secondary: #475569;
+      --text-tertiary: #64748b;
       
-      --separator-line: rgba(255, 255, 255, 0.08);
-      --radius-liquid: 26px;
+      --separator-line: rgba(30, 41, 59, 0.1);
+      --radius-liquid: 24px;
       --radius-tile: 16px;
-      --radius-sm: 12px;
+      --radius-sm: 10px;
     }
 
     * {
@@ -56,13 +55,13 @@
     }
 
     html {
-      background-color: var(--bg-canvas);
+      background: linear-gradient(135deg, #d8e5ef 0%, #b2c5d6 100%); background-attachment: fixed;
       -webkit-text-size-adjust: 100%;
     }
 
-    body {
+    body { color: var(--text-white);
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
-      background-color: var(--bg-canvas);
+      background: linear-gradient(135deg, #d8e5ef 0%, #b2c5d6 100%); background-attachment: fixed;
       color: var(--text-white);
       min-height: 100vh;
       min-height: -webkit-fill-available;
@@ -74,47 +73,27 @@
     }
 
     /* Ambient Glow Mesh */
-    .apple-ambient-mesh {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .mesh-glow {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.4;
-    }
-
-    .mesh-pink {
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(255, 45, 85, 0.4) 0%, rgba(255, 159, 10, 0.06) 70%);
-      top: -120px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .mesh-blue {
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, rgba(10, 132, 255, 0.35) 0%, rgba(191, 90, 242, 0.06) 70%);
-      top: 30%;
-      right: -120px;
-    }
-
-    .mesh-green {
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, rgba(48, 209, 88, 0.3) 0%, rgba(10, 132, 255, 0.05) 70%);
-      bottom: 5%;
-      left: -120px;
-    }
-
     /* 100% Mobile Responsive Container */
+    @keyframes float-blob {
+      0% { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+      33% { transform: translate(4vw, -6vw) scale(1.1) rotate(120deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      66% { transform: translate(-3vw, 4vw) scale(0.9) rotate(240deg); border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+      100% { transform: translate(0, 0) scale(1) rotate(360deg); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    }
+
+    .water-blob {
+      position: absolute;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+      z-index: 0;
+      pointer-events: none;
+      animation: float-blob 20s infinite ease-in-out;
+    }
+
+    .blob-1 { width: 50vw; height: 50vw; top: 5%; left: -10vw; animation-duration: 25s; }
+    .blob-2 { width: 40vw; height: 40vw; top: 40%; right: -5vw; animation-delay: -5s; animation-duration: 22s; }
+    .blob-3 { width: 60vw; height: 60vw; bottom: 5%; left: 10vw; animation-delay: -12s; animation-duration: 28s; }
+    .blob-4 { width: 35vw; height: 35vw; top: 15%; right: 20vw; animation-delay: -8s; animation-duration: 19s; }
+
     .app-viewport {
       position: relative;
       z-index: 1;
@@ -125,17 +104,37 @@
     }
 
     @media (min-width: 720px) {
-      .app-viewport {
+    @keyframes float-blob {
+      0% { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+      33% { transform: translate(4vw, -6vw) scale(1.1) rotate(120deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      66% { transform: translate(-3vw, 4vw) scale(0.9) rotate(240deg); border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+      100% { transform: translate(0, 0) scale(1) rotate(360deg); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    }
+
+    .water-blob {
+      position: absolute;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+      z-index: 0;
+      pointer-events: none;
+      animation: float-blob 20s infinite ease-in-out;
+    }
+
+    .blob-1 { width: 50vw; height: 50vw; top: 5%; left: -10vw; animation-duration: 25s; }
+    .blob-2 { width: 40vw; height: 40vw; top: 40%; right: -5vw; animation-delay: -5s; animation-duration: 22s; }
+    .blob-3 { width: 60vw; height: 60vw; bottom: 5%; left: 10vw; animation-delay: -12s; animation-duration: 28s; }
+    .blob-4 { width: 35vw; height: 35vw; top: 15%; right: 20vw; animation-delay: -8s; animation-duration: 19s; }
+
+    .app-viewport {
         max-width: 820px;
         padding: 40px 24px 60px;
       }
     }
 
     /* Apple Liquid Glass Container */
-    .liquid-glass-card {
+    .liquid-glass-card { color: var(--text-white);
       background: var(--liquid-glass-bg);
-      backdrop-filter: blur(45px) saturate(200%);
-      -webkit-backdrop-filter: blur(45px) saturate(200%);
+      backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
       border: 1px solid var(--liquid-glass-border);
       box-shadow: var(--liquid-glass-shadow), var(--liquid-glass-highlight);
       border-radius: var(--radius-liquid);
@@ -143,10 +142,126 @@
     }
 
     /* Clean Header with "by Roofline" */
+    /* Hamburger Menu & Sidebar */
+    .apple-hamburger-btn {
+      position: fixed;
+      top: 24px;
+      right: max(14px, calc(50vw - 290px + 14px));
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      box-shadow: 0 8px 32px rgba(30, 41, 59, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: rgba(30, 41, 59, 0.9);
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    @media (min-width: 720px) {
+      .apple-hamburger-btn {
+        right: max(24px, calc(50vw - 410px + 24px));
+      }
+    }
+    .apple-hamburger-btn:active {
+      transform: scale(0.92);
+      background: rgba(30, 41, 59, 0.1);
+    }
+    .glass-sidebar-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .glass-sidebar-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .glass-sidebar {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: -280px;
+      width: 280px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(40px) saturate(200%);
+      -webkit-backdrop-filter: blur(40px) saturate(200%);
+      border-left: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 20px;
+    }
+    .glass-sidebar.active {
+      transform: translateX(-280px);
+    }
+    .sidebar-close-btn {
+      align-self: flex-end;
+      width: 32px;
+      height: 32px;
+      background: rgba(30, 41, 59, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: rgba(30, 41, 59, 0.7);
+      margin-bottom: 24px;
+    }
+    .sidebar-menu-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(30, 41, 59, 0.4);
+      margin-bottom: 12px;
+      padding-left: 8px;
+    }
+    .sidebar-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: rgba(30, 41, 59, 0.85);
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      margin-bottom: 4px;
+    }
+    .sidebar-menu-item:hover, .sidebar-menu-item:active {
+      background: rgba(30, 41, 59, 0.06);
+    }
+    .sidebar-menu-item svg {
+      color: rgba(30, 41, 59, 0.85);
+    }
     .apple-header {
-      text-align: center;
-      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      margin-bottom: 24px;
       padding: 0 8px;
+    }
+    .header-text-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .apple-main-title {
@@ -154,7 +269,7 @@
       font-weight: 900;
       letter-spacing: -0.8px;
       line-height: 1.15;
-      background: linear-gradient(180deg, #FFFFFF 30%, #C4C8D4 100%);
+      background: linear-gradient(180deg, #2c3e50 30%, #576574 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(0 2px 14px rgba(255, 255, 255, 0.2));
@@ -175,15 +290,13 @@
     .apple-subtitle {
       font-size: 13px;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: #576574;
       margin-top: 4px;
     }
 
     .roofline-specular {
       font-weight: 800;
-      background: linear-gradient(135deg, #0A84FF 0%, #BF5AF2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--text-white);
     }
 
     /* 91-Day Timeline Bar (Main Screen) */
@@ -211,7 +324,7 @@
       width: 30px;
       height: 30px;
       border-radius: 9px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(30, 41, 59, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.14);
       display: flex;
       align-items: center;
@@ -229,25 +342,23 @@
     .timeline-heading {
       font-size: 12.5px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--text-white);
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .timeline-subline {
       font-size: 10px;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: #576574;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .timeline-day-chip {
-      background: rgba(10, 132, 255, 0.18);
-      border: 1px solid rgba(10, 132, 255, 0.35);
-      color: #0A84FF;
+      background: rgba(30, 41, 59, 0.08);
+      border: 1px solid rgba(30, 41, 59, 0.12);
+      color: var(--text-white);
       font-size: 11px;
       font-weight: 800;
       padding: 3px 9px;
@@ -260,18 +371,18 @@
       position: relative;
       width: 100%;
       height: 7px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(30, 41, 59, 0.12);
       border-radius: 10px;
-      overflow: hidden;
       margin: 6px 0 5px;
     }
 
     .timeline-fill-bar {
       height: 100%;
       border-radius: 10px;
-      background: linear-gradient(90deg, #0A84FF 0%, #BF5AF2 50%, #30D158 100%);
+      background: linear-gradient(90deg, #576574, #1e293b);
       transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: 0 0 10px rgba(10, 132, 255, 0.5);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(30, 41, 59, 0.3);
     }
 
     .timeline-milestones-row {
@@ -323,7 +434,7 @@
 
     .ring-track {
       fill: none;
-      stroke: rgba(255, 255, 255, 0.06);
+      stroke: rgba(0, 0, 0, 0.05);
       stroke-linecap: round;
     }
 
@@ -339,7 +450,7 @@
       stroke-width: 8.5;
       stroke-dasharray: 678.58;
       stroke-dashoffset: 678.58;
-      filter: drop-shadow(0 0 8px var(--apple-pink-glow));
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
     }
 
     /* Ring 2: 1K Followers (Blue/Cyan - r=90) */
@@ -348,7 +459,7 @@
       stroke-width: 8.5;
       stroke-dasharray: 565.48;
       stroke-dashoffset: 565.48;
-      filter: drop-shadow(0 0 8px var(--apple-blue-glow));
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
     }
 
     /* Ring 3: $100 Revenue (Money Emerald Green - r=72) */
@@ -357,7 +468,7 @@
       stroke-width: 8.5;
       stroke-dasharray: 452.38;
       stroke-dashoffset: 452.38;
-      filter: drop-shadow(0 0 8px var(--apple-green-glow));
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
     }
 
     /* Ring 4 (Inner): 91 Videos (Studio Purple/Violet - r=54) */
@@ -366,7 +477,7 @@
       stroke-width: 8.5;
       stroke-dasharray: 339.29;
       stroke-dashoffset: 339.29;
-      filter: drop-shadow(0 0 8px var(--apple-purple-glow));
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
     }
 
     /* Center core text */
@@ -385,7 +496,7 @@
       font-size: 24px;
       font-weight: 900;
       letter-spacing: -0.6px;
-      color: #FFFFFF;
+      color: var(--text-white);
       line-height: 1;
     }
 
@@ -394,7 +505,7 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      color: var(--text-secondary);
+      color: #576574;
       margin-top: 3px;
     }
 
@@ -430,29 +541,17 @@
 
     .target-tile {
       background: var(--liquid-glass-subtle);
-      border: 1px solid var(--liquid-glass-border);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.7), 0 4px 10px rgba(0, 0, 0, 0.04);
       border-radius: var(--radius-tile);
       padding: 11px 10px;
       display: flex;
       flex-direction: column;
       position: relative;
-      overflow: hidden;
     }
 
-    .target-tile::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-    }
-
-    .tile-views::before { background: linear-gradient(90deg, #FF2D55, #FF375F); }
-    .tile-followers::before { background: linear-gradient(90deg, #0A84FF, #5E5CE6); }
-    .tile-revenue::before { background: linear-gradient(90deg, #30D158, #34C759); }
-    .tile-videos::before { background: linear-gradient(90deg, #BF5AF2, #AF52DE); }
-
+    /* Subtle inner glow for Target tiles instead of top borders */
+                
     .target-tile-top {
       display: flex;
       align-items: center;
@@ -463,7 +562,7 @@
     .target-tile-label {
       font-size: 10.5px;
       font-weight: 800;
-      color: var(--text-secondary);
+      color: #576574;
       text-transform: uppercase;
       letter-spacing: 0.3px;
     }
@@ -471,7 +570,7 @@
     .target-tile-val {
       font-size: 16px;
       font-weight: 900;
-      color: #FFFFFF;
+      color: var(--text-white);
       letter-spacing: -0.3px;
       line-height: 1.2;
     }
@@ -479,9 +578,8 @@
     .target-tile-bar {
       width: 100%;
       height: 4px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(30, 41, 59, 0.12);
       border-radius: 4px;
-      overflow: hidden;
       margin: 6px 0 4px;
     }
 
@@ -494,9 +592,8 @@
     .target-tile-sub {
       font-size: 9.5px;
       font-weight: 700;
-      color: var(--text-secondary);
+      color: #576574;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
     }
 
@@ -538,7 +635,7 @@
       padding: 10px 12px;
       font-size: 13px;
       font-weight: 700;
-      color: var(--text-secondary);
+      color: #576574;
       cursor: pointer;
       border-radius: 11px;
       transition: color 0.2s ease;
@@ -550,7 +647,7 @@
     }
 
     .segment-tab-btn.active {
-      color: #FFFFFF;
+      color: var(--text-white);
     }
 
     .tab-view-pane {
@@ -590,13 +687,13 @@
       width: 36px;
       height: 36px;
       border-radius: 10px;
-      background: rgba(10, 132, 255, 0.18);
-      color: var(--apple-blue);
+      background: rgba(30, 41, 59, 0.08);
+      color: #576574;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 16px;
-      border: 1px solid rgba(10, 132, 255, 0.35);
+      border: 1px solid rgba(30, 41, 59, 0.12);
       flex-shrink: 0;
     }
 
@@ -609,21 +706,19 @@
     .date-heading-main {
       font-size: 14px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--text-white);
       display: flex;
       align-items: center;
       gap: 6px;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .date-heading-sub {
       font-size: 10.5px;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: #576574;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
     }
 
@@ -638,9 +733,9 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      border: 1px solid var(--liquid-glass-border);
-      background: rgba(255, 255, 255, 0.08);
-      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(30, 41, 59, 0.12);
+      color: var(--text-white);
       font-size: 18px;
       font-weight: 700;
       display: flex;
@@ -681,7 +776,7 @@
     .targets-card-title {
       font-size: 11.5px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--text-white);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -694,7 +789,7 @@
 
     .target-field-box {
       background: var(--liquid-glass-subtle);
-      border: 1px solid var(--liquid-glass-border);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       border-radius: var(--radius-sm);
       padding: 8px 8px;
     }
@@ -702,11 +797,10 @@
     .target-field-label {
       font-size: 9.5px;
       font-weight: 800;
-      color: var(--text-secondary);
+      color: #576574;
       margin-bottom: 4px;
       display: block;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
     }
 
@@ -715,7 +809,7 @@
       font-family: inherit;
       font-size: 17px;
       font-weight: 900;
-      color: #FFFFFF;
+      color: var(--text-white);
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 9px;
@@ -726,7 +820,7 @@
     }
 
     .apple-num-input:focus {
-      border-color: var(--apple-blue);
+      border-color: #576574;
       box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3);
     }
 
@@ -795,7 +889,7 @@
     .platform-name-row {
       font-size: 14px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--text-white);
       display: flex;
       align-items: center;
       gap: 5px;
@@ -806,24 +900,16 @@
     .apple-rank-tag {
       font-size: 10.5px;
       font-weight: 700;
-      color: rgba(255, 255, 255, 0.4);
+      color: #000000;
       letter-spacing: 0.2px;
     }
 
-    .apple-rank-tag.lead {
-      color: #FFFFFF;
-      font-weight: 900;
-      background: rgba(255, 255, 255, 0.12);
-      padding: 1px 5px;
-      border-radius: 5px;
-    }
 
     .platform-handle-label {
       font-size: 10.5px;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: #576574;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
     }
 
@@ -844,8 +930,8 @@
       font-family: inherit;
       font-size: 20px;
       font-weight: 900;
-      color: #FFFFFF;
-      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 11px;
       padding: 8px 12px;
@@ -857,16 +943,15 @@
     }
 
     .platform-views-input:focus {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: var(--apple-blue);
+      background: rgba(255, 255, 255, 0.6);
+      border-color: #576574;
       box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3);
     }
 
     .liquid-bar-track {
       height: 5px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(30, 41, 59, 0.12);
       border-radius: 10px;
-      overflow: hidden;
       position: relative;
     }
 
@@ -881,7 +966,7 @@
       justify-content: space-between;
       font-size: 10px;
       font-weight: 700;
-      color: var(--text-secondary);
+      color: #576574;
       margin-top: 4px;
     }
 
@@ -894,7 +979,7 @@
     .apple-save-btn {
       flex: 1;
       background: linear-gradient(135deg, #0A84FF 0%, #0060df 100%);
-      color: #FFFFFF;
+      color: var(--text-white);
       font-family: inherit;
       font-size: 15px;
       font-weight: 800;
@@ -949,45 +1034,30 @@
     }
 
     .avg-kpi-card {
-      background: rgba(20, 24, 36, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.11);
-      border-radius: 18px;
-      padding: 14px 8px 12px;
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.7), 0 4px 10px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 22px;
+      padding: 16px 8px 14px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(35px) saturate(180%);
-      -webkit-backdrop-filter: blur(35px) saturate(180%);
-      position: relative;
-      overflow: hidden;
     }
 
-    .avg-kpi-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-    }
-
-    .card-views-avg::before { background: linear-gradient(90deg, #FF2D55, #FF375F); }
-    .card-followers-avg::before { background: linear-gradient(90deg, #0A84FF, #5E5CE6); }
-    .card-revenue-avg::before { background: linear-gradient(90deg, #30D158, #34C759); }
-    .card-videos-avg::before { background: linear-gradient(90deg, #BF5AF2, #AF52DE); }
-
+    /* Subtle inner glow for KPI cards instead of top borders */
+                
     .avg-icon-emoji {
       font-size: 20px;
       line-height: 1;
       margin-bottom: 4px;
+      color: var(--text-white);
     }
 
     .avg-heading-title {
-      font-size: 9px;
+      font-size: 10.5px;
       font-weight: 800;
-      color: rgba(235, 235, 245, 0.6);
+      color: rgba(30, 41, 59, 0.55);
       text-transform: uppercase;
       letter-spacing: 0.6px;
       margin-bottom: 2px;
@@ -997,10 +1067,11 @@
     .avg-big-stat {
       font-size: 18px;
       font-weight: 900;
-      color: #FFFFFF;
+      color: var(--text-white);
       letter-spacing: -0.3px;
       line-height: 1.15;
       margin-bottom: 2px;
+      color: var(--text-white);
     }
 
     @media (min-width: 480px) {
@@ -1012,7 +1083,7 @@
     .avg-bottom-sub {
       font-size: 9px;
       font-weight: 600;
-      color: rgba(235, 235, 245, 0.45);
+      color: rgba(30, 41, 59, 0.6);
       white-space: nowrap;
     }
 
@@ -1033,21 +1104,20 @@
     .hall-main-title {
       font-size: 13.5px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--text-white);
       display: flex;
       align-items: center;
       gap: 6px;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
       min-width: 0;
       flex: 1;
     }
 
     .hall-edit-action-btn {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(30, 41, 59, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.14);
-      color: #FFFFFF;
+      color: var(--text-white);
       font-size: 11px;
       font-weight: 700;
       padding: 6px 10px;
@@ -1079,8 +1149,9 @@
     }
 
     .hall-video-deck {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.7), 0 4px 10px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       border-radius: var(--radius-tile);
       padding: 13px 14px;
       display: flex;
@@ -1105,7 +1176,7 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      color: rgba(235, 235, 245, 0.7);
+      color: rgba(30, 41, 59, 0.8);
       display: flex;
       align-items: center;
       gap: 4px;
@@ -1114,7 +1185,7 @@
     .hall-deck-number {
       font-size: 20px;
       font-weight: 900;
-      color: #FFFFFF;
+      color: var(--text-white);
       letter-spacing: -0.4px;
     }
 
@@ -1123,7 +1194,6 @@
       font-weight: 700;
       color: var(--text-white);
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
     }
 
@@ -1135,9 +1205,9 @@
       border-radius: 9px;
       font-size: 11px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--text-white);
       text-decoration: none;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(30, 41, 59, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.14);
       transition: all 0.2s ease;
       align-self: flex-start;
@@ -1156,6 +1226,24 @@
       margin-bottom: 18px;
     }
 
+    .inner-glass-panel {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.7), 0 4px 10px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .chart-group-card {
+      margin-bottom: 24px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
     .chart-liquid-panel {
       padding: 16px 14px 14px;
     }
@@ -1170,13 +1258,13 @@
     .chart-head-title {
       font-size: 13.5px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--text-white);
     }
 
     .chart-head-sub {
       font-size: 11px;
       font-weight: 700;
-      color: var(--apple-blue);
+      color: #576574;
     }
 
     .sparkline-svg-zone {
@@ -1205,16 +1293,15 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      color: #FFFFFF;
+      color: var(--text-white);
     }
 
     .dist-topline-right {
-      color: var(--text-secondary);
+      color: #576574;
       font-weight: 800;
     }
 
     .history-liquid-table {
-      overflow: hidden;
       margin-bottom: 20px;
     }
 
@@ -1240,16 +1327,19 @@
     .history-click-area {
       flex: 1;
       display: flex;
-      flex-direction: column;
-      gap: 3px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       cursor: pointer;
       min-width: 0;
+      flex-wrap: wrap;
     }
 
     .history-date-row {
       font-size: 13.5px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--text-white);
       display: flex;
       align-items: center;
       gap: 6px;
@@ -1257,16 +1347,23 @@
     }
 
     .history-pill-tag {
-      font-size: 10px;
-      font-weight: 700;
-      padding: 1px 6px;
-      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      color: var(--text-white);
+      background: rgba(30, 41, 59, 0.08);
+      border: 1px solid rgba(30, 41, 59, 0.12);
     }
 
     .history-breakdown-row {
       font-size: 10px;
       font-weight: 500;
-      color: var(--text-secondary);
+      color: #576574;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -1276,7 +1373,7 @@
     .history-views-num {
       font-size: 15px;
       font-weight: 900;
-      color: #FFFFFF;
+      color: var(--text-white);
       text-align: right;
     }
 
@@ -1294,8 +1391,8 @@
       height: 32px;
       border-radius: 9px;
       border: none;
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-secondary);
+      background: rgba(30, 41, 59, 0.12);
+      color: #576574;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1306,7 +1403,7 @@
 
     .tool-icon-btn:hover {
       background: rgba(255, 255, 255, 0.18);
-      color: #FFFFFF;
+      color: var(--text-white);
     }
 
     .tool-icon-btn.delete:hover {
@@ -1344,7 +1441,6 @@
       max-width: 340px;
       text-align: center;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
-      overflow: hidden;
       transform: scale(0.92);
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
@@ -1363,7 +1459,7 @@
       40%, 80% { transform: translateX(10px); }
     }
 
-    .apple-dialog-body {
+    .apple-dialog-body { color: var(--text-white);
       padding: 20px 16px 16px;
     }
 
@@ -1375,13 +1471,13 @@
     .apple-dialog-title {
       font-size: 17px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--text-white);
       margin-bottom: 4px;
     }
 
     .apple-dialog-sub {
       font-size: 12.5px;
-      color: var(--text-secondary);
+      color: #576574;
       line-height: 1.35;
     }
 
@@ -1392,8 +1488,8 @@
       font-size: 22px;
       font-weight: 900;
       letter-spacing: 8px;
-      color: #FFFFFF;
-      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      background: rgba(30, 41, 59, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 12px;
       padding: 8px 12px;
@@ -1402,7 +1498,7 @@
     }
 
     .pin-code-input:focus {
-      border-color: var(--apple-blue);
+      border-color: #576574;
       box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.35);
     }
 
@@ -1432,11 +1528,11 @@
 
     .dialog-btn:first-child {
       border-right: 1px solid var(--separator-line);
-      color: var(--text-secondary);
+      color: #576574;
     }
 
     .dialog-btn.primary {
-      color: var(--apple-blue);
+      color: #576574;
     }
 
     .dialog-btn.danger {
@@ -1451,7 +1547,7 @@
     .record-input-label {
       font-size: 10.5px;
       font-weight: 800;
-      color: var(--text-secondary);
+      color: #576574;
       margin-bottom: 4px;
       display: block;
     }
@@ -1461,8 +1557,8 @@
       font-family: inherit;
       font-size: 13.5px;
       font-weight: 600;
-      color: #FFFFFF;
-      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      background: rgba(30, 41, 59, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 10px;
       padding: 8px 10px;
@@ -1471,7 +1567,7 @@
     }
 
     .record-text-field:focus {
-      border-color: var(--apple-blue);
+      border-color: #576574;
     }
 
     .apple-toast-banner {
@@ -1480,7 +1576,7 @@
       left: 50%;
       transform: translateX(-50%) translateY(100px);
       background: rgba(24, 28, 42, 0.96);
-      color: #FFFFFF;
+      color: var(--text-white);
       padding: 10px 20px;
       border-radius: 30px;
       font-size: 12.5px;
@@ -1504,29 +1600,33 @@
 </head>
 <body>
 
-  <!-- Ambient Glowing Mesh -->
-  <div class="apple-ambient-mesh">
-    <div class="mesh-glow mesh-pink"></div>
-    <div class="mesh-glow mesh-blue"></div>
-    <div class="mesh-glow mesh-green"></div>
-  </div>
 
+
+  <div class="water-blob blob-1"></div>
+  <div class="water-blob blob-2"></div>
+  <div class="water-blob blob-3"></div>
+  <div class="water-blob blob-4"></div>
   <div class="app-viewport">
 
     <!-- Clean Header with "by Roofline" -->
     <header class="apple-header">
-      <h1 class="apple-main-title">Survival Instinct 111</h1>
-      <div class="apple-subtitle">by <span class="roofline-specular">Roofline</span></div>
+      <div class="header-text-group">
+        <h1 class="apple-main-title">Survival Instinct T2</h1>
+        <div class="apple-subtitle">by <span class="roofline-specular">Roofline</span></div>
+      </div>
+      <div class="apple-hamburger-btn" onclick="openSidebar()" title="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </div>
     </header>
 
     <!-- 91-Day Master Timeline Bar (Main Screen) -->
-    <section class="liquid-glass-card timeline-liquid-card">
+    <section id="section-velocity" class="liquid-glass-card timeline-liquid-card">
       <div class="timeline-top-row">
         <div class="timeline-title-box">
-          <div class="timeline-icon-badge">⏱️</div>
+          <div class="timeline-icon-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
           <div class="timeline-text-group">
             <span class="timeline-heading">91-Day Campaign Timeline</span>
-            <span class="timeline-subline">Sprint Horizon: Sep 1 – Nov 30, 2026</span>
+            <span class="timeline-subline">Active Period: Sep 1 – Nov 30, 2026</span>
           </div>
         </div>
         <div class="timeline-day-chip" id="timeline-day-pill">Day 1 / 91</div>
@@ -1538,7 +1638,7 @@
 
       <div class="timeline-milestones-row">
         <span id="timeline-elapsed-text">1.1% elapsed (1 of 91 days)</span>
-        <span id="timeline-remaining-text" style="color: var(--apple-blue); font-weight: 800;">90 days remaining</span>
+        <span id="timeline-remaining-text" style="color: #576574; font-weight: 800;">90 days remaining</span>
       </div>
     </section>
 
@@ -1549,23 +1649,23 @@
           <defs>
             <!-- Ring 1 (Outer): 100K Views (Pink/Red) -->
             <linearGradient id="applePinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FF2D55" />
-              <stop offset="100%" stop-color="#FF375F" />
+              <stop offset="0%" stop-color="#576574" />
+              <stop offset="100%" stop-color="#1e293b" />
             </linearGradient>
             <!-- Ring 2: 1K Followers (Blue) -->
             <linearGradient id="appleBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0A84FF" />
-              <stop offset="100%" stop-color="#5E5CE6" />
+              <stop offset="0%" stop-color="#576574" />
+              <stop offset="100%" stop-color="#1e293b" />
             </linearGradient>
             <!-- Ring 3: $100 Revenue (Money Emerald Green) -->
             <linearGradient id="appleGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#30D158" />
-              <stop offset="100%" stop-color="#34C759" />
+              <stop offset="0%" stop-color="#576574" />
+              <stop offset="100%" stop-color="#1e293b" />
             </linearGradient>
             <!-- Ring 4 (Inner): 91 Videos (Studio Purple) -->
             <linearGradient id="applePurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#BF5AF2" />
-              <stop offset="100%" stop-color="#AF52DE" />
+              <stop offset="0%" stop-color="#576574" />
+              <stop offset="100%" stop-color="#1e293b" />
             </linearGradient>
           </defs>
 
@@ -1590,12 +1690,7 @@
         <div class="rings-center-core">
           <div class="rings-center-percent" id="quad-blended-percent">0.0%</div>
           <span class="rings-center-label">Goals Met</span>
-          <div class="rings-indicator-dots">
-            <span class="ring-dot" style="background:#FF2D55;" title="Views (100K)"></span>
-            <span class="ring-dot" style="background:#0A84FF;" title="Followers (1K)"></span>
-            <span class="ring-dot" style="background:#30D158;" title="Revenue ($100)"></span>
-            <span class="ring-dot" style="background:#BF5AF2;" title="Videos (91)"></span>
-          </div>
+          
         </div>
       </div>
 
@@ -1604,25 +1699,25 @@
         <!-- Target 1: Views (100,000) -->
         <div class="target-tile tile-views">
           <div class="target-tile-top">
-            <span class="target-tile-label">👁️ Views</span>
-            <span style="font-size:10px; font-weight:800; color:#FF2D55;">100K</span>
+            <span class="target-tile-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> Views</span>
+            <span style="font-size:10px; font-weight:800; color: rgba(30, 41, 59, 0.55);">100K</span>
           </div>
           <div class="target-tile-val" id="stat-views-val">0</div>
           <div class="target-tile-bar">
-            <div class="target-tile-fill" id="bar-views-fill" style="background: linear-gradient(90deg, #FF2D55, #FF375F); width: 0%;"></div>
+            <div class="target-tile-fill" id="bar-views-fill" style="background: linear-gradient(90deg, #576574, #1e293b); box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255, 255, 255, 0.1); border: 1px solid rgba(30, 41, 59, 0.3);; width: 0%;"></div>
           </div>
-          <div class="target-tile-sub" id="stat-views-sub">0% of 100K</div>
+          <div class="target-tile-sub" id="stat-views-sub">0.0% (100,000 left)</div>
         </div>
 
         <!-- Target 2: Followers (1,000) -->
         <div class="target-tile tile-followers">
           <div class="target-tile-top">
-            <span class="target-tile-label">👥 Followers</span>
-            <span style="font-size:10px; font-weight:800; color:#0A84FF;">1K</span>
+            <span class="target-tile-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Followers</span>
+            <span style="font-size:10px; font-weight:800; color: rgba(30, 41, 59, 0.55);">1K</span>
           </div>
-          <div class="target-tile-val" id="stat-followers-val">0 / 1K</div>
+          <div class="target-tile-val" id="stat-followers-val">0</div>
           <div class="target-tile-bar">
-            <div class="target-tile-fill" id="bar-followers-fill" style="background: linear-gradient(90deg, #0A84FF, #5E5CE6); width: 0%;"></div>
+            <div class="target-tile-fill" id="bar-followers-fill" style="background: linear-gradient(90deg, #576574, #1e293b); box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255, 255, 255, 0.1); border: 1px solid rgba(30, 41, 59, 0.3);; width: 0%;"></div>
           </div>
           <div class="target-tile-sub" id="stat-followers-sub">0% of 1,000</div>
         </div>
@@ -1630,188 +1725,108 @@
         <!-- Target 3: Revenue ($100) -->
         <div class="target-tile tile-revenue">
           <div class="target-tile-top">
-            <span class="target-tile-label">💵 Revenue</span>
-            <span style="font-size:10px; font-weight:800; color:#30D158;">$100</span>
+            <span class="target-tile-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Revenue</span>
+            <span style="font-size:10px; font-weight:800; color: rgba(30, 41, 59, 0.55);">$100</span>
           </div>
           <div class="target-tile-val" id="stat-revenue-val">$0</div>
           <div class="target-tile-bar">
-            <div class="target-tile-fill" id="bar-revenue-fill" style="background: linear-gradient(90deg, #30D158, #34C759); width: 0%;"></div>
+            <div class="target-tile-fill" id="bar-revenue-fill" style="background: linear-gradient(90deg, #576574, #1e293b); box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255, 255, 255, 0.1); border: 1px solid rgba(30, 41, 59, 0.3);; width: 0%;"></div>
           </div>
           <div class="target-tile-sub" id="stat-revenue-sub">0% of $100</div>
         </div>
 
-        <!-- Target 4: Videos (91) -->
+        <!-- Target 4: Videos (100) -->
         <div class="target-tile tile-videos">
           <div class="target-tile-top">
-            <span class="target-tile-label">🎬 Videos</span>
-            <span style="font-size:10px; font-weight:800; color:#BF5AF2;">91 Clips</span>
+            <span class="target-tile-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><rect x="2" y="2" width="20" height="20" rx="2.5" ry="2.5"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg> Videos</span>
+            <span style="font-size:10px; font-weight:800; color: rgba(30, 41, 59, 0.55);">100 Clips</span>
           </div>
-          <div class="target-tile-val" id="stat-videos-val">0 / 91</div>
+          <div class="target-tile-val" id="stat-videos-val">0</div>
           <div class="target-tile-bar">
-            <div class="target-tile-fill" id="bar-videos-fill" style="background: linear-gradient(90deg, #BF5AF2, #AF52DE); width: 0%;"></div>
+            <div class="target-tile-fill" id="bar-videos-fill" style="background: linear-gradient(90deg, #576574, #1e293b); box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255, 255, 255, 0.1); border: 1px solid rgba(30, 41, 59, 0.3);; width: 0%;"></div>
           </div>
-          <div class="target-tile-sub" id="stat-videos-sub">0% of 91 clips</div>
+          <div class="target-tile-sub" id="stat-videos-sub">0% of 100 clips</div>
         </div>
       </div>
     </section>
 
-    <!-- Liquid Segment Control -->
-    <div class="liquid-segment-bar" id="segmented-bar" data-active-tab="today">
-      <div class="segment-liquid-thumb"></div>
-      <button class="segment-tab-btn active" id="tab-today-btn" type="button">
-        <span>⚡ Today Log</span>
-      </button>
-      <button class="segment-tab-btn" id="tab-log-btn" type="button">
-        <span>📊 Analytics & Records</span>
-      </button>
-    </div>
+    
 
-    <!-- TAB 1: TODAY LOG -->
-    <main class="tab-view-pane active" id="today-tab-view">
-      <!-- Date Capsule Bar -->
-      <div class="liquid-glass-card date-capsule-card">
-        <div class="date-tap-zone" id="date-display-trigger">
-          <div class="date-apple-icon">📅</div>
-          <div class="date-texts-box">
-            <div class="date-heading-main" id="date-main-text">Sep 1, 2026</div>
-            <div class="date-heading-sub" id="date-sub-text">Tap to select calendar day</div>
-          </div>
-        </div>
-        <div class="date-steppers-wrap">
-          <button class="stepper-apple-btn" id="prev-day-btn" title="Previous Day" type="button">‹</button>
-          <button class="stepper-apple-btn" id="next-day-btn" title="Next Day" type="button">›</button>
-        </div>
-        <input type="date" id="hidden-date-picker" class="hidden-date-input">
-      </div>
-
-      <!-- Core Progress Inputs Card (Followers /1K, Revenue /$100, Videos /91) -->
-      <div class="liquid-glass-card targets-input-card">
-        <div class="targets-card-head">
-          <span class="targets-card-title">🎯 September Progress Targets</span>
-          <span style="font-size: 10.5px; font-weight: 800; color: var(--apple-green);">Month Total</span>
-        </div>
-        <div class="targets-inputs-3grid">
-          <div class="target-field-box">
-            <label class="target-field-label">👥 Followers ( / 1K):</label>
-            <input 
-              type="number" 
-              id="input-followers-count" 
-              class="apple-num-input" 
-              placeholder="0" 
-              min="0" 
-              value="0"
-            />
-          </div>
-
-          <div class="target-field-box">
-            <label class="target-field-label">💵 Revenue ($ / 100):</label>
-            <input 
-              type="number" 
-              id="input-revenue-count" 
-              class="apple-num-input" 
-              placeholder="0" 
-              min="0" 
-              value="0"
-            />
-          </div>
-
-          <div class="target-field-box">
-            <label class="target-field-label">🎬 Videos ( / 91):</label>
-            <input 
-              type="number" 
-              id="input-videos-count" 
-              class="apple-num-input" 
-              placeholder="0" 
-              min="0" 
-              max="91"
-              value="0"
-            />
-          </div>
-        </div>
-      </div>
-
-      <!-- Auto-Sorted Platform View Cards -->
-      <div class="platform-cards-deck" id="platform-cards-container"></div>
-
-      <!-- Action Buttons -->
-      <div class="today-actions-row">
-        <button class="apple-save-btn" id="save-log-btn" type="button">
-          <span>🔒 Log / Update Today's Numbers</span>
-        </button>
-        <button class="apple-delete-btn" id="delete-current-day-btn" type="button" style="display: none;">
-          <span>🗑️ Delete</span>
-        </button>
-      </div>
-    </main>
-
-    <!-- TAB 2: ANALYTICS & RECORDS -->
-    <section class="tab-view-pane" id="log-tab-view">
       
-      <!-- 4 Daily Average KPI Cubes Side by Side (Views, Followers, Revenue, Videos) -->
-      <div class="daily-avg-4grid">
+      <!-- Daily Averages Container Panel -->
+      <div class="liquid-glass-card hall-of-fame-panel" style="margin-bottom: 24px;">
+        <div class="hall-header-bar">
+          <h3 class="hall-main-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg> Daily Velocity Averages</h3>
+        </div>
+        <div class="daily-avg-4grid" style="margin-top: 6px;">
         <!-- Cube 1: Views Daily Average -->
         <div class="avg-kpi-card card-views-avg">
-          <div class="avg-icon-emoji">👁️</div>
+          <div class="avg-icon-emoji"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
           <div class="avg-heading-title">AVG VIEWS / DAY</div>
-          <div class="avg-big-stat" id="kpi-avg-views" style="color: #FF2D55;">0</div>
+          <div class="avg-big-stat" id="kpi-avg-views">0</div>
           <div class="avg-bottom-sub">Goal: 100K Views</div>
+          <div id="status-avg-views" style="font-size:9.5px; font-weight:800; margin-top:6px; padding:3px 8px; border-radius:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.05); transition:all 0.3s ease;">--</div>
         </div>
 
         <!-- Cube 2: Followers Daily Average -->
         <div class="avg-kpi-card card-followers-avg">
-          <div class="avg-icon-emoji">👥</div>
+          <div class="avg-icon-emoji"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
           <div class="avg-heading-title">AVG FOLLOWERS / DAY</div>
-          <div class="avg-big-stat" id="kpi-avg-followers" style="color: #0A84FF;">0</div>
+          <div class="avg-big-stat" id="kpi-avg-followers">0</div>
           <div class="avg-bottom-sub">Goal: 1,000 Fols</div>
+          <div id="status-avg-followers" style="font-size:9.5px; font-weight:800; margin-top:6px; padding:3px 8px; border-radius:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.05); transition:all 0.3s ease;">--</div>
         </div>
 
         <!-- Cube 3: Revenue Daily Average -->
         <div class="avg-kpi-card card-revenue-avg">
-          <div class="avg-icon-emoji">💵</div>
+          <div class="avg-icon-emoji"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
           <div class="avg-heading-title">AVG REVENUE / DAY</div>
-          <div class="avg-big-stat" id="kpi-avg-revenue" style="color: #30D158;">$0.00</div>
+          <div class="avg-big-stat" id="kpi-avg-revenue">$0.00</div>
           <div class="avg-bottom-sub">Goal: $100 Total</div>
+          <div id="status-avg-revenue" style="font-size:9.5px; font-weight:800; margin-top:6px; padding:3px 8px; border-radius:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.05); transition:all 0.3s ease;">--</div>
         </div>
 
         <!-- Cube 4: Videos Daily Average -->
         <div class="avg-kpi-card card-videos-avg">
-          <div class="avg-icon-emoji">🎬</div>
+          <div class="avg-icon-emoji"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><rect x="2" y="2" width="20" height="20" rx="2.5" ry="2.5"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg></div>
           <div class="avg-heading-title">AVG VIDEOS / DAY</div>
-          <div class="avg-big-stat" id="kpi-avg-videos" style="color: #BF5AF2;">0.0</div>
-          <div class="avg-bottom-sub">Goal: 91 Clips</div>
+          <div class="avg-big-stat" id="kpi-avg-videos">0.0</div>
+          <div class="avg-bottom-sub">Goal: 100 Clips</div>
+          <div id="status-avg-videos" style="font-size:9.5px; font-weight:800; margin-top:6px; padding:3px 8px; border-radius:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.05); transition:all 0.3s ease;">--</div>
         </div>
+      </div>
       </div>
 
       <!-- Top Content Hall of Fame - Clean Minimalist Apple Glass Aesthetic (100% Mobile Overflow Proof) -->
-      <div class="liquid-glass-card hall-of-fame-panel">
+      <div id="section-top-content" class="liquid-glass-card hall-of-fame-panel">
         <div class="hall-header-bar">
-          <h3 class="hall-main-title">🏆 Top Content</h3>
-          <button class="hall-edit-action-btn" id="open-record-edit-btn" type="button">✏️ Edit Links</button>
+          <h3 class="hall-main-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Top Content</h3>
+          
         </div>
         <div class="hall-content-grid">
           <!-- Top Viewed Video -->
           <div class="hall-video-deck">
             <div class="hall-deck-top">
-              <span class="hall-deck-badge">👁️ Most Viewed Video</span>
-              <span id="record-views-platform-badge" style="font-size: 9.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.85);">TIKTOK</span>
+              <span class="hall-deck-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> Most Viewed Video</span>
+              <span id="record-views-platform-badge" style="font-size: 9.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px; background: rgba(30, 41, 59, 0.08); border: 1px solid rgba(30, 41, 59, 0.12); color: rgba(30, 41, 59, 0.85);">TIKTOK</span>
             </div>
             <div class="hall-deck-number" id="record-views-count">0 views</div>
             <div class="hall-deck-title" id="record-views-title">No video title set yet</div>
             <a href="#" target="_blank" rel="noopener noreferrer" class="hall-play-link-btn" id="record-views-link-btn" style="display: none;">
-              <span>▶️ Watch Video / View Post ↗</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Watch Video / View Post ↗</span>
             </a>
           </div>
 
           <!-- Top Liked Video -->
           <div class="hall-video-deck">
             <div class="hall-deck-top">
-              <span class="hall-deck-badge">❤️ Most Liked Video</span>
-              <span id="record-likes-platform-badge" style="font-size: 9.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.85);">YOUTUBE</span>
+              <span class="hall-deck-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Most Liked Video</span>
+              <span id="record-likes-platform-badge" style="font-size: 9.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px; background: rgba(30, 41, 59, 0.08); border: 1px solid rgba(30, 41, 59, 0.12); color: rgba(30, 41, 59, 0.85);">YOUTUBE</span>
             </div>
             <div class="hall-deck-number" id="record-likes-count">0 likes</div>
             <div class="hall-deck-title" id="record-likes-title">No video title set yet</div>
             <a href="#" target="_blank" rel="noopener noreferrer" class="hall-play-link-btn" id="record-likes-link-btn" style="display: none;">
-              <span>▶️ Watch Video / View Post ↗</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Watch Video / View Post ↗</span>
             </a>
           </div>
         </div>
@@ -1819,38 +1834,117 @@
 
       <!-- Growth & Velocity Charts -->
       <div class="charts-apple-stack">
-        <div class="liquid-glass-card chart-liquid-panel">
-          <div class="chart-head-line">
-            <span class="chart-head-title">Views Trajectory (Goal: 100K)</span>
-            <span class="chart-head-sub">Cumulative Trajectory</span>
+        
+        <!-- Views Group -->
+        <div id="section-views" class="liquid-glass-card chart-group-card">
+          <div class="hall-header-bar" style="margin-bottom: 4px;">
+            <h3 class="hall-main-title" style="margin: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> Views Analytics</h3>
           </div>
-          <div class="sparkline-svg-zone" id="sparkline-svg-wrapper"></div>
+          <div class="inner-glass-panel">
+            <div class="chart-head-line">
+              <span class="chart-head-title">Views Trajectory (Goal: <span id="views-goal-text">100K</span>)</span>
+              <span class="chart-head-sub">Cumulative</span>
+            </div>
+            <div class="sparkline-svg-zone" id="chart-views-line"></div>
+          </div>
+          <div class="inner-glass-panel">
+            <div class="chart-head-line">
+              <span class="chart-head-title">Views Velocity Increase</span>
+              <span class="chart-head-sub" style="color: #576574;">+Views / Day</span>
+            </div>
+            <div style="width: 100%; height: 130px; position: relative;" id="chart-views-bar"></div>
+          </div>
+          <div class="inner-glass-panel">
+            <div class="chart-head-line" style="margin-bottom: 8px;">
+              <span class="chart-head-title">Platform Rankings & Share</span>
+              <span class="chart-head-sub">Ranked by Volume</span>
+            </div>
+            <div class="distribution-liquid-list" id="platform-distribution-list"></div>
+          </div>
         </div>
 
-        <div class="liquid-glass-card chart-liquid-panel">
-          <div class="chart-head-line">
-            <span class="chart-head-title">Daily Velocity Increase</span>
-            <span class="chart-head-sub" style="color: #30D158;">+Views / Day</span>
+        <!-- Followers Group -->
+        <div id="section-followers" class="liquid-glass-card chart-group-card">
+          <div class="hall-header-bar" style="margin-bottom: 4px;">
+            <h3 class="hall-main-title" style="margin: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Followers Analytics</h3>
           </div>
-          <div style="width: 100%; height: 130px; position: relative;" id="velocity-chart-wrapper"></div>
+          <div class="inner-glass-panel">
+            <div class="chart-head-line">
+              <span class="chart-head-title">Followers Trajectory (Goal: <span id="fols-goal-text">1K</span>)</span>
+              <span class="chart-head-sub">Cumulative</span>
+            </div>
+            <div class="sparkline-svg-zone" id="chart-fols-line"></div>
+          </div>
+          <div class="inner-glass-panel">
+            <div class="chart-head-line">
+              <span class="chart-head-title">Followers Velocity Increase</span>
+              <span class="chart-head-sub" style="color: #576574;">+Fols / Day</span>
+            </div>
+            <div style="width: 100%; height: 130px; position: relative;" id="chart-fols-bar"></div>
+          </div>
+          <div class="inner-glass-panel">
+            <div class="chart-head-line" style="margin-bottom: 8px;">
+              <span class="chart-head-title">Followers Rankings & Share</span>
+              <span class="chart-head-sub">Ranked by Volume</span>
+            </div>
+            <div class="distribution-liquid-list" id="fols-distribution-list"></div>
+          </div>
         </div>
 
-        <div class="liquid-glass-card chart-liquid-panel">
-          <div class="chart-head-line" style="margin-bottom: 8px;">
-            <span class="chart-head-title">Platform Rankings & Share (Auto-Sorted)</span>
-            <span class="chart-head-sub">Ranked by Volume</span>
+        <!-- Revenue Group -->
+        <div id="section-revenue" class="liquid-glass-card chart-group-card">
+          <div class="hall-header-bar" style="margin-bottom: 4px;">
+            <h3 class="hall-main-title" style="margin: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Revenue Analytics</h3>
           </div>
-          <div class="distribution-liquid-list" id="platform-distribution-list"></div>
+          <div class="inner-glass-panel">
+            <div class="chart-head-line">
+              <span class="chart-head-title">Revenue Trajectory (Goal: <span id="rev-goal-text">$100</span>)</span>
+              <span class="chart-head-sub">Cumulative</span>
+            </div>
+            <div class="sparkline-svg-zone" id="chart-rev-line"></div>
+          </div>
+          <div class="inner-glass-panel">
+            <div class="chart-head-line">
+              <span class="chart-head-title">Revenue Velocity Increase</span>
+              <span class="chart-head-sub" style="color: #576574;">+$ / Day</span>
+            </div>
+            <div style="width: 100%; height: 130px; position: relative;" id="chart-rev-bar"></div>
+          </div>
+        </div>
+
+        <!-- Videos Group -->
+        <div id="section-videos" class="liquid-glass-card chart-group-card" style="margin-bottom: 24px;">
+          <div class="hall-header-bar" style="margin-bottom: 4px;">
+            <h3 class="hall-main-title" style="margin: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><rect x="2" y="2" width="20" height="20" rx="2.5" ry="2.5"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg> Content Output Analytics</h3>
+          </div>
+          <div class="inner-glass-panel">
+            <div class="chart-head-line">
+              <span class="chart-head-title">Videos Trajectory (Goal: <span id="vids-goal-text">100</span>)</span>
+              <span class="chart-head-sub">Cumulative</span>
+            </div>
+            <div class="sparkline-svg-zone" id="chart-vids-line"></div>
+          </div>
+          <div class="inner-glass-panel">
+            <div class="chart-head-line">
+              <span class="chart-head-title">Videos Velocity Increase</span>
+              <span class="chart-head-sub" style="color: #576574;">+Vids / Day</span>
+            </div>
+            <div style="width: 100%; height: 130px; position: relative;" id="chart-vids-bar"></div>
+          </div>
         </div>
       </div>
 
-      <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.8px; margin: 0 0 8px 8px;">September 2026 Logged History</div>
-      <div id="history-list-container"></div>
-    </section>
+      <div id="section-history" class="liquid-glass-card chart-group-card" style="margin-bottom: 24px;">
+        <div class="hall-header-bar" style="margin-bottom: 4px;">
+          <h3 class="hall-main-title" style="margin: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Logged History</h3>
+        </div>
+        <div id="history-list-container"></div>
+      </div>
+    
 
   </div>
 
-  <!-- Passcode PIN Modal (0000) -->
+<!-- Passcode PIN Modal (0000) -->
   <div class="apple-modal-overlay" id="apple-passcode-modal">
     <div class="apple-dialog-card" id="passcode-dialog-box">
       <div class="apple-dialog-body">
@@ -1877,23 +1971,109 @@
     </div>
   </div>
 
-  <!-- Top Records & Links Edit Modal -->
-  <div class="apple-modal-overlay" id="apple-records-modal">
-    <div class="apple-dialog-card" style="max-width: 380px;">
+  
+  <!-- Unified Data Entry Modal -->
+  <div class="apple-modal-overlay" id="unified-modal">
+    <div class="apple-modal-box" style="padding: 24px; max-height: 90vh; overflow-y: auto; width: 92%; max-width: 420px; border-radius: 28px;">
+      <div class="modal-close-btn" id="close-unified-btn" onclick="document.getElementById('unified-modal').classList.remove('active')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </div>
+      
+      
+      <!-- Date Capsule Bar -->
+      <div class="liquid-glass-card date-capsule-card">
+        <div class="date-tap-zone" id="date-display-trigger">
+          <div class="date-apple-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+          <div class="date-texts-box">
+            <div class="date-heading-main" id="date-main-text">Sep 1, 2026</div>
+            <div class="date-heading-sub" id="date-sub-text">Tap to select calendar day</div>
+          </div>
+        </div>
+        <div class="date-steppers-wrap">
+          <button class="stepper-apple-btn" id="prev-day-btn" title="Previous Day" type="button">‹</button>
+          <button class="stepper-apple-btn" id="next-day-btn" title="Next Day" type="button">›</button>
+        </div>
+        <input type="date" id="hidden-date-picker" class="hidden-date-input">
+      </div>
+
+      <!-- Core Progress Inputs Card (Followers /1K, Revenue /$100, Videos /91) -->
+      <div class="liquid-glass-card targets-input-card">
+        <div class="targets-card-head">
+          <span class="targets-card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> September Progress Targets</span>
+          <span style="font-size: 10.5px; font-weight: 800; color: var(--apple-green);">Month Total</span>
+        </div>
+        <div class="targets-inputs-3grid">
+          <div class="target-field-box">
+            <label class="target-field-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Total Fols (Auto):</label>
+            <div style="font-size: 24px; font-weight: 800; color: var(--text-primary); text-align: center; margin-bottom: 12px; padding: 10px 0; background: rgba(30,41,59,0.05); border-radius: 8px;" id="text-followers-count">0</div>
+            <input type="number" id="input-followers-count" style="display:none;" />
+          </div>
+
+          <div class="target-field-box">
+            <label class="target-field-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Revenue ($ / 100):</label>
+            <input 
+              type="number" 
+              id="input-revenue-count" 
+              class="apple-num-input" 
+              placeholder="0" 
+              min="0" 
+              value="0"
+            />
+          </div>
+
+          <div class="target-field-box">
+            <label class="target-field-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><rect x="2" y="2" width="20" height="20" rx="2.5" ry="2.5"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg> Videos ( / 100):</label>
+            <input 
+              type="number" 
+              id="input-videos-count" 
+              class="apple-num-input" 
+              placeholder="0" 
+              min="0" 
+              max="100"
+              value="0"
+            />
+          </div>
+        </div>
+      </div>
+
+            <!-- Followers Breakdown Card -->
+      <div class="liquid-glass-card targets-input-card" style="margin-top: 16px;">
+        <div class="targets-card-head">
+          <span class="targets-card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Followers Breakdown</span>
+          <span style="font-size: 10.5px; font-weight: 800; color: var(--apple-green);">By Platform</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top: 12px;">
+          <input type="number" id="input-tiktok-fols" class="apple-num-input" placeholder="TikTok Followers" min="0">
+          <input type="number" id="input-youtube-fols" class="apple-num-input" placeholder="YouTube Followers" min="0">
+          <input type="number" id="input-instagram-fols" class="apple-num-input" placeholder="Instagram Followers" min="0">
+          <input type="number" id="input-facebook-fols" class="apple-num-input" placeholder="Facebook Followers" min="0">
+          <input type="number" id="input-x-fols" class="apple-num-input" placeholder="X Followers" min="0">
+        </div>
+      </div>
+
+      <!-- Auto-Sorted Platform View Cards -->
+      <div class="platform-cards-deck" id="platform-cards-container"></div>
+
+    
+      
+      <div style="height: 1px; background: rgba(0,0,0,0.06); margin: 30px 0;"></div>
+      
+      
+  
       <div class="apple-dialog-body" style="padding: 18px 16px;">
-        <div class="apple-dialog-icon">🏆</div>
+        
         <h4 class="apple-dialog-title">Update Top Content & Links</h4>
         <p class="apple-dialog-sub" style="margin-bottom: 14px;">Add direct links to easily jump to your top performing clips.</p>
 
         <!-- Top Viewed Video Form -->
         <div class="record-input-group">
-          <label class="record-input-label">👁️ Most Viewed Video Title:</label>
+          <label class="record-input-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> Most Viewed Video Title:</label>
           <input type="text" id="form-top-views-title" class="record-text-field" placeholder="e.g. Master AI Automation Workflow" />
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
           <div>
             <label class="record-input-label">Platform:</label>
-            <select id="form-top-views-platform" class="record-text-field" style="background: #141824;">
+            <select id="form-top-views-platform" class="record-text-field" style="background: rgba(30, 41, 59, 0.12);">
               <option value="tiktok">TikTok</option>
               <option value="youtube">YouTube</option>
               <option value="instagram">Instagram</option>
@@ -1907,19 +2087,19 @@
           </div>
         </div>
         <div class="record-input-group" style="margin-bottom: 14px;">
-          <label class="record-input-label">🔗 Most Viewed Video Direct URL / Link:</label>
+          <label class="record-input-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> Most Viewed Video Direct URL / Link:</label>
           <input type="url" id="form-top-views-url" class="record-text-field" placeholder="https://www.tiktok.com/@ai.roof/video/..." />
         </div>
 
         <!-- Top Liked Video Form -->
         <div class="record-input-group">
-          <label class="record-input-label">❤️ Most Liked Video Title:</label>
+          <label class="record-input-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Most Liked Video Title:</label>
           <input type="text" id="form-top-likes-title" class="record-text-field" placeholder="e.g. Top 10 Secret AI Tools" />
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
           <div>
             <label class="record-input-label">Platform:</label>
-            <select id="form-top-likes-platform" class="record-text-field" style="background: #141824;">
+            <select id="form-top-likes-platform" class="record-text-field" style="background: rgba(30, 41, 59, 0.12);">
               <option value="youtube">YouTube</option>
               <option value="tiktok">TikTok</option>
               <option value="instagram">Instagram</option>
@@ -1933,13 +2113,13 @@
           </div>
         </div>
         <div class="record-input-group">
-          <label class="record-input-label">🔗 Most Liked Video Direct URL / Link:</label>
+          <label class="record-input-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> Most Liked Video Direct URL / Link:</label>
           <input type="url" id="form-top-likes-url" class="record-text-field" placeholder="https://www.youtube.com/shorts/..." />
         </div>
       </div>
       <div class="apple-dialog-actions">
-        <button class="dialog-btn" id="records-cancel-btn" type="button">Cancel</button>
-        <button class="dialog-btn primary" id="records-save-btn" type="button">Save Records</button>
+        <button class="dialog-btn" id="records-cancel-btn" type="button" onclick="document.getElementById('unified-modal').classList.remove('active')">Cancel</button>
+        <button class="dialog-btn primary" id="records-save-btn" type="button" onclick="saveUnifiedModal()">Save All Data</button>
       </div>
     </div>
   </div>
@@ -1947,19 +2127,19 @@
   <!-- Delete Modal -->
   <div class="apple-modal-overlay" id="apple-delete-modal">
     <div class="apple-dialog-card">
-      <div class="apple-dialog-body">
-        <div class="apple-dialog-icon">🗑️</div>
+      
+        <div class="apple-dialog-icon">🗑</div>
         <h4 class="apple-dialog-title">Delete Log Entry?</h4>
         <p class="apple-dialog-sub" id="delete-modal-message">Are you sure you want to delete this log entry? This action cannot be undone.</p>
       </div>
       <div class="apple-dialog-actions">
         <button class="dialog-btn" id="modal-cancel-btn" type="button">Cancel</button>
         <button class="dialog-btn danger" id="modal-confirm-btn" type="button">Delete</button>
-      </div>
+      
     </div>
   </div>
 
-  <script>
+<script>
     const ADMIN_PIN = "0000";
     let pendingSecureAction = null;
 
@@ -1976,6 +2156,31 @@
 
     let db = null;
     let isCloudEnabled = false;
+    function openSidebar() {
+      const sidebar = document.getElementById("sidebar-menu");
+      const overlay = document.getElementById("sidebar-overlay");
+      if (sidebar) sidebar.classList.add("active");
+      if (overlay) overlay.classList.add("active");
+    }
+
+    function closeSidebar() {
+      const sidebar = document.getElementById("sidebar-menu");
+      const overlay = document.getElementById("sidebar-overlay");
+      if (sidebar) sidebar.classList.remove("active");
+      if (overlay) overlay.classList.remove("active");
+    }
+
+    function exportData() {
+      const dataStr = JSON.stringify(appData, null, 2);
+      const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+      const exportFileDefaultName = 'survival_instinct_t2_export.json';
+
+      const linkElement = document.createElement('a');
+      linkElement.setAttribute('href', dataUri);
+      linkElement.setAttribute('download', exportFileDefaultName);
+      linkElement.click();
+    }
+
     let unsubscribeRealtime = null;
 
     // Official Connected Channels with Authentic High-Res TikTok & Social Brand SVGs
@@ -1987,12 +2192,12 @@
         url: "https://www.tiktok.com/@ai.roof",
         badgeBg: "linear-gradient(135deg, #010101 0%, #121212 100%)",
         accentColor: "#00F2FE",
-        iconColor: "#FFFFFF",
+        iconColor: "currentColor",
         // Authentic Multi-Color TikTok Glitch Note SVG
         svg: `<svg viewBox="0 0 28 28" width="22" height="22" fill="none">
           <path d="M19.4 7.2c-1.1-.7-1.9-1.9-2.1-3.2h-3v14.2a2.8 2.8 0 1 1-2.8-2.8c.4 0 .7.1 1.1.2V12a6.3 6.3 0 0 0-1.1-.1 6.2 6.2 0 1 0 6.2 6.2V9.8a8.2 8.2 0 0 0 4.8 1.5V7.9c-1.2 0-2.3-.3-3.1-.7z" fill="#25F4EE" transform="translate(-1, 0.8)"/>
           <path d="M19.4 7.2c-1.1-.7-1.9-1.9-2.1-3.2h-3v14.2a2.8 2.8 0 1 1-2.8-2.8c.4 0 .7.1 1.1.2V12a6.3 6.3 0 0 0-1.1-.1 6.2 6.2 0 1 0 6.2 6.2V9.8a8.2 8.2 0 0 0 4.8 1.5V7.9c-1.2 0-2.3-.3-3.1-.7z" fill="#FE2C55" transform="translate(1, -0.8)"/>
-          <path d="M19.4 7.2c-1.1-.7-1.9-1.9-2.1-3.2h-3v14.2a2.8 2.8 0 1 1-2.8-2.8c.4 0 .7.1 1.1.2V12a6.3 6.3 0 0 0-1.1-.1 6.2 6.2 0 1 0 6.2 6.2V9.8a8.2 8.2 0 0 0 4.8 1.5V7.9c-1.2 0-2.3-.3-3.1-.7z" fill="#FFFFFF"/>
+          <path d="M19.4 7.2c-1.1-.7-1.9-1.9-2.1-3.2h-3v14.2a2.8 2.8 0 1 1-2.8-2.8c.4 0 .7.1 1.1.2V12a6.3 6.3 0 0 0-1.1-.1 6.2 6.2 0 1 0 6.2 6.2V9.8a8.2 8.2 0 0 0 4.8 1.5V7.9c-1.2 0-2.3-.3-3.1-.7z" fill="currentColor"/>
         </svg>`
       },
       {
@@ -2002,9 +2207,9 @@
         url: "https://www.youtube.com/@AIRoofac",
         badgeBg: "linear-gradient(135deg, #FF2D55 0%, #D80027 100%)",
         accentColor: "#FF2D55",
-        iconColor: "#FFFFFF",
+        iconColor: "currentColor",
         svg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-          <path fill="#FFFFFF" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+          <path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
           <path fill="#FF2D55" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
         </svg>`
       },
@@ -2015,11 +2220,11 @@
         url: "https://www.instagram.com/airoofac/",
         badgeBg: "linear-gradient(45deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%)",
         accentColor: "#E1306C",
-        iconColor: "#FFFFFF",
-        svg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        iconColor: "currentColor",
+        svg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"></rect>
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <circle cx="17.5" cy="6.5" r="1" fill="#FFFFFF"></circle>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"></circle>
         </svg>`
       },
       {
@@ -2029,7 +2234,7 @@
         url: "https://www.facebook.com/profile.php?id=61593094094173",
         badgeBg: "linear-gradient(135deg, #1877F2 0%, #0D5BBD 100%)",
         accentColor: "#0A84FF",
-        iconColor: "#FFFFFF",
+        iconColor: "currentColor",
         svg: `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`
       },
       {
@@ -2039,7 +2244,7 @@
         url: "https://x.com/airoofac",
         badgeBg: "linear-gradient(135deg, #000000 0%, #1c1c22 100%)",
         accentColor: "#FFFFFF",
-        iconColor: "#FFFFFF",
+        iconColor: "currentColor",
         svg: `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`
       }
     ];
@@ -2049,7 +2254,7 @@
       views: 100000,    // Target 1: 100,000 Views
       followers: 1000,  // Target 2: 1,000 Followers
       revenue: 100,     // Target 3: $100 Revenue
-      videos: 91        // Target 4: 91 Videos
+      videos: 100       // Target 4: 100 Videos
     };
 
     // Clean September 2026 Seed Data with Links
@@ -2082,14 +2287,14 @@
       sanitizeOutAugustLogs();
       setupEventListeners();
       initDateSelection();
-      renderApp();
+      renderApp(); document.getElementById("unified-modal").classList.remove("active");
       initCloudSync();
 
       let resizeTimer;
       window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-          if (currentTab === "log") renderHistoryTab();
+          renderHistoryTab();
         }, 150);
       });
     });
@@ -2117,7 +2322,7 @@
           appData.goals.views = 100000;
           appData.goals.followers = 1000;
           appData.goals.revenue = 100;
-          appData.goals.videos = 91;
+          appData.goals.videos = 100;
         } else {
           appData = JSON.parse(JSON.stringify(SEED_DATA));
           saveDataLocally();
@@ -2161,12 +2366,12 @@
             appData.goals.views = 100000;
             appData.goals.followers = 1000;
             appData.goals.revenue = 100;
-            appData.goals.videos = 91;
+            appData.goals.videos = 100;
             sanitizeOutAugustLogs();
             saveDataLocally();
             updateDateDisplay();
             loadDateInputs(selectedDate);
-            renderApp();
+            renderApp(); document.getElementById("unified-modal").classList.remove("active");
           }
         } else {
           db.collection("views_dashboard").doc("survival_108").get().then((oldDoc) => {
@@ -2175,7 +2380,7 @@
               sanitizeOutAugustLogs();
               saveDataLocally();
               docRef.set(appData);
-              renderApp();
+              renderApp(); document.getElementById("unified-modal").classList.remove("active");
             } else {
               docRef.set(appData);
             }
@@ -2241,32 +2446,22 @@
             selectedDate = e.target.value;
             updateDateDisplay();
             loadDateInputs(selectedDate);
-            renderApp();
+
           }
         });
       }
 
-      const inputFollowers = document.getElementById("input-followers-count");
+      PLATFORMS.forEach(p => {
+        const fInput = document.getElementById(`input-${p.id}-fols`);
+        if (fInput) fInput.addEventListener("input", () => renderApp(true));
+      });
+
       const inputRevenue = document.getElementById("input-revenue-count");
       const inputVideos = document.getElementById("input-videos-count");
-
-      if (inputFollowers) inputFollowers.addEventListener("input", () => renderApp(true));
       if (inputRevenue) inputRevenue.addEventListener("input", () => renderApp(true));
       if (inputVideos) inputVideos.addEventListener("input", () => renderApp(true));
 
-      const saveBtn = document.getElementById("save-log-btn");
-      if (saveBtn) {
-        saveBtn.addEventListener("click", () => {
-          requestAdminPin(() => executeSaveLog(), "Enter PIN to save/update this day's targets");
-        });
-      }
 
-      const deleteDayBtn = document.getElementById("delete-current-day-btn");
-      if (deleteDayBtn) {
-        deleteDayBtn.addEventListener("click", () => {
-          if (appData.logs && appData.logs[selectedDate]) promptDeleteDay(selectedDate);
-        });
-      }
 
       const modalCancelBtn = document.getElementById("modal-cancel-btn");
       const modalConfirmBtn = document.getElementById("modal-confirm-btn");
@@ -2279,23 +2474,7 @@
         });
       }
 
-      // Record edit modal
-      const openRecordBtn = document.getElementById("open-record-edit-btn");
-      const recordsModal = document.getElementById("apple-records-modal");
-      const recordsCancelBtn = document.getElementById("records-cancel-btn");
-      const recordsSaveBtn = document.getElementById("records-save-btn");
-
-      if (openRecordBtn) {
-        openRecordBtn.addEventListener("click", () => {
-          requestAdminPin(() => openRecordsModal(), "Enter PIN to edit Top Videos & Links");
-        });
-      }
-      if (recordsCancelBtn && recordsModal) {
-        recordsCancelBtn.addEventListener("click", () => recordsModal.classList.remove("active"));
-      }
-      if (recordsSaveBtn) {
-        recordsSaveBtn.addEventListener("click", saveRecordsModal);
-      }
+      
 
       const pinInput = document.getElementById("admin-pin-input");
       const pinCancelBtn = document.getElementById("passcode-cancel-btn");
@@ -2313,48 +2492,9 @@
       }
     }
 
-    function openRecordsModal() {
-      const recordsModal = document.getElementById("apple-records-modal");
-      if (!recordsModal) return;
+    
 
-      const rec = appData.records || SEED_DATA.records;
-      document.getElementById("form-top-views-title").value = rec.topViews?.title || "";
-      document.getElementById("form-top-views-platform").value = rec.topViews?.platform || "tiktok";
-      document.getElementById("form-top-views-count").value = rec.topViews?.views || 0;
-      document.getElementById("form-top-views-url").value = rec.topViews?.url || "";
-
-      document.getElementById("form-top-likes-title").value = rec.topLikes?.title || "";
-      document.getElementById("form-top-likes-platform").value = rec.topLikes?.platform || "youtube";
-      document.getElementById("form-top-likes-count").value = rec.topLikes?.likes || 0;
-      document.getElementById("form-top-likes-url").value = rec.topLikes?.url || "";
-
-      recordsModal.classList.add("active");
-    }
-
-    function saveRecordsModal() {
-      const recordsModal = document.getElementById("apple-records-modal");
-      if (!appData.records) appData.records = {};
-
-      appData.records.topViews = {
-        title: document.getElementById("form-top-views-title").value || "Untitled Master Video",
-        platform: document.getElementById("form-top-views-platform").value || "tiktok",
-        views: parseInt(document.getElementById("form-top-views-count").value, 10) || 0,
-        url: document.getElementById("form-top-views-url").value.trim() || "",
-        date: "Sep 2026"
-      };
-
-      appData.records.topLikes = {
-        title: document.getElementById("form-top-likes-title").value || "Untitled Master Video",
-        platform: document.getElementById("form-top-likes-platform").value || "youtube",
-        likes: parseInt(document.getElementById("form-top-likes-count").value, 10) || 0,
-        url: document.getElementById("form-top-likes-url").value.trim() || "",
-        date: "Sep 2026"
-      };
-
-      if (recordsModal) recordsModal.classList.remove("active");
-      syncToCloud("Top Content Records & Links Updated 🏆");
-      renderRecordsSection();
-    }
+    
 
     function requestAdminPin(callback, instructionText = "Enter your 4-digit PIN to authorize this change.") {
       pendingSecureAction = callback;
@@ -2434,7 +2574,7 @@
       selectedDate = `${yyyy}-${mm}-${dd}`;
       updateDateDisplay();
       loadDateInputs(selectedDate);
-      renderApp();
+
     }
 
     function updateDateDisplay() {
@@ -2531,7 +2671,7 @@
             />
 
             <div class="liquid-bar-track">
-              <div class="liquid-bar-fill" id="bar-${p.id}" style="background: ${p.accentColor}; width: ${share}%;"></div>
+              <div class="liquid-bar-fill" id="bar-${p.id}" style="background: linear-gradient(90deg, #576574, #1e293b); box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255, 255, 255, 0.1); border: 1px solid rgba(30, 41, 59, 0.3); width: ${share}%;"></div>
             </div>
             <div class="liquid-bar-label">
               <span>Platform Share</span>
@@ -2565,11 +2705,14 @@
         if (input) input.value = values[p.id] || 0;
       });
 
-      const inputFollowers = document.getElementById("input-followers-count");
+      PLATFORMS.forEach(p => {
+        const fInput = document.getElementById(`input-${p.id}-fols`);
+        if (fInput) fInput.value = values[`${p.id}_fols`] || 0;
+      });
+
       const inputRevenue = document.getElementById("input-revenue-count");
       const inputVideos = document.getElementById("input-videos-count");
 
-      if (inputFollowers) inputFollowers.value = values.followers || 0;
       if (inputRevenue) inputRevenue.value = values.revenue || 0;
       if (inputVideos) inputVideos.value = values.videos || 0;
     }
@@ -2582,15 +2725,20 @@
         vals[p.id] = isNaN(num) || num < 0 ? 0 : num;
       });
 
-      const inputFollowers = document.getElementById("input-followers-count");
+      PLATFORMS.forEach(p => {
+        const fInput = document.getElementById(`input-${p.id}-fols`);
+        const fNum = fInput ? parseInt(fInput.value, 10) : 0;
+        vals[`${p.id}_fols`] = isNaN(fNum) || fNum < 0 ? 0 : fNum;
+      });
+
+      // Calculate total followers as the sum of all platform followers
+      vals.followers = PLATFORMS.reduce((acc, p) => acc + (vals[`${p.id}_fols`] || 0), 0);
+
       const inputRevenue = document.getElementById("input-revenue-count");
       const inputVideos = document.getElementById("input-videos-count");
       
-      const fNum = inputFollowers ? parseInt(inputFollowers.value, 10) : 0;
       const rNum = inputRevenue ? parseFloat(inputRevenue.value) : 0;
       const vNum = inputVideos ? parseInt(inputVideos.value, 10) : 0;
-
-      vals.followers = isNaN(fNum) || fNum < 0 ? 0 : fNum;
       vals.revenue = isNaN(rNum) || rNum < 0 ? 0 : rNum;
       vals.videos = isNaN(vNum) || vNum < 0 ? 0 : vNum;
 
@@ -2644,7 +2792,7 @@
       const goalViews = 100000;    // Target 1: 100K Views
       const goalFollowers = 1000;   // Target 2: 1,000 Followers
       const goalRevenue = 100;      // Target 3: $100 Revenue
-      const goalVideos = 91;        // Target 4: 91 Videos
+      const goalVideos = 100;        // Target 4: 100 Videos
 
       updateTimelineBar();
 
@@ -2730,9 +2878,9 @@
 
       if (statViewsVal) statViewsVal.textContent = totalViews.toLocaleString();
       if (barViewsFill) barViewsFill.style.width = `${Math.min(viewsPercent, 100)}%`;
-      if (statViewsSub) statViewsSub.textContent = `${viewsPercent.toFixed(1)}% of 100K`;
+      if (statViewsSub) statViewsSub.textContent = `${viewsPercent.toFixed(1)}% (${Math.max(0, goalViews - totalViews).toLocaleString()} left)`;
 
-      if (statFollowersVal) statFollowersVal.textContent = `${totalFollowers.toLocaleString()} / 1K`;
+      if (statFollowersVal) statFollowersVal.textContent = `${totalFollowers.toLocaleString()}`;
       if (barFollowersFill) barFollowersFill.style.width = `${Math.min(followersPercent, 100)}%`;
       if (statFollowersSub) statFollowersSub.textContent = `${followersPercent.toFixed(1)}% (${Math.max(0, goalFollowers - totalFollowers)} left)`;
 
@@ -2740,29 +2888,14 @@
       if (barRevenueFill) barRevenueFill.style.width = `${Math.min(revenuePercent, 100)}%`;
       if (statRevenueSub) statRevenueSub.textContent = `${revenuePercent.toFixed(1)}% ($${Math.max(0, goalRevenue - totalRevenue)} left)`;
 
-      if (statVideosVal) statVideosVal.textContent = `${totalVideos} / ${goalVideos}`;
+      if (statVideosVal) statVideosVal.textContent = `${totalVideos}`;
       if (barVideosFill) barVideosFill.style.width = `${Math.min(videosPercent, 100)}%`;
       if (statVideosSub) statVideosSub.textContent = `${videosPercent.toFixed(0)}% (${Math.max(0, goalVideos - totalVideos)} left)`;
 
-      if (!isLiveTyping && currentTab === "log") renderHistoryTab();
+      if (!isLiveTyping) renderHistoryTab();
     }
 
-    function executeSaveLog() {
-      const currentVals = getCurrentInputValues();
-      if (!appData.logs) appData.logs = {};
-
-      if (editingOriginalDate && editingOriginalDate !== selectedDate) {
-        delete appData.logs[editingOriginalDate];
-      }
-
-      appData.logs[selectedDate] = { ...currentVals };
-      editingOriginalDate = selectedDate;
-      
-      syncToCloud(`Saved & Cloud-Synced for ${formatDateShort(selectedDate)} ✓`);
-
-      updateDateDisplay();
-      renderApp();
-    }
+    
 
     window.promptDeleteDay = function(dateKey) {
       pendingDeleteDate = dateKey;
@@ -2783,18 +2916,17 @@
     function executeDeleteDay(deletedDate) {
       if (!deletedDate || !appData.logs) return;
       delete appData.logs[deletedDate];
-      syncToCloud(`Deleted log for ${formatDateShort(deletedDate)} 🗑️`);
+      syncToCloud(`Deleted log for ${formatDateShort(deletedDate)} 🗑`);
 
       if (selectedDate === deletedDate) loadDateInputs(selectedDate);
       updateDateDisplay();
-      renderApp();
+      renderApp(); document.getElementById("unified-modal").classList.remove("active");
     }
 
     function renderHistoryTab() {
       renderTargetDailyAverages();
       renderRecordsSection();
-      renderSparklineChart();
-      renderDailyVelocityChart();
+      renderAllCharts();
       renderPlatformDistribution();
       renderHistoryGroupedList();
     }
@@ -2846,6 +2978,41 @@
       const totalVideos = latestLog.videos || 0;
       const avgVideosDaily = (totalVideos / daysCount).toFixed(1);
       if (kpiVideos) kpiVideos.textContent = `${avgVideosDaily}`;
+
+      // --- NEW: Status Indicators Logic ---
+      const startDate = new Date(2026, 8, 1);
+      const activeDateParts = selectedDate.split("-").map(Number);
+      const activeDate = new Date(activeDateParts[0], activeDateParts[1] - 1, activeDateParts[2]);
+      const diffDays = Math.floor((activeDate - startDate) / (1000 * 60 * 60 * 24));
+      const currentDay = Math.min(91, Math.max(1, diffDays + 1));
+      const daysLeft = Math.max(1, 91 - currentDay);
+
+      const updateStatus = (id, actualAvg, goalTotal, currentTotal) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const requiredAvg = Math.max(0, goalTotal - currentTotal) / daysLeft;
+        
+        el.style.background = "rgba(30, 41, 59, 0.06)";
+        el.style.borderColor = "rgba(30, 41, 59, 0.05)";
+        const colorStyle = "color: var(--text-white);";
+        
+        if (currentTotal >= goalTotal) {
+          el.innerHTML = `<span style="${colorStyle}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Achieved!</span>`;
+          return;
+        }
+
+        if (actualAvg >= requiredAvg) {
+          el.innerHTML = `<span style="${colorStyle}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>On Track</span>`;
+        } else {
+          el.innerHTML = `<span style="${colorStyle}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>Needs Focus</span>`;
+        }
+      };
+
+      const totalViews = PLATFORMS.reduce((acc, p) => acc + (latestLog[p.id] || 0), 0);
+      updateStatus("status-avg-views", avgViewsDaily, 100000, totalViews);
+      updateStatus("status-avg-followers", avgFollowersDaily, 1000, totalFollowers);
+      updateStatus("status-avg-revenue", parseFloat(avgRevenueDaily), 100, totalRevenue);
+      updateStatus("status-avg-videos", parseFloat(avgVideosDaily), 100, totalVideos);
     }
 
     function renderRecordsSection() {
@@ -2888,28 +3055,24 @@
       }
     }
 
-    function renderSparklineChart() {
-      const container = document.getElementById("sparkline-svg-wrapper");
+    function renderLineChart(containerId, goalValue, dataFn, formatFn, prefix = "") {
+      const container = document.getElementById(containerId);
       if (!container) return;
 
       const sortedDates = getSortedDates();
       if (sortedDates.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding: 40px 0; color: var(--text-tertiary); font-size: 13px;">No trajectory data recorded yet for September.</div>`;
+        container.innerHTML = `<div style="text-align:center; padding: 40px 0; color: var(--text-tertiary); font-size: 13px;">No trajectory data recorded yet.</div>`;
         return;
       }
 
-      const dataPoints = sortedDates.map(d => {
-        const vals = appData.logs[d];
-        const total = PLATFORMS.reduce((acc, p) => acc + (vals[p.id] || 0), 0);
-        return { date: d, total };
-      });
-
+      const dataPoints = sortedDates.map(d => ({ date: d, total: dataFn(d) }));
+      
       const width = container.clientWidth || 500;
       const height = 150;
       const paddingX = 28;
       const paddingY = 24;
       const minVal = 0;
-      const maxVal = Math.max(100000, ...dataPoints.map(p => p.total)) * 1.05;
+      const maxVal = Math.max(goalValue, ...dataPoints.map(p => p.total)) * 1.05;
 
       const getX = (index) => dataPoints.length === 1 ? width / 2 : paddingX + (index / (dataPoints.length - 1)) * (width - 2 * paddingX);
       const getY = (val) => height - paddingY - ((val - minVal) / (maxVal - minVal)) * (height - 2 * paddingY);
@@ -2936,7 +3099,7 @@
       const firstX = getX(0);
       areaD += ` L ${lastX},${height - paddingY} L ${firstX},${height - paddingY} Z`;
 
-      const goalY = getY(100000);
+      const goalY = getY(goalValue);
 
       let dotsSvg = dataPoints.map((p, i) => {
         const x = getX(i);
@@ -2944,10 +3107,10 @@
         const dateLabel = formatDateShort(p.date);
         return `
           <g>
-            <circle cx="${x}" cy="${y}" r="5" fill="#0A84FF" stroke="#FFFFFF" stroke-width="2">
-              <title>${dateLabel}: ${p.total.toLocaleString()} views</title>
+            <circle cx="${x}" cy="${y}" r="5" fill="#FFFFFF" stroke="#1e293b" stroke-width="2.5">
+              <title>${dateLabel}: ${prefix}${formatFn(p.total)}</title>
             </circle>
-            <text x="${x}" y="${y - 8}" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">${p.total.toLocaleString()}</text>
+            <text x="${x}" y="${y - 8}" text-anchor="middle" font-size="10" font-weight="800" fill="currentColor">${prefix}${formatFn(p.total)}</text>
             <text x="${x}" y="${height - 5}" text-anchor="middle" font-size="9.5" font-weight="600" fill="#9898A0">${dateLabel}</text>
           </g>
         `;
@@ -2956,22 +3119,22 @@
       container.innerHTML = `
         <svg viewBox="0 0 ${width} ${height}" style="width:100%; height:100%;">
           <defs>
-            <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#0A84FF" stop-opacity="0.38" />
-              <stop offset="100%" stop-color="#0A84FF" stop-opacity="0.0" />
+            <linearGradient id="areaGradient_${containerId}" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#1e293b" stop-opacity="0.15" />
+              <stop offset="100%" stop-color="#1e293b" stop-opacity="0.0" />
             </linearGradient>
           </defs>
-          <line x1="${paddingX - 10}" y1="${goalY}" x2="${width - paddingX + 10}" y2="${goalY}" stroke="#30D158" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.8" />
-          <text x="${width - paddingX}" y="${goalY - 5}" text-anchor="end" font-size="9" font-weight="800" fill="#30D158">100k Target</text>
-          <path d="${areaD}" fill="url(#areaGradient)" />
-          <path d="${pathD}" fill="none" stroke="#0A84FF" stroke-width="3" stroke-linecap="round" filter="drop-shadow(0 2px 8px rgba(10,132,255,0.6))" />
+          <line x1="${paddingX - 10}" y1="${goalY}" x2="${width - paddingX + 10}" y2="${goalY}" stroke="rgba(30,41,59,0.25)" stroke-width="1.5" stroke-dasharray="4,4" opacity="1.0" />
+          <text x="${width - paddingX}" y="${goalY - 5}" text-anchor="end" font-size="9" font-weight="800" fill="rgba(30,41,59,0.5)">Target</text>
+          <path d="${areaD}" fill="url(#areaGradient_${containerId})" />
+          <path d="${pathD}" fill="none" stroke="#1e293b" stroke-width="3" stroke-linecap="round" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.12))" />
           ${dotsSvg}
         </svg>
       `;
     }
 
-    function renderDailyVelocityChart() {
-      const container = document.getElementById("velocity-chart-wrapper");
+    function renderBarChart(containerId, dataFn, formatFn, prefix = "") {
+      const container = document.getElementById(containerId);
       if (!container) return;
 
       const sortedDates = getSortedDates();
@@ -2981,9 +3144,9 @@
       }
 
       const velocityData = sortedDates.map((d, i) => {
-        const currentTot = PLATFORMS.reduce((acc, p) => acc + (appData.logs[d][p.id] || 0), 0);
+        const currentTot = dataFn(d);
         if (i === 0) return { date: d, delta: currentTot };
-        const prevTot = PLATFORMS.reduce((acc, p) => acc + (appData.logs[sortedDates[i - 1]][p.id] || 0), 0);
+        const prevTot = dataFn(sortedDates[i - 1]);
         return { date: d, delta: Math.max(0, currentTot - prevTot) };
       });
 
@@ -2993,7 +3156,7 @@
       const paddingBottom = 22;
       const paddingTop = 18;
 
-      const maxDelta = Math.max(...velocityData.map(v => v.delta), 100);
+      const maxDelta = Math.max(...velocityData.map(v => v.delta), 10);
       const barWidth = Math.min(32, Math.max(16, (width - paddingX * 2) / (velocityData.length * 2)));
 
       let barsSvg = velocityData.map((v, i) => {
@@ -3005,10 +3168,10 @@
 
         return `
           <g>
-            <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="5" fill="url(#velocityGrad)" filter="drop-shadow(0 2px 6px rgba(48,209,88,0.35))">
-              <title>${dateLabel}: +${v.delta.toLocaleString()} new views</title>
+            <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="5" fill="url(#velocityGrad_${containerId})" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.12))">
+              <title>${dateLabel}: +${formatFn(v.delta)}</title>
             </rect>
-            <text x="${x + barWidth / 2}" y="${y - 5}" text-anchor="middle" font-size="9.5" font-weight="800" fill="#30D158">+${v.delta.toLocaleString()}</text>
+            <text x="${x + barWidth / 2}" y="${y - 5}" text-anchor="middle" font-size="9.5" font-weight="800" fill="#576574">+${prefix}${formatFn(v.delta)}</text>
             <text x="${x + barWidth / 2}" y="${height - 5}" text-anchor="middle" font-size="9.5" font-weight="600" fill="#9898A0">${dateLabel}</text>
           </g>
         `;
@@ -3017,9 +3180,9 @@
       container.innerHTML = `
         <svg viewBox="0 0 ${width} ${height}" style="width:100%; height:100%;">
           <defs>
-            <linearGradient id="velocityGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#30D158" />
-              <stop offset="100%" stop-color="#248A3D" />
+            <linearGradient id="velocityGrad_${containerId}" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#576574" />
+              <stop offset="100%" stop-color="#1e293b" />
             </linearGradient>
           </defs>
           ${barsSvg}
@@ -3027,8 +3190,30 @@
       `;
     }
 
-    function renderPlatformDistribution() {
-      const container = document.getElementById("platform-distribution-list");
+    function renderAllCharts() {
+      const getViews = (d) => PLATFORMS.reduce((acc, p) => acc + (appData.logs[d][p.id] || 0), 0);
+      const getFols = (d) => appData.logs[d].followers || 0;
+      const getRev = (d) => appData.logs[d].revenue || 0;
+      const getVids = (d) => appData.logs[d].videos || 0;
+
+      const fNum = (n) => n.toLocaleString();
+
+      renderLineChart("chart-views-line", 100000, getViews, fNum, "");
+      renderBarChart("chart-views-bar", getViews, fNum, "");
+
+      renderLineChart("chart-fols-line", 1000, getFols, fNum, "");
+      renderBarChart("chart-fols-bar", getFols, fNum, "");
+
+      renderLineChart("chart-rev-line", 100, getRev, fNum, "$");
+      renderBarChart("chart-rev-bar", getRev, fNum, "$");
+
+      renderLineChart("chart-vids-line", 100, getVids, fNum, "");
+      renderBarChart("chart-vids-bar", getVids, fNum, "");
+    }
+
+
+    function renderDistributionList(containerId, dataKeySuffix, unitText) {
+      const container = document.getElementById(containerId);
       if (!container) return;
 
       const sortedDates = getSortedDates();
@@ -3037,31 +3222,39 @@
         latestLog = appData.logs[sortedDates[sortedDates.length - 1]];
       }
 
-      const totalViews = PLATFORMS.reduce((acc, p) => acc + (latestLog[p.id] || 0), 0);
-      const sortedPlats = getSortedPlatforms(latestLog);
+      const totalVal = PLATFORMS.reduce((acc, p) => acc + (latestLog[`${p.id}${dataKeySuffix}`] || 0), 0);
+      
+      const sortedPlats = [...PLATFORMS].sort((a, b) => {
+        const countA = latestLog[`${a.id}${dataKeySuffix}`] || 0;
+        const countB = latestLog[`${b.id}${dataKeySuffix}`] || 0;
+        return countB - countA;
+      });
 
       container.innerHTML = sortedPlats.map((p, index) => {
-        const count = latestLog[p.id] || 0;
-        const share = totalViews > 0 ? ((count / totalViews) * 100).toFixed(1) : 0;
-
+        const count = latestLog[`${p.id}${dataKeySuffix}`] || 0;
+        const share = totalVal > 0 ? ((count / totalVal) * 100).toFixed(1) : "0.0";
         return `
-          <div class="distribution-item">
+          <div style="margin-bottom: 12px; display: flex; flex-direction: column; gap: 6px;">
             <div class="dist-item-topline">
               <div class="dist-topline-left">
                 <span class="apple-rank-tag" style="min-width:18px;">#${index + 1}</span>
-                <span style="width:6px; height:6px; border-radius:50%; background:${p.accentColor};"></span>
                 <span>${p.name}</span>
               </div>
               <div class="dist-topline-right">
-                <span>${count.toLocaleString()} views (${share}%)</span>
+                <span>${count.toLocaleString()} ${unitText} (${share}%)</span>
               </div>
             </div>
             <div class="liquid-bar-track">
-              <div class="liquid-bar-fill" style="background:${p.accentColor}; width:${share}%;"></div>
+              <div class="liquid-bar-fill" style="background: linear-gradient(90deg, #576574, #1e293b); box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255, 255, 255, 0.1); border: 1px solid rgba(30, 41, 59, 0.3); width:${share}%;"></div>
             </div>
           </div>
         `;
       }).join("");
+    }
+
+    function renderPlatformDistribution() {
+      renderDistributionList("platform-distribution-list", "", "views");
+      renderDistributionList("fols-distribution-list", "_fols", "fols");
     }
 
     function renderHistoryGroupedList() {
@@ -3072,15 +3265,15 @@
 
       if (sortedDates.length === 0) {
         container.innerHTML = `
-          <div class="liquid-glass-card" style="padding: 20px; text-align: center; color: var(--text-secondary); font-size: 12.5px;">
-            No logs recorded yet for September 2026. Start logging in the Today tab!
+          <div class="inner-glass-panel" style="padding: 20px; text-align: center; color: rgba(30, 41, 59, 0.7); font-size: 13px; font-weight: 700;">
+            No logs recorded yet. Start logging from the menu!
           </div>
         `;
         return;
       }
 
       container.innerHTML = `
-        <div class="liquid-glass-card history-liquid-table">
+        <div class="inner-glass-panel" style="padding: 0; overflow: hidden;">
           ${sortedDates.map((dateKey, index) => {
             const vals = appData.logs[dateKey];
             const total = PLATFORMS.reduce((acc, p) => acc + (vals[p.id] || 0), 0);
@@ -3107,36 +3300,32 @@
               const count = vals[p.id] || 0;
               return `
                 <span style="display:inline-flex; align-items:center; gap:3px;">
-                  <span style="width:4px; height:4px; border-radius:50%; background:${p.accentColor};"></span>
                   ${p.name}: ${count.toLocaleString()}
                 </span>
               `;
-            }).join("·");
+            }).join(" \&middot; ");
 
+            
+            
             return `
               <div class="history-row-entry">
                 <div class="history-click-area" onclick="jumpToEditDay('${dateKey}')">
-                  <div class="history-date-row">
+                  <div class="history-pill-tag" style="width: 130px; justify-content: center; font-size: 11.5px; color: rgba(30, 41, 59, 0.95);">
                     ${formatDateFull(dateKey)}
-                    <span class="history-pill-tag" style="color:#0A84FF; background:rgba(10,132,255,0.18);">👥 ${fols}</span>
-                    <span class="history-pill-tag" style="color:#30D158; background:rgba(48,209,88,0.18);">💵 $${rev}</span>
-                    <span class="history-pill-tag" style="color:#BF5AF2; background:rgba(191,90,242,0.18);">🎬 ${vids}/91</span>
                   </div>
-                  <div class="history-breakdown-row">${breakdownPills}</div>
-                </div>
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <div style="display:flex; flex-direction:column; align-items:flex-end; gap:2px;">
-                    <span class="history-views-num">${total.toLocaleString()}</span>
-                    ${deltaTag}
+                  <div style="display: flex; gap: 8px;">
+                    <span class="history-pill-tag" style="width: 85px; justify-content: center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> +${total.toLocaleString()}</span>
+                    <span class="history-pill-tag" style="width: 62px; justify-content: center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> +${fols}</span>
+                    <span class="history-pill-tag" style="width: 62px; justify-content: center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> +${rev}</span>
+                    <span class="history-pill-tag" style="width: 62px; justify-content: center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.5" ry="2.5"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg> +${vids}</span>
                   </div>
                 </div>
 
-                <div class="history-tools-group">
-                  <button class="tool-icon-btn" title="Edit this day" onclick="jumpToEditDay('${dateKey}')">✏️</button>
-                  <button class="tool-icon-btn delete" title="Delete this day" onclick="promptDeleteDay('${dateKey}')">🗑️</button>
-                </div>
+
               </div>
             `;
+
+
           }).join("")}
         </div>
       `;
@@ -3144,11 +3333,70 @@
 
     window.jumpToEditDay = function(dateKey) {
       selectedDate = dateKey;
-      updateDateDisplay();
-      loadDateInputs(dateKey);
-      switchTab("today");
-      renderApp();
+      openUnifiedModal();
       showToast(`Loaded ${formatDateShort(dateKey)} for editing`);
+    };
+
+    window.openUnifiedModal = function() {
+      const modal = document.getElementById("unified-modal");
+      if (!modal) return;
+      
+      requestAdminPin(() => {
+        // Load Daily Log data
+        updateDateDisplay();
+        loadDateInputs(selectedDate);
+        
+        // Load Records data
+        const rec = appData.records || SEED_DATA.records;
+        if(document.getElementById("form-top-views-title")) {
+          document.getElementById("form-top-views-title").value = rec.topViews?.title || "";
+          document.getElementById("form-top-views-platform").value = rec.topViews?.platform || "tiktok";
+          document.getElementById("form-top-views-count").value = rec.topViews?.views || 0;
+          document.getElementById("form-top-views-url").value = rec.topViews?.url || "";
+          
+          document.getElementById("form-top-likes-title").value = rec.topLikes?.title || "";
+          document.getElementById("form-top-likes-platform").value = rec.topLikes?.platform || "youtube";
+          document.getElementById("form-top-likes-count").value = rec.topLikes?.likes || 0;
+          document.getElementById("form-top-likes-url").value = rec.topLikes?.url || "";
+        }
+        
+        modal.classList.add("active");
+      }, "Enter PIN to Manage Log & Links");
+    };
+
+    window.saveUnifiedModal = function() {
+      // 1. Save Daily Log
+      const currentVals = getCurrentInputValues();
+      if (!appData.logs) appData.logs = {};
+      if (editingOriginalDate && editingOriginalDate !== selectedDate) {
+        delete appData.logs[editingOriginalDate];
+      }
+      appData.logs[selectedDate] = { ...currentVals };
+      editingOriginalDate = selectedDate;
+
+      // 2. Save Records
+      if (!appData.records) appData.records = {};
+      if(document.getElementById("form-top-views-title")) {
+        appData.records.topViews = {
+          title: document.getElementById("form-top-views-title").value || "Untitled Master Video",
+          platform: document.getElementById("form-top-views-platform").value || "tiktok",
+          views: parseInt(document.getElementById("form-top-views-count").value, 10) || 0,
+          url: document.getElementById("form-top-views-url").value.trim() || "",
+          date: formatDateShort(selectedDate)
+        };
+        appData.records.topLikes = {
+          title: document.getElementById("form-top-likes-title").value || "Untitled Secondary",
+          platform: document.getElementById("form-top-likes-platform").value || "youtube",
+          likes: parseInt(document.getElementById("form-top-likes-count").value, 10) || 0,
+          url: document.getElementById("form-top-likes-url").value.trim() || "",
+          date: formatDateShort(selectedDate)
+        };
+      }
+
+      // 3. Sync & Close
+      syncToCloud(`Saved Log & Links for ${formatDateShort(selectedDate)} ✓`);
+      renderApp(); 
+      document.getElementById("unified-modal").classList.remove("active");
     };
 
     function formatDateShort(dateStr) {
@@ -3177,5 +3425,70 @@
       toast._timer = setTimeout(() => { toast.classList.remove("visible"); }, 2200);
     }
   </script>
+
+  <!-- Glass Sidebar Menu -->
+  <div class="glass-sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+  <div class="glass-sidebar" id="sidebar-menu">
+    <div class="sidebar-close-btn" onclick="closeSidebar()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </div>
+
+    <div class="sidebar-scroll-area" style="overflow-y: auto; flex: 1; padding-right: 4px; margin-right: -4px;">
+      <div class="sidebar-menu-title">Navigation</div>
+      
+      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-velocity')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        Daily Velocity Averages
+      </div>
+      
+      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-top-content')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        Top Content
+      </div>
+
+      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-views')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        Views Analytics
+      </div>
+
+      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-followers')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Followers Analytics
+      </div>
+
+      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-revenue')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        Revenue Analytics
+      </div>
+
+      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-videos')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.5" ry="2.5"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+        Content Output Analytics
+      </div>
+
+      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-history')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        Logged History
+      </div>
+      
+      <div class="sidebar-menu-title" style="margin-top: 16px;">Quick Links</div>
+      <div class="sidebar-menu-item" style="padding-left: 20px;" onclick="closeSidebar(); window.open('https://www.tiktok.com/@ai.roof', '_blank')">TikTok</div>
+      <div class="sidebar-menu-item" style="padding-left: 20px;" onclick="closeSidebar(); window.open('https://www.youtube.com/', '_blank')">YouTube</div>
+      <div class="sidebar-menu-item" style="padding-left: 20px;" onclick="closeSidebar(); window.open('https://www.instagram.com/', '_blank')">Instagram</div>
+      <div class="sidebar-menu-item" style="padding-left: 20px;" onclick="closeSidebar(); window.open('https://www.facebook.com/', '_blank')">Facebook</div>
+      <div class="sidebar-menu-item" style="padding-left: 20px;" onclick="closeSidebar(); window.open('https://twitter.com/', '_blank')">X</div>
+
+      <div class="sidebar-menu-title" style="margin-top: 16px;">System</div>
+      <div class="sidebar-menu-item" onclick="closeSidebar(); openUnifiedModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+        Manage Log & Links
+      </div>
+      <div class="sidebar-menu-item" onclick="closeSidebar(); exportData()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Export Data (JSON)
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
