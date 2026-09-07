@@ -88,6 +88,7 @@
 
     /* Ambient Glow Mesh (Optimized for Mobile/Desktop) */
     .bg-blobs-container {
+      display: none;
       position: fixed;
       inset: 0;
       overflow: hidden;
@@ -105,6 +106,9 @@
     .blob-4 { width: 45vw; height: 45vw; top: 15%; right: 10vw; }
 
     @media (min-width: 720px) {
+      .bg-blobs-container {
+        display: block;
+      }
       @keyframes float-blob {
         0% { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
         33% { transform: translate(4vw, -6vw) scale(1.1) rotate(120deg); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
