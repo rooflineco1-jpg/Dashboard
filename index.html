@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Survival Instinct T2 by Roofline | Apple Liquid Glass Dashboard</title>
@@ -69,7 +73,7 @@
     }
 
     body { 
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: transparent;
       color: rgba(30, 41, 59, 0.85);
       min-height: 100vh;
@@ -149,6 +153,7 @@
       box-shadow: var(--liquid-glass-shadow), var(--liquid-glass-highlight);
       border-radius: var(--radius-liquid);
       position: relative;
+      scroll-margin-top: 32px;
     }
 
     /* Clean Header with "by Roofline" */
@@ -156,7 +161,8 @@
     .apple-hamburger-btn {
       position: fixed;
       top: 24px;
-      right: max(14px, calc(50vw - 290px + 14px));
+      left: max(14px, calc(50vw - 290px + 14px));
+      right: auto;
       z-index: 999;
       background: rgba(255, 255, 255, 0.4);
       backdrop-filter: blur(16px) saturate(180%);
@@ -198,25 +204,97 @@
       opacity: 1;
       pointer-events: auto;
     }
+    body {
+      transition: padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
     .glass-sidebar {
       position: fixed;
       top: 0;
       bottom: 0;
-      right: -280px;
+      left: -280px;
       width: 280px;
       background: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(40px) saturate(200%);
       -webkit-backdrop-filter: blur(40px) saturate(200%);
-      border-left: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      border-right: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 4px 0 24px rgba(30, 41, 59, 0.04), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+      border-radius: 0 24px 24px 0; /* Flush left, rounded right */
       z-index: 1000;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
-      padding: 30px 20px;
+      padding: 32px 20px;
+      overflow-x: hidden;
+      white-space: nowrap;
+    }
+    .glass-sidebar.closed-desktop .quick-links-section {
+      display: none !important;
     }
     .glass-sidebar.active {
-      transform: translateX(-280px);
+      transform: translateX(280px);
+    }
+    .sidebar-menu-item {
+      transition: all 0.2s ease, justify-content 0.2s;
+    }
+    .link-text {
+      transition: opacity 0.2s;
+    }
+
+    @media (min-width: 1024px) {
+      body {
+        padding-left: 280px;
+        box-sizing: border-box;
+        width: 100vw;
+        overflow-x: hidden;
+      }
+      body.sidebar-mini {
+        padding-left: 80px;
+      }
+      
+      .glass-sidebar {
+        left: 0;
+        transform: translateX(0);
+      }
+      .glass-sidebar.closed-desktop {
+        width: 80px;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      
+      /* Mini Mode Overrides */
+      .glass-sidebar.closed-desktop .sidebar-brand {
+        display: none !important;
+      }
+      .glass-sidebar.closed-desktop .sidebar-header {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .glass-sidebar.closed-desktop .link-text {
+        opacity: 0;
+        display: none;
+      }
+      .glass-sidebar.closed-desktop .sidebar-menu-title {
+        display: none !important;
+      }
+      .glass-sidebar.closed-desktop .quick-link-item {
+        display: none !important;
+      }
+      .glass-sidebar.closed-desktop .sidebar-menu-item {
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+      }      .apple-hamburger-btn {
+        display: none !important;
+      }
+      .glass-sidebar.closed-desktop #sidebar-toggle-btn {
+        transform: rotate(180deg);
+        margin-top: 0 !important;
+      }
+      .glass-sidebar.closed-desktop .sidebar-header {
+        justify-content: center !important;
+        padding-right: 0 !important;
+      }
     }
     .sidebar-close-btn {
       align-self: flex-end;
@@ -232,27 +310,45 @@
       margin-bottom: 24px;
     }
     .sidebar-menu-title {
-      font-size: 11px;
-      font-weight: 800;
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgba(30, 41, 59, 0.4);
-      margin-bottom: 12px;
-      padding-left: 8px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #94a3b8;
+      margin-bottom: 6px !important;
+      padding-left: 10px;
     }
+    .sidebar-section-card {
+      background: #ffffff;
+      border: 1px solid #f1f5f9;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border-radius: 16px;
+      padding: 12px 8px;
+      margin-bottom: 16px;
+    }
+    .glass-sidebar.closed-desktop .sidebar-section-card {
+      padding: 16px 4px;
+      border-radius: 16px;
+    }
+    .sidebar-section-card .sidebar-menu-title {
+      margin-top: 0 !important;
+      padding-left: 8px;
+      margin-bottom: 14px !important;
+    }
+
     .sidebar-menu-item {
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      color: rgba(30, 41, 59, 0.85);
-      font-size: 13.5px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      color: #475569;
+      font-size: 12px;
       font-weight: 700;
       text-decoration: none;
       transition: all 0.2s ease;
       cursor: pointer;
-      margin-bottom: 4px;
+      margin-bottom: 0px;
     }
     .sidebar-menu-item:hover, .sidebar-menu-item:active {
       background: rgba(30, 41, 59, 0.06);
@@ -305,7 +401,7 @@
     }
 
     .roofline-specular {
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-white);
     }
 
@@ -351,7 +447,7 @@
 
     .timeline-heading {
       font-size: 12.5px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-white);
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -370,7 +466,7 @@
       border: 1px solid rgba(30, 41, 59, 0.12);
       color: var(--text-white);
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 700;
       padding: 3px 9px;
       border-radius: 20px;
       letter-spacing: 0.3px;
@@ -390,7 +486,6 @@
       height: 100%;
       border-radius: 10px;
       background: linear-gradient(90deg, #576574, #1e293b);
-      transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
       box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(30, 41, 59, 0.3);
     }
@@ -451,7 +546,6 @@
     .ring-fill-animated {
       fill: none;
       stroke-linecap: round;
-      transition: stroke-dashoffset 1.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     /* Ring 1 (Outer): 100K Views (Pink/Red - r=108) */
@@ -512,7 +606,7 @@
 
     .rings-center-label {
       font-size: 9px;
-      font-weight: 800;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.6px;
       color: #576574;
@@ -571,7 +665,7 @@
 
     .target-tile-label {
       font-size: 10.5px;
-      font-weight: 800;
+      font-weight: 700;
       color: #576574;
       text-transform: uppercase;
       letter-spacing: 0.3px;
@@ -596,7 +690,6 @@
     .target-tile-fill {
       height: 100%;
       border-radius: 4px;
-      transition: width 0.5s ease;
     }
 
     .target-tile-sub {
@@ -715,7 +808,7 @@
 
     .date-heading-main {
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-white);
       display: flex;
       align-items: center;
@@ -785,7 +878,7 @@
 
     .targets-card-title {
       font-size: 11.5px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-white);
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -806,7 +899,7 @@
 
     .target-field-label {
       font-size: 9.5px;
-      font-weight: 800;
+      font-weight: 700;
       color: #576574;
       margin-bottom: 4px;
       display: block;
@@ -898,7 +991,7 @@
 
     .platform-name-row {
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-white);
       display: flex;
       align-items: center;
@@ -925,7 +1018,7 @@
 
     .platform-delta-tag {
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 700;
       padding: 3px 8px;
       border-radius: 10px;
       flex-shrink: 0;
@@ -968,7 +1061,6 @@
     .liquid-bar-fill {
       height: 100%;
       border-radius: 10px;
-      transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .liquid-bar-label {
@@ -992,7 +1084,7 @@
       color: var(--text-white);
       font-family: inherit;
       font-size: 15px;
-      font-weight: 800;
+      font-weight: 700;
       border: none;
       border-radius: 16px;
       padding: 14px 18px;
@@ -1066,7 +1158,7 @@
 
     .avg-heading-title {
       font-size: 10.5px;
-      font-weight: 800;
+      font-weight: 700;
       color: rgba(30, 41, 59, 0.55);
       text-transform: uppercase;
       letter-spacing: 0.6px;
@@ -1113,7 +1205,7 @@
 
     .hall-main-title {
       font-size: 13.5px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-white);
       display: flex;
       align-items: center;
@@ -1183,7 +1275,7 @@
 
     .hall-deck-badge {
       font-size: 10px;
-      font-weight: 800;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.6px;
       color: rgba(30, 41, 59, 0.8);
@@ -1214,7 +1306,7 @@
       padding: 6px 12px;
       border-radius: 9px;
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-white);
       text-decoration: none;
       background: rgba(30, 41, 59, 0.12);
@@ -1267,7 +1359,7 @@
 
     .chart-head-title {
       font-size: 13.5px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-white);
     }
 
@@ -1308,7 +1400,7 @@
 
     .dist-topline-right {
       color: #576574;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .history-liquid-table {
@@ -1348,7 +1440,7 @@
 
     .history-date-row {
       font-size: 13.5px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-white);
       display: flex;
       align-items: center;
@@ -1358,7 +1450,7 @@
 
     .history-pill-tag {
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 700;
       padding: 4px 8px;
       border-radius: 6px;
       display: inline-flex;
@@ -1480,7 +1572,7 @@
 
     .apple-dialog-title {
       font-size: 17px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-white);
       margin-bottom: 4px;
     }
@@ -1556,7 +1648,7 @@
 
     .record-input-label {
       font-size: 10.5px;
-      font-weight: 800;
+      font-weight: 700;
       color: #576574;
       margin-bottom: 4px;
       display: block;
@@ -1626,13 +1718,7 @@
     /* Animations for Bars and Rings */
     
 
-    /* Smooth CSS Hardware-Accelerated Transitions */
-    .timeline-fill-bar, .target-tile-fill, .progress-fill {
-      transition: width 1.2s linear !important;
-    }
-    .ring-fill-animated {
-      transition: stroke-dashoffset 1.2s linear !important;
-    }
+    
     /* History List Responsive Original Design */
     @media (max-width: 719px) {
       .history-click-area {
@@ -1651,12 +1737,64 @@
         padding: 6px 4px !important;
         font-size: 11px !important;
       }
-      .history-date-text {
+      .history-date-pill {
         width: 100% !important;
-        padding: 2px 4px 4px 4px !important;
+        padding: 4px 0 !important;
+        background: transparent !important;
+        justify-content: flex-start !important;
+        font-size: 13px !important;
+        text-align: left;
       }
     }
-  </style>
+      /* Mobile Top Bar CSS */
+    .mobile-top-bar {
+      display: none;
+    }
+    @media (max-width: 1023px) {
+      .mobile-top-bar {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        position: sticky;
+        top: 0;
+        z-index: 990;
+        background: rgba(248, 250, 252, 0.85);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        margin: -24px -16px 24px -16px;
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      }
+      .mobile-hamburger-btn {
+        background: transparent;
+        color: #0f172a;
+        padding: 4px;
+        margin-top: -2px;
+        margin-left: -4px;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-shrink: 0;
+      }
+    }
+
+    /* Ensure old mobile header styling is perfect */
+    @media (max-width: 1023px) {
+      .apple-hamburger-btn {
+        right: 16px !important;
+        left: auto !important;
+        top: 16px !important;
+        display: flex !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .apple-header {
+        display: none !important;
+      }
+    }
+
+</style>
 
 
 </head>
@@ -1672,11 +1810,11 @@
 
     <div class="app-viewport">
 
-    <!-- Clean Header with "by Roofline" -->
+    <!-- Mobile Header -->
     <header class="apple-header">
-      <div class="header-text-group">
-        <h1 class="apple-main-title">Survival Instinct T2</h1>
-        <div class="apple-subtitle">by <span class="roofline-specular">Roofline</span></div>
+      <div class="sidebar-brand" style="display: flex; flex-direction: column; gap: 0; background: linear-gradient(to top, #94a3b8 0%, #0f172a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        <span style="font-weight: 800; font-size: 24px; letter-spacing: -0.5px; line-height: 28px; padding-right: 4px;">Survival Instinct T2</span>
+        <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2px; margin-left: 2px;">by Roofline</span>
       </div>
       <div class="apple-hamburger-btn" onclick="openSidebar()" title="Menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -1687,7 +1825,7 @@
     <section id="section-velocity" class="liquid-glass-card timeline-liquid-card">
       <div class="timeline-top-row">
         <div class="timeline-title-box">
-          <div class="timeline-icon-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+          <div class="timeline-icon-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
           <div class="timeline-text-group">
             <span class="timeline-heading">91-Day Campaign Timeline</span>
             <span class="timeline-subline">Active Period: Sep 1 – Nov 30, 2026</span>
@@ -1702,7 +1840,7 @@
 
       <div class="timeline-milestones-row">
         <span id="timeline-elapsed-text">1.1% elapsed (1 of 91 days)</span>
-        <span id="timeline-remaining-text" style="color: #576574; font-weight: 800;">90 days remaining</span>
+        <span id="timeline-remaining-text" style="color: #576574; font-weight: 700;">90 days remaining</span>
       </div>
     </section>
 
@@ -1872,7 +2010,7 @@
           <div class="hall-video-deck">
             <div class="hall-deck-top">
               <span class="hall-deck-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> Most Viewed Video</span>
-              <span id="record-views-platform-badge" style="font-size: 9.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px; background: rgba(30, 41, 59, 0.08); border: 1px solid rgba(30, 41, 59, 0.12); color: rgba(30, 41, 59, 0.85);">TIKTOK</span>
+              <span id="record-views-platform-badge" style="font-size: 9.5px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: rgba(30, 41, 59, 0.08); border: 1px solid rgba(30, 41, 59, 0.12); color: rgba(30, 41, 59, 0.85);">TIKTOK</span>
             </div>
             <div class="hall-deck-number" id="record-views-count">0 views</div>
             <div class="hall-deck-title" id="record-views-title">No video title set yet</div>
@@ -1885,7 +2023,7 @@
           <div class="hall-video-deck">
             <div class="hall-deck-top">
               <span class="hall-deck-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Most Liked Video</span>
-              <span id="record-likes-platform-badge" style="font-size: 9.5px; font-weight: 800; padding: 2px 7px; border-radius: 6px; background: rgba(30, 41, 59, 0.08); border: 1px solid rgba(30, 41, 59, 0.12); color: rgba(30, 41, 59, 0.85);">YOUTUBE</span>
+              <span id="record-likes-platform-badge" style="font-size: 9.5px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: rgba(30, 41, 59, 0.08); border: 1px solid rgba(30, 41, 59, 0.12); color: rgba(30, 41, 59, 0.85);">YOUTUBE</span>
             </div>
             <div class="hall-deck-number" id="record-likes-count">0 likes</div>
             <div class="hall-deck-title" id="record-likes-title">No video title set yet</div>
@@ -2041,6 +2179,7 @@
     <div class="apple-modal-box" style="padding: 24px; max-height: 90vh; overflow-y: auto; width: 92%; max-width: 420px; border-radius: 28px;">
       <div class="modal-close-btn" id="close-unified-btn" onclick="document.getElementById('unified-modal').classList.remove('active')">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        <span class="link-text"> </span>
       </div>
       
       
@@ -2067,12 +2206,12 @@
       <div class="liquid-glass-card targets-input-card">
         <div class="targets-card-head">
           <span class="targets-card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> September Progress Targets</span>
-          <span style="font-size: 10.5px; font-weight: 800; color: var(--apple-green);">Month Total</span>
+          <span style="font-size: 10.5px; font-weight: 700; color: var(--apple-green);">Month Total</span>
         </div>
         <div class="targets-inputs-3grid">
           <div class="target-field-box">
             <label class="target-field-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Total Fols (Auto):</label>
-            <div style="font-size: 24px; font-weight: 800; color: var(--text-primary); text-align: center; margin-bottom: 12px; padding: 10px 0; background: rgba(30,41,59,0.05); border-radius: 8px;" id="text-followers-count">0</div>
+            <div style="font-size: 24px; font-weight: 700; color: var(--text-primary); text-align: center; margin-bottom: 12px; padding: 10px 0; background: rgba(30,41,59,0.05); border-radius: 8px;" id="text-followers-count">0</div>
             <input type="number" id="input-followers-count" style="display:none;" />
           </div>
 
@@ -2107,7 +2246,7 @@
       <div class="liquid-glass-card targets-input-card" style="margin-top: 16px;">
         <div class="targets-card-head">
           <span class="targets-card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Followers Breakdown</span>
-          <span style="font-size: 10.5px; font-weight: 800; color: var(--apple-green);">By Platform</span>
+          <span style="font-size: 10.5px; font-weight: 700; color: var(--apple-green);">By Platform</span>
         </div>
         <div style="display:flex; flex-direction:column; gap:12px; margin-top: 12px;">
           <input type="number" id="input-tiktok-fols" class="apple-num-input" placeholder="TikTok Followers" min="0">
@@ -2223,7 +2362,21 @@
 
     let db = null;
     let isCloudEnabled = false;
+    function toggleDesktopSidebar() {
+      const sb = document.getElementById("sidebar-menu");
+      if (window.innerWidth >= 1024) {
+        sb.classList.toggle("closed-desktop");
+        document.body.classList.toggle("sidebar-mini");
+      } else {
+        closeSidebar();
+      }
+    }
+
     function openSidebar() {
+      if (window.innerWidth >= 1024) {
+         toggleDesktopSidebar();
+         return;
+      }
       const sidebar = document.getElementById("sidebar-menu");
       const overlay = document.getElementById("sidebar-overlay");
       if (sidebar) sidebar.classList.add("active");
@@ -2896,43 +3049,47 @@
 
       if (ringViewsFill) {
         const circum = 2 * Math.PI * 108;
-        const offset = circum - (Math.min(viewsPercent, 100) / 100) * circum;
+        const pct = Math.min(viewsPercent, 100);
+        const offset = circum - (pct / 100) * circum;
+        ringViewsFill.style.transition = "none";
         ringViewsFill.style.strokeDasharray = circum;
-        ringViewsFill.style.strokeDashoffset = circum;
-        ringViewsFill.setAttribute("data-offset", offset);
-        ringViewsFill.style.opacity = viewsPercent === 0 ? "0" : "1";
+        ringViewsFill.style.strokeDashoffset = offset;
+        ringViewsFill.style.opacity = pct === 0 ? "0" : "1";
       }
 
       if (ringFollowersFill) {
         const circum = 2 * Math.PI * 90;
-        const offset = circum - (Math.min(followersPercent, 100) / 100) * circum;
+        const pct = Math.min(followersPercent, 100);
+        const offset = circum - (pct / 100) * circum;
+        ringFollowersFill.style.transition = "none";
         ringFollowersFill.style.strokeDasharray = circum;
-        ringFollowersFill.style.strokeDashoffset = circum;
-        ringFollowersFill.setAttribute("data-offset", offset);
-        ringFollowersFill.style.opacity = followersPercent === 0 ? "0" : "1";
+        ringFollowersFill.style.strokeDashoffset = offset;
+        ringFollowersFill.style.opacity = pct === 0 ? "0" : "1";
       }
 
       if (ringRevenueFill) {
         const circum = 2 * Math.PI * 72;
-        const offset = circum - (Math.min(revenuePercent, 100) / 100) * circum;
+        const pct = Math.min(revenuePercent, 100);
+        const offset = circum - (pct / 100) * circum;
+        ringRevenueFill.style.transition = "none";
         ringRevenueFill.style.strokeDasharray = circum;
-        ringRevenueFill.style.strokeDashoffset = circum;
-        ringRevenueFill.setAttribute("data-offset", offset);
-        ringRevenueFill.style.opacity = revenuePercent === 0 ? "0" : "1";
+        ringRevenueFill.style.strokeDashoffset = offset;
+        ringRevenueFill.style.opacity = pct === 0 ? "0" : "1";
       }
 
       if (ringVideosFill) {
         const circum = 2 * Math.PI * 54;
-        const offset = circum - (Math.min(videosPercent, 100) / 100) * circum;
+        const pct = Math.min(videosPercent, 100);
+        const offset = circum - (pct / 100) * circum;
+        ringVideosFill.style.transition = "none";
         ringVideosFill.style.strokeDasharray = circum;
-        ringVideosFill.style.strokeDashoffset = circum;
-        ringVideosFill.setAttribute("data-offset", offset);
-        ringVideosFill.style.opacity = videosPercent === 0 ? "0" : "1";
+        ringVideosFill.style.strokeDashoffset = offset;
+        ringVideosFill.style.opacity = pct === 0 ? "0" : "1";
       }
 
       // Center Unified Score
       const blendedScoreElem = document.getElementById("quad-blended-percent");
-      if (blendedScoreElem) { blendedScoreElem.classList.add("animate-number"); blendedScoreElem.setAttribute("data-val", blendedPercent); blendedScoreElem.setAttribute("data-format", "percent_float"); }
+      if (blendedScoreElem) { blendedScoreElem.textContent = blendedPercent.toFixed(1) + "%"; }
 
       // 4 Master Target Stat Tiles (Views=Pink, Followers=Blue, Revenue=MoneyGreen, Videos=Purple)
       const statViewsVal = document.getElementById("stat-views-val");
@@ -2951,32 +3108,27 @@
       const barVideosFill = document.getElementById("bar-videos-fill");
       const statVideosSub = document.getElementById("stat-videos-sub");
 
-      const setupAnimSync = (el, val, format) => {
-        if (!el) return;
-        el.classList.add("animate-number");
-        el.setAttribute("data-val", val);
-        el.setAttribute("data-format", format);
-      };
+      
 
-      setupAnimSync(statViewsVal, totalViews, "comma");
-      if (barViewsFill) { barViewsFill.style.width = "0%"; barViewsFill.setAttribute("data-target-width", Math.min(viewsPercent, 100)); }
+      if (statViewsVal) statViewsVal.textContent = totalViews.toLocaleString();
+      if (barViewsFill) { barViewsFill.style.transition = "none"; barViewsFill.style.width = Math.min(viewsPercent, 100) + "%"; }
       if (statViewsSub) statViewsSub.textContent = `${viewsPercent.toFixed(1)}% (${Math.max(0, goalViews - totalViews).toLocaleString()} left)`;
 
-      setupAnimSync(statFollowersVal, totalFollowers, "comma");
-      if (barFollowersFill) { barFollowersFill.style.width = "0%"; barFollowersFill.setAttribute("data-target-width", Math.min(followersPercent, 100)); }
+      if (statFollowersVal) statFollowersVal.textContent = totalFollowers.toLocaleString();
+      if (barFollowersFill) { barFollowersFill.style.transition = "none"; barFollowersFill.style.width = Math.min(followersPercent, 100) + "%"; }
       if (statFollowersSub) statFollowersSub.textContent = `${followersPercent.toFixed(1)}% (${Math.max(0, goalFollowers - totalFollowers)} left)`;
 
-      setupAnimSync(statRevenueVal, totalRevenue, "currency_int");
-      if (barRevenueFill) { barRevenueFill.style.width = "0%"; barRevenueFill.setAttribute("data-target-width", Math.min(revenuePercent, 100)); }
+      if (statRevenueVal) statRevenueVal.textContent = "$" + totalRevenue.toLocaleString();
+      if (barRevenueFill) { barRevenueFill.style.transition = "none"; barRevenueFill.style.width = Math.min(revenuePercent, 100) + "%"; }
       if (statRevenueSub) statRevenueSub.textContent = `${revenuePercent.toFixed(1)}% ($${Math.max(0, goalRevenue - totalRevenue)} left)`;
 
-      setupAnimSync(statVideosVal, totalVideos, "integer");
-      if (barVideosFill) { barVideosFill.style.width = "0%"; barVideosFill.setAttribute("data-target-width", Math.min(videosPercent, 100)); }
+      if (statVideosVal) statVideosVal.textContent = totalVideos.toString();
+      if (barVideosFill) { barVideosFill.style.transition = "none"; barVideosFill.style.width = Math.min(videosPercent, 100) + "%"; }
       if (statVideosSub) statVideosSub.textContent = `${videosPercent.toFixed(0)}% (${Math.max(0, goalVideos - totalVideos)} left)`;
 
       if (!isLiveTyping) {
         renderHistoryTab();
-        triggerDashboardAnimations();
+        
       }
     }
 
@@ -3391,7 +3543,7 @@
             return `
               <div class="history-row-entry">
                 <div class="history-click-area" onclick="jumpToEditDay('${dateKey}')">
-                  <div class="history-date-text" style="font-size: 13px; font-weight: 800; color: #1e293b; text-align: left;">
+                  <div class="history-pill-tag history-date-pill" style="width: 130px; justify-content: center; font-size: 11.5px; color: rgba(30, 41, 59, 0.95);">
                     ${formatDateFull(dateKey)}
                   </div>
                   <div class="history-stats-row" style="display: flex; gap: 8px;">
@@ -3506,113 +3658,7 @@
     // --- UNIFIED HIGH-PERFORMANCE ANIMATION SYSTEM ---
     let globalAnimFrame = null;
 
-    function triggerDashboardAnimations() {
-      if (globalAnimFrame) window.cancelAnimationFrame(globalAnimFrame);
-
-      const duration = 1200; // slightly faster for better perceived performance
-      let startTimestamp = null;
-      
-      // 1. Gather all bars
-      const bars = [];
-      document.querySelectorAll(".animate-bar").forEach(el => {
-        if (el.hasAttribute("data-width")) {
-          const w = parseFloat(el.getAttribute("data-width"));
-          bars.push({ el, target: w, suffix: "%" });
-        }
-      });
-      // Also grab target tiles
-      ["bar-views-fill", "bar-followers-fill", "bar-revenue-fill", "bar-videos-fill"].forEach(id => {
-        const el = document.getElementById(id);
-        if (el && el.hasAttribute("data-target-width")) {
-          bars.push({ el, target: parseFloat(el.getAttribute("data-target-width")), suffix: "%" });
-        }
-      });
-
-      // 2. Gather all rings
-      const rings = [];
-      document.querySelectorAll(".ring-fill-animated").forEach(el => {
-        if (el.hasAttribute("data-offset")) {
-          rings.push({
-            el,
-            start: parseFloat(el.getAttribute("stroke-dasharray") || "0"),
-            target: parseFloat(el.getAttribute("data-offset"))
-          });
-        }
-      });
-
-      // 3. Gather all numbers
-      const nums = [];
-      document.querySelectorAll(".animate-number").forEach(el => {
-        if (el.hasAttribute("data-val")) {
-          const end = parseFloat(el.getAttribute("data-val"));
-          
-          // If already fully animated to this exact value, just ensure the text is correct and skip
-          if (el.dataset.animatedVal == end) {
-             let finalStr = "";
-             const f = el.getAttribute("data-format") || "comma";
-             if (f === "comma") finalStr = Math.round(end).toLocaleString();
-             else if (f === "currency_int") finalStr = "$" + Math.round(end).toLocaleString();
-             else if (f === "integer") finalStr = Math.round(end);
-             else if (f === "percent_float") finalStr = end.toFixed(1) + "%";
-             else finalStr = Math.round(end);
-             el.textContent = finalStr;
-             return;
-          }
-          
-          nums.push({
-            el,
-            target: end,
-            format: el.getAttribute("data-format") || "comma"
-          });
-        }
-      });
-
-      // Execute CSS Transitions for Bars & Rings immediately
-      setTimeout(() => {
-        bars.forEach(b => { b.el.style.width = b.target + b.suffix; });
-        rings.forEach(r => { r.el.style.strokeDashoffset = r.target; });
-      }, 50);
-
-      // 4. Batch rAF Loop for Numbers ONLY
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const ease = progress;
-        
-        nums.forEach(n => {
-          const current = ease * n.target;
-          let formatted = "";
-          if (n.format === "comma") formatted = Math.round(current).toLocaleString();
-          else if (n.format === "currency_int") formatted = "$" + Math.round(current).toLocaleString();
-          else if (n.format === "integer") formatted = Math.round(current);
-          else if (n.format === "percent_float") formatted = current.toFixed(1) + "%";
-          else formatted = Math.round(current);
-          
-          n.el.textContent = formatted;
-        });
-        
-        if (progress < 1) {
-          globalAnimFrame = window.requestAnimationFrame(step);
-        } else {
-          nums.forEach(n => {
-            let finalStr = "";
-            if (n.format === "comma") finalStr = Math.round(n.target).toLocaleString();
-            else if (n.format === "currency_int") finalStr = "$" + Math.round(n.target).toLocaleString();
-            else if (n.format === "integer") finalStr = Math.round(n.target);
-            else if (n.format === "percent_float") finalStr = n.target.toFixed(1) + "%";
-            else finalStr = Math.round(n.target);
-            n.el.textContent = finalStr;
-            n.el.dataset.animatedVal = n.target; // Mark as fully completed
-          });
-          playTickSound();
-        }
-      };
-      
-      if (nums.length) {
-        globalAnimFrame = window.requestAnimationFrame(step);
-      }
-    }
-
+    
     function animateValue(obj, start, end, duration, formatStr = "comma", prefix = "", suffix = "") {
       if (!obj) return;
       if (obj.dataset.animatedVal == end) return;
@@ -3649,86 +3695,86 @@
       window.requestAnimationFrame(step);
     }
 
-    function playTickSound() {      try {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContext) return;
-        const ctx = new AudioContext();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(1200, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(300, ctx.currentTime + 0.04);
-        gain.gain.setValueAtTime(0.1, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start();
-        osc.stop(ctx.currentTime + 0.04);
-      } catch (e) {}
-    }
-  </script>
+      </script>
 
-  <!-- Glass Sidebar Menu -->
+    <!-- Glass Sidebar Menu -->
   <div class="glass-sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
   <div class="glass-sidebar" id="sidebar-menu">
-    <div class="sidebar-close-btn" onclick="closeSidebar()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    <div class="sidebar-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 36px; padding: 0 4px;">
+      <div class="sidebar-brand" style="display: flex; flex-direction: column; gap: 0; background: linear-gradient(to top, #94a3b8 0%, #0f172a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        <span style="font-weight: 800; font-size: 18px; letter-spacing: -0.5px; line-height: 22px; padding-right: 4px;">Survival Instinct T2</span>
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.2px; margin-left: 2px;">by Roofline</span>
+      </div>
+      <button class="icon-btn" id="sidebar-toggle-btn" onclick="toggleDesktopSidebar()" style="background: transparent; color: #64748b; padding: 6px; box-shadow: none; border: none; cursor: pointer; display: flex; flex-shrink: 0; transition: all 0.2s ease; border-radius: 8px; margin-top: -4px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="9" y1="3" x2="9" y2="21"></line>
+        </svg>
+      </button>
     </div>
 
-    <div class="sidebar-scroll-area" style="overflow-y: auto; flex: 1; padding-right: 4px; margin-right: -4px;">
-      <div class="sidebar-menu-title">Navigation</div>
+        <div class="sidebar-scroll-area" style="overflow-y: auto; flex: 1; padding-right: 4px; margin-right: -4px;">
       
-      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-velocity')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-        Daily Velocity Averages
+      <div class="sidebar-section-card">
+        <div class="sidebar-menu-title">Navigation</div>
+        
+        <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-velocity')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span class="link-text">Daily Velocity Averages</span>
+        </div>
+        
+        <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-top-content')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <span class="link-text">Top Content</span>
+        </div>
+
+        <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-views')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          <span class="link-text">Views Analytics</span>
+        </div>
+
+        <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-followers')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span class="link-text">Followers Analytics</span>
+        </div>
+
+        <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-revenue')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <span class="link-text">Revenue Analytics</span>
+        </div>
+
+        <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-videos')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.5" ry="2.5"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+          <span class="link-text">Content Output Analytics</span>
+        </div>
+
+        <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-history')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span class="link-text">Logged History</span>
+        </div>
       </div>
       
-      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-top-content')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        Top Content
+      <div class="sidebar-section-card quick-links-section">
+        <div class="sidebar-menu-title">Quick Links</div>
+        <div class="sidebar-menu-item quick-link-item" onclick="closeSidebar(); window.open('https://www.tiktok.com/@ai.roof', '_blank')">TikTok</div>
+        <div class="sidebar-menu-item quick-link-item" onclick="closeSidebar(); window.open('https://www.youtube.com/', '_blank')">YouTube</div>
+        <div class="sidebar-menu-item quick-link-item" onclick="closeSidebar(); window.open('https://www.instagram.com/', '_blank')">Instagram</div>
+        <div class="sidebar-menu-item quick-link-item" onclick="closeSidebar(); window.open('https://www.facebook.com/', '_blank')">Facebook</div>
+        <div class="sidebar-menu-item quick-link-item" onclick="closeSidebar(); window.open('https://twitter.com/', '_blank')">X</div>
       </div>
 
-      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-views')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-        Views Analytics
+      <div class="sidebar-section-card">
+        <div class="sidebar-menu-title">System</div>
+        <div class="sidebar-menu-item" onclick="closeSidebar(); openUnifiedModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+          <span class="link-text">Manage Log & Links</span>
+        </div>
+        <div class="sidebar-menu-item" onclick="closeSidebar(); exportData()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span class="link-text">Export Data (JSON)</span>
+        </div>
       </div>
 
-      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-followers')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-        Followers Analytics
-      </div>
-
-      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-revenue')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-        Revenue Analytics
-      </div>
-
-      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-videos')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.5" ry="2.5"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
-        Content Output Analytics
-      </div>
-
-      <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('section-history')?.scrollIntoView({behavior: 'smooth', block: 'start'})">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-        Logged History
-      </div>
-      
-      <div class="sidebar-menu-title" style="margin-top: 16px;">Quick Links</div>
-      <div class="sidebar-menu-item" style="padding-left: 20px;" onclick="closeSidebar(); window.open('https://www.tiktok.com/@ai.roof', '_blank')">TikTok</div>
-      <div class="sidebar-menu-item" style="padding-left: 20px;" onclick="closeSidebar(); window.open('https://www.youtube.com/', '_blank')">YouTube</div>
-      <div class="sidebar-menu-item" style="padding-left: 20px;" onclick="closeSidebar(); window.open('https://www.instagram.com/', '_blank')">Instagram</div>
-      <div class="sidebar-menu-item" style="padding-left: 20px;" onclick="closeSidebar(); window.open('https://www.facebook.com/', '_blank')">Facebook</div>
-      <div class="sidebar-menu-item" style="padding-left: 20px;" onclick="closeSidebar(); window.open('https://twitter.com/', '_blank')">X</div>
-
-      <div class="sidebar-menu-title" style="margin-top: 16px;">System</div>
-      <div class="sidebar-menu-item" onclick="closeSidebar(); openUnifiedModal()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-        Manage Log & Links
-      </div>
-      <div class="sidebar-menu-item" onclick="closeSidebar(); exportData()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-        Export Data (JSON)
-      </div>
     </div>
   </div>
 
