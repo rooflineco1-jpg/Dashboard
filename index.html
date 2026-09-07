@@ -55,34 +55,29 @@
     }
 
     html {
-      overscroll-behavior: none;
-      overscroll-behavior-y: none;
-      background-color: #d8e5ef;
+      background-color: #b2c5d6;
       -webkit-text-size-adjust: 100%;
     }
 
-    body { color: var(--text-white);
-      overscroll-behavior: none;
-      overscroll-behavior-y: none;
+    html::before {
+      content: "";
+      position: fixed;
+      top: -50vh; left: -50vw; right: -50vw; bottom: -50vh;
+      background: linear-gradient(135deg, #d8e5ef 20%, #b2c5d6 80%);
+      z-index: -999;
+      pointer-events: none;
+    }
+
+    body { 
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
-      background-color: #d8e5ef;
-      color: var(--text-white);
+      background-color: transparent;
+      color: rgba(30, 41, 59, 0.85);
       min-height: 100vh;
-      min-height: -webkit-fill-available;
       position: relative;
       overflow-x: hidden;
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
       padding-bottom: calc(env(safe-area-inset-bottom, 24px) + 36px);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(135deg, #d8e5ef 0%, #b2c5d6 100%);
-      z-index: -999;
-      pointer-events: none;
     }
 
     /* Ambient Glow Mesh */
@@ -1612,6 +1607,7 @@
   </style>
 </head>
 <body>
+  <div style="overflow-x: hidden; width: 100%; position: relative; min-height: 100vh;">
 
 
 
@@ -3503,5 +3499,7 @@
     </div>
   </div>
 
+
+  </div>
 </body>
 </html>
