@@ -1433,7 +1433,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      cursor: pointer;
+      cursor: default;
       min-width: 0;
       flex-wrap: wrap;
     }
@@ -1737,13 +1737,9 @@
         padding: 6px 4px !important;
         font-size: 11px !important;
       }
-      .history-date-pill {
+      .history-date-text {
         width: 100% !important;
-        padding: 4px 0 !important;
-        background: transparent !important;
-        justify-content: flex-start !important;
-        font-size: 13px !important;
-        text-align: left;
+        padding: 4px 0 8px 0 !important;
       }
     }
       /* Mobile Top Bar CSS */
@@ -3387,7 +3383,9 @@
       const height = 130;
       const paddingX = 20;
       const paddingBottom = 22;
-      const paddingTop = 18;
+      
+      // Don't let highest column exceed 55% of the total box height
+      const maxAllowedBarHeight = height * 0.55; 
 
       const maxDelta = Math.max(...velocityData.map(v => v.delta), 10);
       const barWidth = Math.min(32, Math.max(16, (width - paddingX * 2) / (velocityData.length * 2)));
@@ -3395,7 +3393,7 @@
       let barsSvg = velocityData.map((v, i) => {
         const spacing = (width - paddingX * 2) / velocityData.length;
         const x = paddingX + i * spacing + spacing / 2 - barWidth / 2;
-        const barHeight = Math.max(4, ((v.delta / maxDelta) * (height - paddingBottom - paddingTop)));
+        const barHeight = Math.max(4, ((v.delta / maxDelta) * maxAllowedBarHeight));
         const y = height - paddingBottom - barHeight;
         const dateLabel = formatDateShort(v.date);
 
@@ -3542,8 +3540,8 @@
             
             return `
               <div class="history-row-entry">
-                <div class="history-click-area" onclick="jumpToEditDay('${dateKey}')">
-                  <div class="history-pill-tag history-date-pill" style="width: 130px; justify-content: center; font-size: 11.5px; color: rgba(30, 41, 59, 0.95);">
+                <div class="history-click-area">
+                  <div class="history-date-text" style="width: 130px; font-size: 13px; font-weight: 700; color: #1e293b; text-align: left; display: flex; align-items: center;">
                     ${formatDateFull(dateKey)}
                   </div>
                   <div class="history-stats-row" style="display: flex; gap: 8px;">
