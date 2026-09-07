@@ -1651,9 +1651,9 @@
         padding: 6px 4px !important;
         font-size: 11px !important;
       }
-      .history-date-pill {
+      .history-date-text {
         width: 100% !important;
-        padding: 6px 12px !important;
+        padding: 2px 4px 4px 4px !important;
       }
     }
   </style>
@@ -3391,7 +3391,7 @@
             return `
               <div class="history-row-entry">
                 <div class="history-click-area" onclick="jumpToEditDay('${dateKey}')">
-                  <div class="history-pill-tag history-date-pill" style="width: 130px; justify-content: center; font-size: 11.5px; color: rgba(30, 41, 59, 0.95);">
+                  <div class="history-date-text" style="font-size: 13px; font-weight: 800; color: #1e293b; text-align: left;">
                     ${formatDateFull(dateKey)}
                   </div>
                   <div class="history-stats-row" style="display: flex; gap: 8px;">
