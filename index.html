@@ -1606,6 +1606,23 @@
     .apple-toast-banner.visible {
       transform: translateX(-50%) translateY(0);
     }
+
+    /* Mobile Performance: Disable Glass on Cards, Keep only on Hamburger */
+    @media (max-width: 719px) {
+      .liquid-glass-card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(255, 255, 255, 0.55) !important;
+      }
+      .inner-glass-panel {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(255, 255, 255, 0.45) !important;
+      }
+      .apple-hamburger-btn {
+        background: rgba(255, 255, 255, 0.15) !important;
+      }
+    }
   </style>
 </head>
 <body>
