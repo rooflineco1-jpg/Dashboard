@@ -1607,14 +1607,15 @@
   </style>
 </head>
 <body>
-  <div style="overflow-x: hidden; width: 100%; position: relative; min-height: 100vh;">
+  
 
 
-
-  <div class="water-blob blob-1"></div>
-  <div class="water-blob blob-2"></div>
-  <div class="water-blob blob-3"></div>
-  <div class="water-blob blob-4"></div>
+  <div style="position: fixed; inset: 0; overflow: hidden; z-index: 0; pointer-events: none;">
+    <div class="water-blob blob-1"></div>
+    <div class="water-blob blob-2"></div>
+    <div class="water-blob blob-3"></div>
+    <div class="water-blob blob-4"></div>
+  </div>
   <div class="app-viewport">
 
     <!-- Clean Header with "by Roofline" -->
@@ -3500,6 +3501,5 @@
   </div>
 
 
-  </div>
 </body>
 </html>
