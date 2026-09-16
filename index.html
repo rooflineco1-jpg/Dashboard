@@ -2397,6 +2397,35 @@
       linkElement.click();
     }
 
+    function importData(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (imported && imported.logs) {
+            appData = imported;
+            saveDataLocally();
+            if (isCloudEnabled && db) {
+              syncToCloud("Data imported and synced to Cloud! ☁️");
+            } else {
+              showToast("Data imported successfully!");
+            }
+            updateDateDisplay();
+            loadDateInputs(selectedDate);
+            renderApp();
+          } else {
+            alert("Invalid data format.");
+          }
+        } catch (err) {
+          alert("Error parsing JSON file.");
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = ""; // reset
+    }
+
     let unsubscribeRealtime = null;
 
     // Official Connected Channels with Authentic High-Res TikTok & Social Brand SVGs
@@ -2475,17 +2504,51 @@
 
     // Clean September 2026 Seed Data with Links
     const SEED_DATA = {
-      goals: MASTER_GOALS,
-      month: "2026-09",
-      monthName: "September 2026",
-      records: {
-        topViews: { title: "Master AI Video #1", platform: "tiktok", views: 0, url: "", date: "Sep 2026" },
-        topLikes: { title: "Viral Tech Spotlight #1", platform: "youtube", likes: 0, url: "", date: "Sep 2026" }
+      "goal": 10000,
+      "monthName": "September 2026",
+      "records": {
+        "topLikes": {
+          "title": "Robot Smashes Usain Bolt’s 100m Record",
+          "platform": "youtube",
+          "likes": 23,
+          "url": "https://youtube.com/shorts/jGMh3fdPjfo",
+          "date": "Sep 15"
+        },
+        "topViews": {
+          "title": "China just hosted the World Humanoid Robot Games",
+          "platform": "facebook",
+          "views": 3165,
+          "url": "https://facebook.com/reel/2223808838467546/",
+          "date": "Sep 15"
+        }
       },
-      logs: {}
+      "month": "2026-09",
+      "goals": {
+        "videos": 100,
+        "followers": 1000,
+        "revenue": 100,
+        "views": 100000
+      },
+      "logs": {
+        "2026-09-04": { "tiktok": 1331, "youtube": 1917, "instagram": 269, "facebook": 1177, "x": 63, "tiktok_fols": 2, "youtube_fols": 2, "instagram_fols": 2, "facebook_fols": 2, "x_fols": 0, "followers": 8, "revenue": 0, "videos": 4 },
+        "2026-09-07": { "tiktok": 2329, "youtube": 3355, "instagram": 471, "facebook": 2060, "x": 110, "tiktok_fols": 5, "youtube_fols": 3, "instagram_fols": 2, "facebook_fols": 3, "x_fols": 0, "followers": 13, "revenue": 0, "videos": 7 },
+        "2026-09-06": { "tiktok": 1997, "youtube": 2875, "instagram": 404, "facebook": 1765, "x": 95, "tiktok_fols": 3, "youtube_fols": 4, "instagram_fols": 2, "facebook_fols": 3, "x_fols": 0, "followers": 12, "revenue": 0, "videos": 6 },
+        "2026-09-01": { "tiktok": 333, "youtube": 479, "instagram": 67, "facebook": 294, "x": 16, "tiktok_fols": 1, "youtube_fols": 1, "instagram_fols": 0, "facebook_fols": 0, "x_fols": 0, "followers": 2, "revenue": 0, "videos": 1 },
+        "2026-09-03": { "tiktok": 998, "youtube": 1438, "instagram": 202, "facebook": 883, "x": 47, "tiktok_fols": 2, "youtube_fols": 2, "instagram_fols": 1, "facebook_fols": 1, "x_fols": 0, "followers": 6, "revenue": 0, "videos": 3 },
+        "2026-09-05": { "tiktok": 1664, "youtube": 2396, "instagram": 337, "facebook": 1471, "x": 79, "tiktok_fols": 3, "youtube_fols": 3, "instagram_fols": 2, "facebook_fols": 2, "x_fols": 0, "followers": 10, "revenue": 0, "videos": 5 },
+        "2026-09-02": { "tiktok": 666, "youtube": 958, "instagram": 135, "facebook": 588, "x": 32, "tiktok_fols": 1, "youtube_fols": 1, "instagram_fols": 1, "facebook_fols": 1, "x_fols": 0, "followers": 4, "revenue": 0, "videos": 2 },
+        "2026-09-08": { "tiktok": 2662, "youtube": 3834, "instagram": 538, "facebook": 2354, "x": 126, "tiktok_fols": 5, "youtube_fols": 5, "instagram_fols": 2, "facebook_fols": 3, "x_fols": 0, "followers": 15, "revenue": 0, "videos": 8 },
+        "2026-09-09": { "tiktok": 2995, "youtube": 4313, "instagram": 606, "facebook": 2648, "x": 142, "tiktok_fols": 6, "youtube_fols": 6, "instagram_fols": 2, "facebook_fols": 3, "x_fols": 0, "followers": 17, "revenue": 0, "videos": 9 },
+        "2026-09-10": { "tiktok": 3328, "youtube": 4792, "instagram": 673, "facebook": 2942, "x": 158, "tiktok_fols": 7, "youtube_fols": 7, "instagram_fols": 2, "facebook_fols": 3, "x_fols": 0, "followers": 19, "revenue": 0, "videos": 10 },
+        "2026-09-11": { "tiktok": 3660, "youtube": 5272, "instagram": 740, "facebook": 3237, "x": 173, "tiktok_fols": 8, "youtube_fols": 8, "instagram_fols": 2, "facebook_fols": 3, "x_fols": 0, "followers": 21, "revenue": 0, "videos": 11 },
+        "2026-09-12": { "tiktok": 3993, "youtube": 5751, "instagram": 808, "facebook": 3531, "x": 189, "tiktok_fols": 10, "youtube_fols": 8, "instagram_fols": 2, "facebook_fols": 3, "x_fols": 0, "followers": 23, "revenue": 0, "videos": 12 },
+        "2026-09-13": { "tiktok": 4326, "youtube": 6230, "instagram": 875, "facebook": 3825, "x": 205, "tiktok_fols": 11, "youtube_fols": 8, "instagram_fols": 2, "facebook_fols": 3, "x_fols": 0, "followers": 24, "revenue": 0, "videos": 13 },
+        "2026-09-14": { "tiktok": 4514, "youtube": 7717, "instagram": 1012, "facebook": 3825, "x": 221, "tiktok_fols": 11, "youtube_fols": 8, "instagram_fols": 2, "facebook_fols": 3, "x_fols": 0, "followers": 24, "revenue": 0, "videos": 14 },
+        "2026-09-15": { "tiktok": 4693, "youtube": 7977, "instagram": 1091, "facebook": 3817, "x": 255, "tiktok_fols": 8, "youtube_fols": 12, "instagram_fols": 2, "facebook_fols": 3, "x_fols": 0, "followers": 25, "revenue": 0, "videos": 15 }
+      }
     };
 
-    const STORAGE_KEY = "survival111_apple_liquid_glass_v6";
+    const STORAGE_KEY = "survival111_apple_liquid_glass_v8";
 
     let appData = null;
     let selectedDate = "2026-09-01";
@@ -2574,7 +2637,8 @@
       unsubscribeRealtime = docRef.onSnapshot((doc) => {
         if (doc.exists) {
           const cloudData = doc.data();
-          if (cloudData) {
+          // ONLY overwrite if cloud has logs. Otherwise, push our SEED_DATA to cloud!
+          if (cloudData && cloudData.logs && Object.keys(cloudData.logs).length > 0) {
             appData = cloudData;
             if (!appData.goals) appData.goals = MASTER_GOALS;
             if (!appData.records) appData.records = SEED_DATA.records;
@@ -2588,6 +2652,9 @@
             updateDateDisplay();
             loadDateInputs(selectedDate);
             renderApp(); document.getElementById("unified-modal").classList.remove("active");
+          } else {
+            // Cloud is empty, push local data to cloud
+            docRef.set(appData);
           }
         } else {
           db.collection("views_dashboard").doc("survival_108").get().then((oldDoc) => {
@@ -3029,10 +3096,10 @@
       }
 
       // Calculations
-      const viewsPercent = (totalViews / goalViews) * 100;
-      const followersPercent = (totalFollowers / goalFollowers) * 100;
-      const revenuePercent = (totalRevenue / goalRevenue) * 100;
-      const videosPercent = (totalVideos / goalVideos) * 100;
+      const viewsPercent = Math.min((totalViews / goalViews) * 100, 100);
+      const followersPercent = Math.min((totalFollowers / goalFollowers) * 100, 100);
+      const revenuePercent = Math.min((totalRevenue / goalRevenue) * 100, 100);
+      const videosPercent = Math.min((totalVideos / goalVideos) * 100, 100);
 
       // 4-Pillar Blended Overall Achievement Score
       const blendedPercent = (viewsPercent + followersPercent + revenuePercent + videosPercent) / 4;
@@ -3770,6 +3837,11 @@
         <div class="sidebar-menu-item" onclick="closeSidebar(); exportData()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           <span class="link-text">Export Data (JSON)</span>
+        </div>
+        <div class="sidebar-menu-item" onclick="closeSidebar(); document.getElementById('import-file-input').click()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          <span class="link-text">Import Data (JSON)</span>
+          <input type="file" id="import-file-input" style="display: none;" accept=".json" onchange="importData(event)">
         </div>
       </div>
 
