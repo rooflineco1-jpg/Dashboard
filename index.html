@@ -3523,7 +3523,7 @@
       const maxAllowedBarHeight = height * 0.55; 
       
       const isMobile = window.innerWidth < 600;
-      const minSpacing = isMobile ? 26 : 30; // Closer spacing to show more bars
+      const minSpacing = isMobile ? 65 : 80; // Larger spacing to show FEWER bars per screen, enabling easy scroll
       const svgWidth = Math.max(containerWidth, paddingX * 2 + velocityData.length * minSpacing);
       const spacing = (svgWidth - paddingX * 2) / Math.max(1, velocityData.length);
       const barWidth = Math.min(32, Math.max(8, spacing * 0.65));
@@ -3546,8 +3546,8 @@
             <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="4" fill="url(#velocityGrad_${containerId})" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.12))">
               <title>${dateLabel}: +${formatFn(v.delta)}</title>
             </rect>
-            <text x="${x + barWidth / 2}" y="${y - 5}" text-anchor="middle" font-size="9" font-weight="800" fill="#576574">+${prefix}${formattedVal}</text>
-            <text x="${x + barWidth / 2}" y="${height - 5}" text-anchor="middle" font-size="9" font-weight="600" fill="#9898A0">${dateLabel}</text>
+            <text x="${x + barWidth / 2}" y="${y - 5}" text-anchor="middle" font-size="10" font-weight="800" fill="#576574">+${prefix}${formattedVal}</text>
+            <text x="${x + barWidth / 2}" y="${height - 5}" text-anchor="middle" font-size="10" font-weight="600" fill="#9898A0">${dateLabel}</text>
           </g>
         `;
       }).join("");
