@@ -3406,13 +3406,30 @@
 
       const goalY = getY(goalValue);
 
+      const minLabelDistLine = window.innerWidth < 600 ? 50 : 70;
+      const labelIndicesLine = new Set([0, dataPoints.length - 1]);
+      let lastXLine = getX(0);
+      for (let i = 1; i < dataPoints.length - 1; i++) {
+        const currentX = getX(i);
+        const lastIndexX = getX(dataPoints.length - 1);
+        if (currentX - lastXLine >= minLabelDistLine && lastIndexX - currentX >= minLabelDistLine) {
+          labelIndicesLine.add(i);
+          lastXLine = currentX;
+        }
+      }
+
       let dotsSvg = dataPoints.map((p, i) => {
         const x = getX(i);
         const dateLabel = formatDateShort(p.date);
-        // Only keep the dates at the bottom, remove the dots and value texts to make it a clean sparkline
+        
+        let labelText = "";
+        if (labelIndicesLine.has(i)) {
+           labelText = `<text x="${x}" y="${height - 5}" text-anchor="middle" font-size="9.5" font-weight="600" fill="#9898A0">${dateLabel}</text>`;
+        }
+
         return `
           <g>
-            <text x="${x}" y="${height - 5}" text-anchor="middle" font-size="9.5" font-weight="600" fill="#9898A0">${dateLabel}</text>
+            ${labelText}
           </g>
         `;
       }).join("");
@@ -3462,20 +3479,50 @@
       const maxDelta = Math.max(...velocityData.map(v => v.delta), 10);
       const barWidth = Math.min(32, Math.max(16, (width - paddingX * 2) / (velocityData.length * 2)));
 
+      const minLabelDistBar = window.innerWidth < 600 ? 50 : 70;
+      const labelIndicesBar = new Set([0, velocityData.length - 1]);
+      const spacingBar = (width - paddingX * 2) / velocityData.length;
+      let lastXBar = paddingX + spacingBar / 2 - barWidth / 2;
+      for (let i = 1; i < velocityData.length - 1; i++) {
+        const currentX = paddingX + i * spacingBar + spacingBar / 2 - barWidth / 2;
+        const lastIndexX = paddingX + (velocityData.length - 1) * spacingBar + spacingBar / 2 - barWidth / 2;
+        if (currentX - lastXBar >= minLabelDistBar && lastIndexX - currentX >= minLabelDistBar) {
+          labelIndicesBar.add(i);
+          lastXBar = currentX;
+        }
+      }
+
+      const showAllValues = spacingBar > 35; 
+
       let barsSvg = velocityData.map((v, i) => {
-        const spacing = (width - paddingX * 2) / velocityData.length;
+        const spacing = spacingBar;
         const x = paddingX + i * spacing + spacing / 2 - barWidth / 2;
         const barHeight = Math.max(4, ((v.delta / maxDelta) * maxAllowedBarHeight));
         const y = height - paddingBottom - barHeight;
         const dateLabel = formatDateShort(v.date);
+        
+        let formattedVal = formatFn(v.delta);
+        if (!showAllValues && v.delta >= 1000) {
+           formattedVal = (v.delta / 1000).toFixed(1).replace('.0', '') + "K";
+        }
+        
+        let valueLabelSvg = "";
+        if (showAllValues || i === velocityData.length - 1 || v.delta === maxDelta) {
+           valueLabelSvg = `<text x="${x + barWidth / 2}" y="${y - 5}" text-anchor="middle" font-size="9.5" font-weight="800" fill="#576574">+${prefix}${formattedVal}</text>`;
+        }
+        
+        let dateLabelSvg = "";
+        if (labelIndicesBar.has(i)) {
+           dateLabelSvg = `<text x="${x + barWidth / 2}" y="${height - 5}" text-anchor="middle" font-size="9.5" font-weight="600" fill="#9898A0">${dateLabel}</text>`;
+        }
 
         return `
           <g>
             <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="5" fill="url(#velocityGrad_${containerId})" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.12))">
               <title>${dateLabel}: +${formatFn(v.delta)}</title>
             </rect>
-            <text x="${x + barWidth / 2}" y="${y - 5}" text-anchor="middle" font-size="9.5" font-weight="800" fill="#576574">+${prefix}${formatFn(v.delta)}</text>
-            <text x="${x + barWidth / 2}" y="${height - 5}" text-anchor="middle" font-size="9.5" font-weight="600" fill="#9898A0">${dateLabel}</text>
+            ${valueLabelSvg}
+            ${dateLabelSvg}
           </g>
         `;
       }).join("");
