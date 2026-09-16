@@ -3360,7 +3360,7 @@
       }
     }
 
-        function renderLineChart(containerId, goalValue, dataFn, formatFn, prefix = "") {
+            function renderLineChart(containerId, goalValue, dataFn, formatFn, prefix = "") {
       const container = document.getElementById(containerId);
       if (!container) return;
       container.style.position = "relative";
@@ -3499,7 +3499,7 @@
     }
 
 
-    function renderBarChart(containerId, dataFn, formatFn, prefix = "") {
+        function renderBarChart(containerId, dataFn, formatFn, prefix = "") {
       const container = document.getElementById(containerId);
       if (!container) return;
 
@@ -3516,77 +3516,64 @@
         return { date: d, delta: Math.max(0, currentTot - prevTot) };
       });
 
-      const width = container.clientWidth || 500;
+      const containerWidth = container.clientWidth || 500;
       const height = 130;
       const paddingX = 20;
       const paddingBottom = 22;
-      
-      // Don't let highest column exceed 55% of the total box height
       const maxAllowedBarHeight = height * 0.55; 
+      
+      const isMobile = window.innerWidth < 600;
+      const minSpacing = isMobile ? 26 : 30; // Closer spacing to show more bars
+      const svgWidth = Math.max(containerWidth, paddingX * 2 + velocityData.length * minSpacing);
+      const spacing = (svgWidth - paddingX * 2) / Math.max(1, velocityData.length);
+      const barWidth = Math.min(32, Math.max(8, spacing * 0.65));
 
       const maxDelta = Math.max(...velocityData.map(v => v.delta), 10);
-      const barWidth = Math.min(32, Math.max(16, (width - paddingX * 2) / (velocityData.length * 2)));
-
-      const minLabelDistBar = window.innerWidth < 600 ? 50 : 70;
-      const labelIndicesBar = new Set([0, velocityData.length - 1]);
-      const spacingBar = (width - paddingX * 2) / velocityData.length;
-      let lastXBar = paddingX + spacingBar / 2 - barWidth / 2;
-      for (let i = 1; i < velocityData.length - 1; i++) {
-        const currentX = paddingX + i * spacingBar + spacingBar / 2 - barWidth / 2;
-        const lastIndexX = paddingX + (velocityData.length - 1) * spacingBar + spacingBar / 2 - barWidth / 2;
-        if (currentX - lastXBar >= minLabelDistBar && lastIndexX - currentX >= minLabelDistBar) {
-          labelIndicesBar.add(i);
-          lastXBar = currentX;
-        }
-      }
-
-      const showAllValues = spacingBar > 35; 
 
       let barsSvg = velocityData.map((v, i) => {
-        const spacing = spacingBar;
         const x = paddingX + i * spacing + spacing / 2 - barWidth / 2;
         const barHeight = Math.max(4, ((v.delta / maxDelta) * maxAllowedBarHeight));
         const y = height - paddingBottom - barHeight;
         const dateLabel = formatDateShort(v.date);
         
         let formattedVal = formatFn(v.delta);
-        if (!showAllValues && v.delta >= 1000) {
+        if (v.delta >= 1000) {
            formattedVal = (v.delta / 1000).toFixed(1).replace('.0', '') + "K";
-        }
-        
-        let valueLabelSvg = "";
-        if (showAllValues || i === velocityData.length - 1 || v.delta === maxDelta) {
-           valueLabelSvg = `<text x="${x + barWidth / 2}" y="${y - 5}" text-anchor="middle" font-size="9.5" font-weight="800" fill="#576574">+${prefix}${formattedVal}</text>`;
-        }
-        
-        let dateLabelSvg = "";
-        if (labelIndicesBar.has(i)) {
-           dateLabelSvg = `<text x="${x + barWidth / 2}" y="${height - 5}" text-anchor="middle" font-size="9.5" font-weight="600" fill="#9898A0">${dateLabel}</text>`;
         }
 
         return `
           <g>
-            <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="5" fill="url(#velocityGrad_${containerId})" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.12))">
+            <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="4" fill="url(#velocityGrad_${containerId})" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.12))">
               <title>${dateLabel}: +${formatFn(v.delta)}</title>
             </rect>
-            ${valueLabelSvg}
-            ${dateLabelSvg}
+            <text x="${x + barWidth / 2}" y="${y - 5}" text-anchor="middle" font-size="9" font-weight="800" fill="#576574">+${prefix}${formattedVal}</text>
+            <text x="${x + barWidth / 2}" y="${height - 5}" text-anchor="middle" font-size="9" font-weight="600" fill="#9898A0">${dateLabel}</text>
           </g>
         `;
       }).join("");
 
       container.innerHTML = `
-        <svg viewBox="0 0 ${width} ${height}" style="width:100%; height:100%;">
-          <defs>
-            <linearGradient id="velocityGrad_${containerId}" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#576574" />
-              <stop offset="100%" stop-color="#1e293b" />
-            </linearGradient>
-          </defs>
-          ${barsSvg}
-        </svg>
+        <div style="width: 100%; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; padding-bottom: 5px;" class="scroll-container">
+          <svg viewBox="0 0 ${svgWidth} ${height}" style="width: ${svgWidth}px; height: ${height}px; display: block;">
+            <defs>
+              <linearGradient id="velocityGrad_${containerId}" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#576574" />
+                <stop offset="100%" stop-color="#1e293b" />
+              </linearGradient>
+            </defs>
+            ${barsSvg}
+          </svg>
+        </div>
       `;
+      
+      const scrollDiv = container.querySelector('.scroll-container');
+      if (scrollDiv && svgWidth > containerWidth) {
+         setTimeout(() => {
+           scrollDiv.scrollLeft = svgWidth;
+         }, 10);
+      }
     }
+
 
     function renderAllCharts() {
       const getViews = (d) => PLATFORMS.reduce((acc, p) => acc + (appData.logs[d][p.id] || 0), 0);
