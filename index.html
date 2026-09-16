@@ -3523,7 +3523,7 @@
       const maxAllowedBarHeight = height * 0.55; 
       
       const isMobile = window.innerWidth < 600;
-      const minSpacing = isMobile ? 65 : 80; // Larger spacing to show FEWER bars per screen, enabling easy scroll
+      const minSpacing = isMobile ? 50 : 60; // Sweet spot spacing
       const svgWidth = Math.max(containerWidth, paddingX * 2 + velocityData.length * minSpacing);
       const spacing = (svgWidth - paddingX * 2) / Math.max(1, velocityData.length);
       const barWidth = Math.min(32, Math.max(8, spacing * 0.65));
